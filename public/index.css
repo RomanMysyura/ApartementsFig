@@ -1,0 +1,95 @@
+body {
+    background-color: #ffffff !important;
+}
+
+.titolpagina {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.btnlogin {
+
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    :hover {
+        color: #fff;
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+}
+
+.btnnav {
+
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    :hover {
+        color: #fff;
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+
+}
+
+.btnnav:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+
+
+.container {
+    width: 100% !important;
+    max-width: 100000px !important;
+}
+
+.texttitol {
+    color: white;
+    background-color: black;
+    height: 60px;
+    padding-top: 10px;
+    -webkit-box-shadow: 8px 37px 80px 0px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 8px 37px 80px 0px rgba(0, 0, 0, 0.55);
+    box-shadow: 8px 37px 80px 0px rgba(0, 0, 0, 0.55);
+}
+.divapartaments {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px;
+   
+}
+
+.card {
+    width: 350px; /* Establece el ancho de cada tarjeta (25% de ancho) */
+    margin-bottom: 20px; /* Agrega espacio inferior entre las tarjetas */
+}
