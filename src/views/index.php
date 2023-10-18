@@ -23,6 +23,10 @@
                     aria-label="Slide 3"></button>
             </div>
 
+    <h3>dfjhddghjdjgjgf he modificat</h3>
+
+
+
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="/img/ex.jpeg" class="d-block w-100 img-fluid img-thumbnail" alt="...">
