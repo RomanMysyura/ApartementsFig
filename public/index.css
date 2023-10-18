@@ -1,5 +1,8 @@
 body {
-    background-color: #ffffff !important;
+    
+    background-image: url('img/wallweb2.jpg'); /* Reemplaza 'ruta-de-tu-imagen.jpg' con la ruta de tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-attachment: fixed; 
 }
 
 .titolpagina {
@@ -77,6 +80,7 @@ body {
     background-color: black;
     height: 60px;
     padding-top: 10px;
+    margin-bottom: 0px;
     -webkit-box-shadow: 8px 37px 80px 0px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: 8px 37px 80px 0px rgba(0, 0, 0, 0.55);
     box-shadow: 8px 37px 80px 0px rgba(0, 0, 0, 0.55);
@@ -84,12 +88,84 @@ body {
 .divapartaments {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin: 40px;
    
 }
 
 .card {
-    width: 350px; /* Establece el ancho de cada tarjeta (25% de ancho) */
-    margin-bottom: 20px; /* Agrega espacio inferior entre las tarjetas */
+    width: 350px; 
+    margin-bottom: 20px;
+    margin: 10px; 
+}
+
+
+.search{
+    margin-bottom: auto;
+    margin-top: 60px;
+    height: 70px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.search-input{
+
+    color: white;
+    border:0;
+    outline: 0;
+    background: none;
+    width: 0;
+    margin-top:5px;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+
+}
+
+.search .search-input{
+    padding: 0 10px;
+    width: 350px;
+    caret-color: #536bf6;
+    font-size: 21px;
+    font-weight: 300;
+    color: black;
+    transition: width 0.4s linear;
+}
+@media (min-width: 750px) {
+    .search .search-input {
+        width: 650px;
+    }
+}
+
+.search-icon:hover{
+    background:#1A237E;
+    color:#fff;
+}
+
+.search-icon{
+
+        height: 50px;
+    width: 50px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #536bf6;
+
+}
+a:link{
+    text-decoration: none;
+}
+
+
+.sliderpers{
+    width: 80% !important;
+}
+.sliderpers1{
+    width: 100% !important;
+    height: 300px;
+}
+.img-fluid{
+    height: 400px;
 }

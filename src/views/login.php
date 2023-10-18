@@ -32,15 +32,10 @@
           id="exampleInputPassword1"
         />
       </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" for="exampleCheck1"
-          >Recorda el meu nom d'usuari</label
-        >
-      </div>
+      
       <button type="submit" class="btn btn-primary">Iniciar sessió</button>
       <div class="mb-3">
-        <p>No tens un compte creat? <a href="#">Registrat</a></p>
+        <p>No tens un compte creat? <a href="index.php?r=signup">Registrat</a></p>
       </div>
     </form>
 </div>
