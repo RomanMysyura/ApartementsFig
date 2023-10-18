@@ -13,6 +13,7 @@ include '../src/controllers/reservar.php';
 include '../src/controllers/contactar.php';
 include '../src/controllers/ubicacio.php';
 include '../src/controllers/registrar.php';
+include '../src/controllers/compte.php';
 // Models
 // include '../src/models/ModelConnectBDD.php';
 // include '../src/models/signup.phpdwad';
@@ -36,6 +37,8 @@ if ($r === '/') {
     controllerubicacio();
 } else if ($r === 'registrar'){
     controlregistrar();
+} else if ($r === 'compte'){
+    controllercompte();
 }
 
 /////fdsfdfsfd
