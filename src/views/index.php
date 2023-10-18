@@ -23,7 +23,7 @@
                     aria-label="Slide 3"></button>
             </div>
 
-    <h3>dfjhddghjdjgjgf he modificat</h3>
+    <h3>dfjhddghjdjgjgf he modificatgit </h3>
 
 
 
