@@ -16,6 +16,7 @@ include '../src/controllers/registrar.php';
 include '../src/controllers/infoapartaments.php';
 
 
+include '../src/controllers/compte.php';
 // Models
 include '../src/models/ModelConnectBDD.php';
 // include '../src/models/signup.phpdwad';
@@ -41,5 +42,7 @@ if ($r === '/') {
     controlregistrar();
 } else if ($r === 'infoapartaments'){
     controllerinfoapartaments();
+} else if ($r === 'compte'){
+    controllercompte();
 }
 /////fdsfdfsfd
