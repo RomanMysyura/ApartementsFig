@@ -93,3 +93,8 @@ body {
     width: 350px; /* Establece el ancho de cada tarjeta (25% de ancho) */
     margin-bottom: 20px; /* Agrega espacio inferior entre las tarjetas */
 }
+
+
+.bg-rosa-oscuro {
+    background-color: #007FFF; /* Cambia este valor al color rosa oscuro que desees */
+}
