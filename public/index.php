@@ -36,3 +36,5 @@ if ($r === '/') {
 } else if ($r === 'registrar'){
     controlregistrar();
 }
+
+/////fdsfdfsfd
