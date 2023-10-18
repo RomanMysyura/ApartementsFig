@@ -41,6 +41,5 @@
 </div>
     <!-- End Example Code -->
   </body>
-  <script src="../controllers/menu.js"></script>
-
+  
 </html>
