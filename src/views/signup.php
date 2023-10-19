@@ -32,7 +32,10 @@
                             <label for="email" class="form-label text-white">Correu Electrònic</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Correu Electrònic" />
                         </div>
-
+                        <div class="mb-3">
+                            <label for="password" class="form-label text-white">Contrasenya</label>
+                            <input type="password" class="form-control" id="password" placeholder="Contrasenya"/>
+                        </div>
                         <div class="d-flex justify-content-center align-items-center">
                             <a class="" href="index.php?r=registrar"><button type="button" class="btnlogin btn btn-primary mb-2 text-center" id="BotonLogin">Registrar-se</button></a>
                         </div>
