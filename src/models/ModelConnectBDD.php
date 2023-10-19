@@ -1,8 +1,8 @@
 <?php
 //Aquest model serveix per crear la connexio amb la base de dades
-$server = '10.2.5.205';
+$server = 'localhost';
 $username = 'root';
-$password = '1234';
+$password = '';
 $database = 'bddapartaments';
 
 try {
