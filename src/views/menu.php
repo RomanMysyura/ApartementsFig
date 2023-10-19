@@ -1,7 +1,9 @@
 <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg bg-rosa-oscuro" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark">
         <div class="container">
-            <a class="navbar-brand" href="index.php">Logo</a>
+            <a class="navbar-brand" href="index.php">
+            <img src="/img/ApartamentsFiguerencs2.ico" alt="Logo" width="50px" height="50px"/>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

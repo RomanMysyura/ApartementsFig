@@ -79,37 +79,37 @@
         <div class="card">
             <img src="/img/house.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">Casa rural en Figueres</h5>
+                <h5 class="card-title preuapartament">50€ / dia</h5>
+                <p class="card-text">Casa rural 3 habitacions 6 persones</p>
+                <a href="index.php?r=infoapartaments" class="btn btn-primary">Detalls de la oferta</a>
             </div>
         </div>
         <div class="card">
             <img src="/img/house.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">Casa rural en Figueres</h5>
+                <h5 class="card-title preuapartament">50€ / dia</h5>
+                <p class="card-text">Casa rural 3 habitacions 6 persones</p>
+                <a href="index.php?r=infoapartaments" class="btn btn-primary">Detalls de la oferta</a>
             </div>
         </div>
         <div class="card">
             <img src="/img/house.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">Casa rural en Figueres</h5>
+                <h5 class="card-title preuapartament">50€ / dia</h5>
+                <p class="card-text">Casa rural 3 habitacions 6 persones</p>
+                <a href="index.php?r=infoapartaments" class="btn btn-primary">Detalls de la oferta</a>
             </div>
         </div>
         <div class="card">
             <img src="/img/house.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">Casa rural en Figueres</h5>
+                <h5 class="card-title preuapartament">50€ / dia</h5>
+                <p class="card-text">Casa rural 3 habitacions 6 persones</p>
+                <a href="index.php?r=infoapartaments" class="btn btn-primary">Detalls de la oferta</a>
             </div>
         </div>
 
