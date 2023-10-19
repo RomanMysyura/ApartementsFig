@@ -3,6 +3,8 @@
 
 <head>
     <title>Página de inicio</title>
+    
+
     <?php controllerLibs() ?>
 
 </head>
