@@ -60,9 +60,8 @@
         </div>
     </nav>
 </div>
-
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
     var toggleSearchButton = $('#toggleSearchButton');
     var searchForm = $('#searchForm');
 
