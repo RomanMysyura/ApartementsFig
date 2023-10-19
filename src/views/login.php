@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apartaments Figuerencs</title>
     <?php controllerLibs() ?>
-    <link rel="icon" href="imatges/ApartamentsFiguerencs.png" type="image/x-icon">
-    
 </head>
 <body class="p-0 m-0 border-0 bd-example m-0 border-0">
-    <!-- Example Code -->
-    <?php controllerMenu() ?>
-    <div class="position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-white rounded">
-    <form>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Nom d'usuari</label>
-        <input
-          type="text"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
+  <?php controllerMenu() ?>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 d-flex flex-column align-items-center">
+        <div class="card p-4 bg-dark container-opacity" data-bs-theme="dark">
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <img src="/img/ApartamentsFiguerencs2.ico" alt="ApartamentsFiguerencs" width="100px" height="100px">
+          </div>
+          <form>
+            <div class="mb-3">
+              <label for="username" class="form-label text-white">Nom d'usuari</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Entra el nom d'usuari."/>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label text-white">Contrasenya</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control" id="password" placeholder="Entra la contrasenya."/>
+              </div>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+              <label class="form-check-label text-white" for="exampleCheck1">Recordar usuari</label>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+              <button type="submit" class="btn btn-primary mb-2 text-center">Iniciar sessió</button>
+            </div>
+            <div class="mb-3">
+              <p class="text-center text-white">No tens cap compte? <a href="index.php?r=signup" class="text-decoration-none text-primary-emphasis">Registra't</a></p>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label"
-          >Contrasenya</label
-        >
-        <input
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
-        />
-      </div>
-      
-      <button type="submit" class="btn btn-primary">Iniciar sessió</button>
-      <div class="mb-3">
-        <p>No tens un compte creat? <a href="index.php?r=signup">Registrat</a></p>
-      </div>
-    </form>
-</div>
-    <!-- End Example Code -->
-  </body>
+    </div>
+  </div>
+</body>
 </html>
+
