@@ -3,9 +3,11 @@
 
 <head>
     <title>Página de inicio</title>
-    
 
-    <?php controllerLibs() ?>
+    <?php controllerLibs() 
+    
+    ?>
+    
 
 </head>
 
@@ -18,12 +20,7 @@
 
     </div>
 
-
-
     <h3 class="text-center texttitol">Millor que a casa</h3>
-
-    
-
 
     <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
@@ -65,28 +62,11 @@
 </div>
 
     <h3 class="text-center texttitol">Els nostres apartaments</h3>
-
-
-  
-
     <?php
 // Busca els apartaments en base de dades
 include '../src/models/apartaments.php';
 
 ?>
-
-    
-    
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>

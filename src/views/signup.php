@@ -1,3 +1,10 @@
+<?php
+// Busca els apartaments en base de dades
+include '../src/models/signup.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +15,7 @@
 
 <body class="p-0 m-0 border-0 bd-example m-0 border-0">
     <?php controllerMenu() ?>
+    
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6 d-flex flex-column align-items-center">
@@ -15,7 +23,7 @@
                     <div class="col-12 d-flex justify-content-center align-items-center">
                         <img src="/img/ApartamentsFiguerencs2.ico" alt="ApartamentsFiguerencs" width="100px" height="100px">
                     </div>
-                    <form method="POST" action="../controllers/registrar.php">
+                    <form method="POST" action="">
                         <div class="mb-3">
                             <label for="name" class="form-label text-white">Nom</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Nom" />
@@ -37,7 +45,7 @@
                             <input type="password" class="form-control" id="password" placeholder="Contrasenya"/>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a class="" href="index.php?r=registrar"><button type="button" class="btnlogin btn btn-primary mb-2 text-center" id="BotonLogin">Registrar-se</button></a>
+                            <a class="" href="index.php?r=registrar"><button type="submit" class="btnlogin btn btn-primary mb-2 text-center" id="BotonLogin">Registrar-se</button></a>
                         </div>
                         <div class="mb-3">
                             <p class="text-center text-white">Ja tens un compte creat? <a href="index.php?r=login" class="text-decoration-none text-primary-emphasis">Iniciar sessió</a></p>
@@ -47,5 +55,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

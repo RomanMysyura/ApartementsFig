@@ -2,6 +2,7 @@
 
 
 // Config.php
+$config = [];
 
 // Controllers
 include '../src/controllers/index.php';
@@ -29,26 +30,34 @@ include '../src/models/ModelConnectBDD.php';
 // holaaaaaa
 
 
+include "../src/Emeset/Container.php";
+include "../src/Emeset/Request.php";
+include "../src/Emeset/Response.php";
 
-$r = isset($_GET['r']) ? $_GET['r'] : '/';
+$request = new \Emeset\Request();
+$response = new \Emeset\Response();
+$container = new \Emeset\Container($config);
 
-if ($r === '/') {
-    controllerindex();
+
+$r = isset($_GET['r']) ? $_GET['r'] : '';
+
+if ($r === '') {
+    controllerindex($request, $response, $container);
 } else if ($r === 'signup'){
-    controllerentrar();
+    controllerentrar($request, $response, $container);
 } else if ($r === 'login'){
-    controllerlogin();
+    controllerlogin($request, $response, $container);
 } else if ($r === 'reservar'){
-    controllerreservar();
+    controllerreservar($request, $response, $container);
 } else if ($r === 'contactar'){
-    controllercontactar();
+    controllercontactar($request, $response, $container);
 } else if ($r === 'ubicacio'){
-    controllerubicacio();
+    controllerubicacio($request, $response, $container);
 } else if ($r === 'registrar'){
-    controlregistrar();
+    controlregistrar($request, $response, $container);
 } else if ($r === 'infoapartaments'){
-    controllerinfoapartaments();
+    controllerinfoapartaments($request, $response, $container);
 } else if ($r === 'compte'){
-    controllercompte();
+    controllercompte($request, $response, $container);
 }
-/////fdsfdfsfd
+$response->response();

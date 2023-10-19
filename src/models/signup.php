@@ -1,34 +1,35 @@
 <?php
-class ModelSignup
-{
-    private $db;
+// Verificar si el formulario se ha enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Incluir el archivo de conexión a la base de datos
+    include '../src/models/ModelConnectBDD.php';
 
-    public function __construct($db)
-    {
-        $this->db = $db;
-    }
+    // Obtener los datos del formulario
+    $name = $_POST["name"];
+    $last_name = $_POST["last_name"];
+    $telephone = $_POST["telephone"];
+    $email = $_POST["email"];
+    $password = $_POST["password"]; // Hash de la contraseña
 
-    public function login($username, $password)
-    {
-        try {
-            $query = "SELECT * FROM usuarios WHERE username = :username AND password = :password";
-            $stmt = $this->db->prepare($query);
+    // Preparar la consulta SQL para insertar un nuevo usuario
+    $sql = "INSERT INTO users (name, last_name, telephone, email, password) VALUES (:name, :last_name, :telephone, :email, :password)";
 
-            $stmt->bindParam(':username', $username);
-            $stmt->bindParam(':password', $password);
+    try {
+        // Preparar y ejecutar la consulta
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":last_name", $last_name);
+        $stmt->bindParam(":telephone", $telephone);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":password", $password);
+        $stmt->execute();
 
-            $stmt->execute();
-
-            if ($stmt->rowCount() == 1) {
-                // Inicio de sesión exitoso
-                return true;
-            } else {
-                // Nombre de usuario o contraseña incorrectos
-                return false;
-            }
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-            return false;
-        }
+        // Redirigir a una página de éxito o realizar alguna otra acción
+        
+        exit();
+    } catch (PDOException $e) {
+        // Manejar errores en caso de fallo en la inserción
+        echo "Error al registrar usuario: " . $e->getMessage();
     }
 }
+?>
