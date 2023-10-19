@@ -1,8 +1,8 @@
 <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg bg-black" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-            <img src="/img/ApartamentsFiguerencs2.ico" alt="Logo" width="50px" height="50px"/>
+                <img src="/img/ApartamentsFiguerencs2.ico" alt="Logo" width="50px" height="50px" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -10,69 +10,67 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?r=reservar">Reservar</a>
+                        <a class="nav-link active" href="index.php?r=reservar">Reserves</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?r=contactar">Contactar</a>
+                        <a class="nav-link active" href="index.php?r=contactar">Contactar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?r=ubicacio">Ubicació</a>
+                        <a class="nav-link active" href="index.php?r=ubicacio">Ubicació</a>
                     </li>
+                    <ul class="navbar-nav me-right mb-0 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Àrea d'usuari</a>
+                            <ul class="dropdown-menu dropdown-menu-center">
+                                <li>
+                                    <a class="dropdown-item" href="index.php?r=signup"><strong>Registrar-se</strong></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="index.php?r=login">Inici de sessió</a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <li>
+                                    <a class="dropdown-item" href="index.php?r=compte">El meu compte</a>
+                                </li>                                
+                            </ul>
+                        </li>
+                    </ul>
                 </ul>
 
-                <!-- Botón para mostrar/ocultar el formulario de búsqueda -->
-                <button class="btn btn-primary d-lg-none" data-bs-toggle="collapse" data-bs-target="#searchForm">Buscar</button>
+                <button class="btn btn-primary d-lg-none my-3" data-bs-toggle="collapse" data-bs-target="#searchForm" id="toggleSearchButton">Obrir buscador</button>
 
-                <!-- Formulario de búsqueda con clase "collapse" para ocultarlo por defecto en dispositivos móviles -->
-                <form class="d-lg-flex mx-auto text-center mb-0 collapse" id="searchForm">
-                    <!-- Contenido del formulario de búsqueda -->
-                    <div class="form-group">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="regionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Seleccionar Región
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="regionDropdown">
-                                <a class="dropdown-item" href="#" data-region="region1">
-                                    <img src="region1.jpg" alt="Región 1" class="region-image" />
-                                    Región 1
-                                </a>
-                                <a class="dropdown-item" href="#" data-region="region2">
-                                    <img src="region2.jpg" alt="Región 2" class="region-image" />
-                                    Región 2
-                                </a>
-                                <a class="dropdown-item" href="#" data-region="region3">
-                                    <img src="region3.jpg" alt="Región 3" class="region-image" />
-                                    Región 3
-                                </a>
-                            </div>
-                        </div>
+                <form class="d-lg-flex collapse text-center mb-0" id="searchForm">
+                    <div class="form-group me-2 my-3">
+                        <input class="form-control me-sm-2" type="search" placeholder="Adreça postal">
                     </div>
-                    <div class="form-group">
-                        <input class="form-control" type="date" id="startDate" placeholder="Fecha de inicio" />
+                    <div class="form-group me-2 my-3">
+                        <input class="form-control" type="date" id="startDate"/>
                     </div>
-                    <div class="form-group">
-                        <input class="form-control" type="date" id="endDate" placeholder="Fecha de fin" />
+                    <div class="form-group me-2 my-3">
+                        <input class="form-control" type="date" id="endDate"/>
                     </div>
-                    <div class="form-group">
-                        <input class="form-control" type="number" id="people" placeholder="Número de personas" />
+                    <div class="form-group me-2 my-3">
+                        <input class="form-control" type="number" id="people" placeholder="Número d'habitacions" />
                     </div>
-                    <button class="btn btn-primary" type="submit">Buscar</button>
+                    <div class="form-group me-2 my-3">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
                 </form>
-
-                <ul class="navbar-nav me-right mb-0 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Àrea d'usuari</a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a class="dropdown-item" href="index.php?r=signup"><strong>Registrar-se</strong></a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index.php?r=login">Inici de sessió</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
 </div>
+<script>
+    $(document).ready(function() {
+    var toggleSearchButton = $('#toggleSearchButton');
+    var searchForm = $('#searchForm');
+
+    searchForm.on('show.bs.collapse', function () {
+        toggleSearchButton.text('Tancar buscador');
+    });
+
+    searchForm.on('hide.bs.collapse', function () {
+        toggleSearchButton.text('Obrir buscador');
+    });
+});
+</script>
