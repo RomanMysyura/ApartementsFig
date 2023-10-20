@@ -16,32 +16,8 @@
                     </div>
                     <h1 class="mt-1 text-center text-white">DADES PERSONALS</h1>
                     <div class="p-3">
-                        <ul class="list-group list-group-flush rounded">
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Nom:</div>
-                                    Nom d'usuari
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Cognoms:</div>
-                                    Cognoms del usuari
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Telèfon:</div>
-                                    Telèfon del usuari
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Correu Electrònic:</div>
-                                    Correu Electrònic del usuari
-                                </div>
-                            </li>
-                        </ul>
+                        <?php include '../src/models/compte.php';?>
+
                     </div>
                 </div>
             </div>
