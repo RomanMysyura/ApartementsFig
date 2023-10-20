@@ -1,5 +1,6 @@
 <?php
-function controllerindex(){
-    
-    include '../src/views/index.php';
+function controllerindex($request, $response, $container){
+    $response->setTemplate("index.php");
+
+    return $response;
 }

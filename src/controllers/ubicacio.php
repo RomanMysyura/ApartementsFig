@@ -1,5 +1,7 @@
 <?php
-function controllerubicacio(){
+function controllerubicacio($request, $response, $container){
     
-    include '../src/views/ubicacio.php';
+    $response->setTemplate("ubicacio.php");
+
+    return $response;
 }

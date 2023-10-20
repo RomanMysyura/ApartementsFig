@@ -1,5 +1,5 @@
 <?php
-function controlregistrar(){
+function controlregistrar($request, $response, $container){
  
    
 }

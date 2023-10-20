@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <title>Apartaments Figuerencs</title>
-    <?php controllerLibs() ?>
 </head>
 <body class="p-0 m-0 border-0 bd-example m-0 border-0">
-    <?php controllerMenu() ?>
+<?php require "menu.php" ?>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6 d-flex flex-column align-items-center">

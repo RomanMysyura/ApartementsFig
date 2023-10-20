@@ -1,5 +1,8 @@
 <?php
-function controllerinfoapartaments(){
+function controllerinfoapartaments($request, $response, $container){
     
-    include '../src/views/infoapartaments.php';
+    $response->setTemplate("infoapartaments.php");
+    
+
+    return $response;
 }

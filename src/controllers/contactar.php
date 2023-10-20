@@ -1,5 +1,9 @@
 <?php
-function controllercontactar(){
+function controllercontactar($request, $response, $container){
     
-    include '../src/views/contactar.php';
+
+    $response->setTemplate("contactar.php");
+
+    return $response;
+    
 }

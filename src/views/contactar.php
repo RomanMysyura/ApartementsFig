@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php controllerLibs() ?>
 </head>
 <body>
-<?php controllerMenu() ?>
+<?php require "menu.php" ?>
     <h3>CONTACTAR</h3>
 </body>
 </html>

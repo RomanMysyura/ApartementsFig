@@ -1,5 +1,7 @@
 <?php
-function controllerMenu(){
+function controllerMenu($request, $response, $container){
 
-    include '../src/views/menu.php';
+    $response->setTemplate("menu.php");
+
+    return $response;
 }

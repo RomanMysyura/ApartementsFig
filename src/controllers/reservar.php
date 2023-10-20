@@ -1,5 +1,7 @@
 <?php
-function controllerreservar(){
+function controllerreservar($request, $response, $container){
+    $response->setTemplate("reservar.php");
+
+    return $response;
     
-    include '../src/views/reservar.php';
 }

@@ -1,5 +1,5 @@
 <?php
-function controllercompte(){
+function controllercompte($request, $response, $container){
     
-    include '../src/views/compte.php';
+   
 }

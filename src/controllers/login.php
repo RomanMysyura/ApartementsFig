@@ -1,5 +1,9 @@
 <?php
-function controllerlogin(){
+function controllerlogin($request, $response, $container){
     
-    include '../src/views/login.php';
+
+    $response->setTemplate("login.php");
+
+    return $response;
+    
 }

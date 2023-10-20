@@ -4,17 +4,13 @@
 <head>
     <title>Página de inicio</title>
 
-    <?php controllerLibs() 
     
-    ?>
-    
-
 </head>
 
 <body>
     <!-- Agrega contenido HTML para la página de inicio -->
 
-    <?php controllerMenu() ?>
+    <?php require "menu.php" ?>
 
     <div>
 

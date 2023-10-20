@@ -1,7 +1,9 @@
 <?php
-function controllerentrar(){
+function controllerentrar($request, $response, $container){
     
-    include '../src/views/signup.php';
+    $response->setTemplate("signup.php");
+
+    return $response;
 }
 
 
