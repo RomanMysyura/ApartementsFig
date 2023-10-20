@@ -35,7 +35,20 @@ if ($result->rowCount() > 0) {
                 ' . $user["email"] . '
             </div>
         </li>
-    </ul>';
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Tarjeta de crèdit:</div>
+                ' . $user["card_number"] . '
+            </div>
+        </li>
+    </ul>
+    <form method="post" action="" class="text-center">
+        <div class="mb-3">
+            <label for="credit_card" class="form-label">Número de Tarjeta de Crédito</label>
+            <input type="text" class="form-control" id="credit_card" name="credit_card" placeholder="1234567891011121" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Afegir tarjeta de crèdit</button>
+    </form>';
 } else {
     echo "No se encontró ningún usuario con el nombre 'Adrián' en la base de datos.";
 }
