@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <title>El meu compte</title>
-    <?php controllerLibs() ?>
+
 </head>
 <body class="p-0 m-0 border-0 bd-example m-0 border-0">
-    <?php controllerMenu() ?>
+<?php require "menu.php" ?>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 mb-3 mb-md-0">
