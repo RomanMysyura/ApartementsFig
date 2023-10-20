@@ -22,6 +22,8 @@ include '../src/controllers/compte.php';
 
 // Models
 include '../src/models/ModelConnectBDD.php';
+include '../src/models/login.php';
+include '../src/models/signup.php';
 
 
 include '../src/views/libs.php';
