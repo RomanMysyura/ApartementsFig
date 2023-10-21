@@ -31,7 +31,7 @@
                     </div>
                     <h1 class="mt-1 text-center text-white">RESERVES</h1>
                     <div class="p-3">
-                        <?php include '../src/models/reserves.php';?>
+                        <?php include '../src/models/reserves.php'; ?>
                     </div>
                 </div>
             </div>

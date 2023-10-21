@@ -1,7 +1,9 @@
 <?php
 include '../src/models/ModelConnectBDD.php';
 
-$sql = "SELECT r.* FROM reservation r INNER JOIN users u ON r.id_user = u.id_user WHERE u.name = 'Adrià'";
+$user_id = $_COOKIE['user_id'];
+
+$sql = "SELECT r.* FROM reservation r INNER JOIN users u ON r.id_user = u.id_user WHERE u.id_user = $user_id";
 
 $result = $conn->query($sql);
 

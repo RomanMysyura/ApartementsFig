@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message = "Por favor, complete todos los campos del formulario.";
     } else {
         // Obtener el nombre de usuario (puedes obtenerlo de la sesión o como mejor se adapte a tu sistema)
-        $user_name = "Adrià"; // Reemplaza con la forma en que obtienes el nombre de usuario
+        $user_name = $_COOKIE['user_id']; // Reemplaza con la forma en que obtienes el nombre de usuario
 
         // Preparar la consulta SQL para actualizar la tarjeta de crédito del usuario
-        $sql = "UPDATE users SET card_number = :credit_card WHERE name = :user_name";
+        $sql = "UPDATE users SET card_number = :credit_card WHERE id_user = :user_name";
 
         try {
             // Preparar y ejecutar la consulta

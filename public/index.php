@@ -15,9 +15,6 @@ include '../src/controllers/contactar.php';
 include '../src/controllers/ubicacio.php';
 include '../src/controllers/registrar.php';
 include '../src/controllers/infoapartaments.php';
-
-
-
 include '../src/controllers/compte.php';
 
 // Models

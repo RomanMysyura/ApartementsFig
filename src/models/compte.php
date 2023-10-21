@@ -1,9 +1,9 @@
 <?php
 include '../src/models/ModelConnectBDD.php';
 
-
+$user_id = $_COOKIE['user_id'];
 // Realiza una consulta a la base de datos para obtener los datos del usuario con nombre "Adrián"
-$sql = "SELECT * FROM users WHERE name = 'Adrià'";
+$sql = "SELECT * FROM users WHERE id_user = $user_id";
 $result = $conn->query($sql);
 
 if ($result->rowCount() > 0) {

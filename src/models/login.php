@@ -24,6 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Nombre: " . $user['name'] . "<br>";
         echo "Apellido: " . $user['last_name'] . "<br>";
         echo "Teléfono: " . $user['telephone'] . "<br>";
+
+        // Establecer las cookies
+        setcookie("username", $user['name'], time() + 2592000, "/");
+        setcookie("user_id", $user['id_user'], time() + 2592000, "/");
+
         
         // Redirige al usuario a la página "compte.php" si ha iniciado sesión con éxito
         header("Location: index.php?r=compte");
