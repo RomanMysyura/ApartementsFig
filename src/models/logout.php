@@ -1,11 +1,13 @@
 <?php
-if (isset($_GET['logout']) && $_GET['logout'] === 'true') {
-    session_start(); // Iniciar la sesión
-    session_unset(); // Destruir todas las variables de sesión
-    session_destroy(); // Destruir la sesión
+session_start();
 
-    // Redirigir al usuario a la página de inicio de sesión
-    header("Location: index.php?r=login");
-    exit();
-}
+session_unset();
+
+session_destroy();
+
+setcookie("username", "", time() - 3600, "/");
+setcookie("user_id", "", time() - 3600, "/");
+
+header("Location: index.php?r=login");
+exit();
 ?>

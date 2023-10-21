@@ -3,7 +3,6 @@ include '../src/models/ModelConnectBDD.php';
 
 echo '<div class="divapartaments">';
 
-// Realiza una consulta a la base de datos para obtener los apartamentos
 $sql = "SELECT * FROM apartment";
 $result = $conn->query($sql);
 
@@ -21,7 +20,7 @@ if ($result->rowCount() > 0) {
         </div>';
     }
 } else {
-    echo "No se encontraron apartamentos en la base de datos.";
+    echo "No s'han trobat apartaments";
 }
 
 echo '</div>';

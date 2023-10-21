@@ -12,19 +12,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verificar si todos los campos obligatorios están presentes
     if (empty($credit_card)) {
-        $error_message = "Por favor, complete todos los campos del formulario.";
+        $error_message = "Si us plau, completeu tots els camps del formulari.";
     } else {
         // Obtener el nombre de usuario (puedes obtenerlo de la sesión o como mejor se adapte a tu sistema)
-        $user_name = $_COOKIE['user_id']; // Reemplaza con la forma en que obtienes el nombre de usuario
+        $user_id = $_COOKIE['user_id']; // Reemplaza con la forma en que obtienes el nombre de usuario
 
         // Preparar la consulta SQL para actualizar la tarjeta de crédito del usuario
-        $sql = "UPDATE users SET card_number = :credit_card WHERE id_user = :user_name";
+        $sql = "UPDATE users SET card_number = :credit_card WHERE id_user = :user_id";
 
         try {
             // Preparar y ejecutar la consulta
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(":credit_card", $credit_card);
-            $stmt->bindParam(":user_name", $user_name);
+            $stmt->bindParam(":user_id", $user_id);
             $stmt->execute();
 
             // Redirigir a la página de perfil u otra después de la actualización exitosa

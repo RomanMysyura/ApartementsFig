@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verificar si todos los campos obligatorios están presentes
     if (empty($name) || empty($last_name) || empty($telephone) || empty($email) || empty($password)) {
-        $error_message = "Por favor, complete todos los campos del formulario.";
+        $error_message = "Si us plau, completeu tots els camps del formulari.";
     } else {
         // Preparar la consulta SQL para insertar un nuevo usuario
         $sql = "INSERT INTO users (name, last_name, telephone, email, password) VALUES (:name, :last_name, :telephone, :email, :password)";
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } catch (PDOException $e) {
             // Manejar errores en caso de fallo en la inserción
-            $error_message = "Error al registrar usuario: " . $e->getMessage();
+            $error_message = "Error al registrar l'usuari: " . $e->getMessage();
         }
     }
 }

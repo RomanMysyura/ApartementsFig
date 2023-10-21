@@ -50,7 +50,7 @@ if ($result->rowCount() > 0) {
         <button type="submit" class="btn btn-primary">Afegir tarjeta de crèdit</button>
     </form>';
 } else {
-    echo "No se encontró ningún usuario con el nombre 'Adrián' en la base de datos.";
+    echo "No s'ha trobat l'usuari";
 }
 
 ?>

@@ -16,6 +16,7 @@ include '../src/controllers/ubicacio.php';
 include '../src/controllers/registrar.php';
 include '../src/controllers/infoapartaments.php';
 include '../src/controllers/compte.php';
+include '../src/controllers/logout.php';
 
 // Models
 include '../src/models/ModelConnectBDD.php';
@@ -23,17 +24,15 @@ include '../src/models/login.php';
 include '../src/models/signup.php';
 
 
+// Llibreria
 include '../src/views/libs.php';
 
-
-// include '../src/models/signup.phpdwad';
-// holaaaaaa
-
-
+// Emeset Framework
 include "../src/Emeset/Container.php";
 include "../src/Emeset/Request.php";
 include "../src/Emeset/Response.php";
 
+// 
 $request = new \Emeset\Request();
 $response = new \Emeset\Response();
 $container = new \Emeset\Container($config);
@@ -59,5 +58,8 @@ if ($r == '') {
     controllerinfoapartaments($request, $response, $container);
 } else if ($r == 'compte'){
     controllercompte($request, $response, $container);
+} else if ($r == 'logout'){
+    controllerlogout($request, $response, $container);
 }
+
 $response->response();

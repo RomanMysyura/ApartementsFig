@@ -1,4 +1,3 @@
-
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
@@ -20,34 +19,13 @@
                         <a class="nav-link active" href="index.php?r=ubicacio">Ubicació</a>
                     </li>
                     <li class="nav-item dropdown">
-    <?php if (isset($_COOKIE['username'])): ?>
-        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Benvingut, <?php echo $_COOKIE['username']; ?>
-        </a>
-    <?php else: ?>
-        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Área de usuario</a>
-    <?php endif; ?>
-    <ul class="dropdown-menu dropdown-menu-center">
-        <?php if (isset($_COOKIE['username'])): ?>
-            <li>
-                <a class="dropdown-item" href="index.php?"><strong>Cerrar sesión</strong></a>
-            </li>
-            <?php include '../src/models/logout.php';?>
-        <?php else: ?>
-            <li>
-                <a class="dropdown-item" href="index.php?r=signup"><strong>Registrarse</strong></a>
-            </li>
-            <li>
-                <a class="dropdown-item" href="index.php?r=login">Iniciar sesión</a>
-            </li>
-        <?php endif; ?>
-        <div class="dropdown-divider"></div>
-        <li>
-            <a class="dropdown-item" href="index.php?r=compte">Mi cuenta</a>
-        </li>                                
-    </ul>
-</li>
-
+                        <?php include '../src/models/menu_logout.php'?>
+                            <div class="dropdown-divider"></div>
+                            <li>
+                                <a class="dropdown-item" href="index.php?r=compte">El meu compte</a>
+                            </li>                                
+                        </ul>
+                    </li>
                 </ul>
 
                 <button class="btn btn-primary d-lg-none my-3" data-bs-toggle="collapse" data-bs-target="#searchForm" id="toggleSearchButton">Obrir buscador</button>

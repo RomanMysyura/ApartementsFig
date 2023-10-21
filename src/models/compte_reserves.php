@@ -12,7 +12,6 @@ if ($result->rowCount() > 0) {
 
         $accordionTitle = "Reserva #" . $row['id_reserved'];
 
-        
         echo '<div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading' . $row['id_reserved'] . '">
@@ -34,6 +33,6 @@ if ($result->rowCount() > 0) {
 
     }
 } else {
-    echo "No se encontraron reservas para el usuario 'Adrià'.";
+    echo "No s'han trobat reserves.";
 }
 ?>

@@ -1,0 +1,1 @@
+<?php include '../src/models/logout.php';?>
