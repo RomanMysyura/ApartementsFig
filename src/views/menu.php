@@ -36,6 +36,9 @@
                         <input class="form-control me-sm-2" type="search" id="address" name="address" placeholder="Adreça postal">
                     </div>
                     <div class="form-group me-2 my-3">
+                        <input class="form-control" type="number" id="numRooms" name="numRooms" placeholder="Número d'habitacions"/>
+                    </div>
+                    <div class="form-group me-2 my-3">
                         <button class="btn btn-primary" type="submit">Buscar</button>
                     </div>
                 </form>
