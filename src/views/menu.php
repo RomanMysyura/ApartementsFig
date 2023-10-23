@@ -31,18 +31,9 @@
 
                 <button class="btn btn-primary d-lg-none my-3" data-bs-toggle="collapse" data-bs-target="#searchForm" id="toggleSearchButton">Obrir buscador</button>
 
-                <form class="d-lg-flex collapse text-center mb-0" id="searchForm">
+                <form class="d-lg-flex collapse text-center mb-0" id="searchForm" method="POST">
                     <div class="form-group me-2 my-3">
-                        <input class="form-control me-sm-2" type="search" placeholder="Adreça postal">
-                    </div>
-                    <div class="form-group me-2 my-3">
-                        <input class="form-control" type="date" id="startDate"/>
-                    </div>
-                    <div class="form-group me-2 my-3">
-                        <input class="form-control" type="date" id="endDate"/>
-                    </div>
-                    <div class="form-group me-2 my-3">
-                        <input class="form-control" type="number" id="people" placeholder="Número d'habitacions" />
+                        <input class="form-control me-sm-2" type="search" id="address" name="address" placeholder="Adreça postal">
                     </div>
                     <div class="form-group me-2 my-3">
                         <button class="btn btn-primary" type="submit">Buscar</button>
