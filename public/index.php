@@ -17,6 +17,7 @@ include '../src/controllers/registrar.php';
 include '../src/controllers/infoapartaments.php';
 include '../src/controllers/compte.php';
 include '../src/controllers/logout.php';
+include '../src/controllers/dashboard.php';
 
 // Models
 include '../src/models/ModelConnectBDD.php';
@@ -60,6 +61,8 @@ if ($r == '') {
     controllercompte($request, $response, $container);
 } else if ($r == 'logout'){
     controllerlogout($request, $response, $container);
+} else if ($r == 'dashboard'){
+    controllerdashboard($request, $response, $container);
 }
 
 $response->response();
