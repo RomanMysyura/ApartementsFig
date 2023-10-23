@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <title>Registrar-se</title>
+    <script src="js/scripts.js"></script>
 </head>
 <body class="p-0 m-0 border-0 bd-example m-0 border-0">
     <?php require "menu.php" ?>

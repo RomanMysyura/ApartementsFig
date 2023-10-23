@@ -1,9 +1,15 @@
-<?php include '../src/models/credit_card.php';?>
+<?php include '../src/models/EditUserInfo/editcard.php';?>
+<?php include '../src/models/EditUserInfo/editemail.php';?>
+<?php include '../src/models/EditUserInfo/edittelephone.php';?>
+<?php include '../src/models/EditUserInfo/editsurname.php';?>
+<?php include '../src/models/EditUserInfo/editname.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>El meu compte</title>
+    
+    <script src="js/scripts.js"></script>
 </head>
 <body class="p-0 m-0 border-0 bd-example m-0 border-0">
     <?php require "menu.php" ?>

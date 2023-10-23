@@ -19,3 +19,14 @@
             <a class="dropdown-item" href="index.php?r=login">Iniciar sessió</a>
         </li>
     <?php endif; ?>
+
+    <?php 
+    
+    if (isset($_COOKIE["user_id"]) && isset($_COOKIE["username"])) {
+        // Usuario iniciado, muestra el enlace a "compte.php"
+        $compteLink = "index.php?r=compte";
+    } else {
+        // Usuario no iniciado, muestra el enlace a "login.php"
+        $compteLink = "index.php?r=login";
+    }
+    ?>

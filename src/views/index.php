@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <title>ApartamentsFiguerencs</title>
+  <script src="js/scripts.js"></script>
 </head>
 <body>
   <?php require "menu.php";?>

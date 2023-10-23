@@ -1,3 +1,4 @@
+<script src="js/scripts.js"></script>
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
@@ -22,7 +23,7 @@
                         <?php include '../src/models/menu_logout.php'?>
                             <div class="dropdown-divider"></div>
                             <li>
-                                <a class="dropdown-item" href="index.php?r=compte">El meu compte</a>
+                            <a class="dropdown-item" href="<?php echo $compteLink; ?>">El meu compte</a>
                             </li>                                
                         </ul>
                     </li>
@@ -51,17 +52,4 @@
         </div>
     </nav>
 </div>
-<script>
-    $(document).ready(function() {
-    var toggleSearchButton = $('#toggleSearchButton');
-    var searchForm = $('#searchForm');
 
-    searchForm.on('show.bs.collapse', function () {
-        toggleSearchButton.text('Tancar buscador');
-    });
-
-    searchForm.on('hide.bs.collapse', function () {
-        toggleSearchButton.text('Obrir buscador');
-    });
-});
-</script>

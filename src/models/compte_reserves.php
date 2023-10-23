@@ -8,15 +8,16 @@ $sql = "SELECT r.* FROM reservation r INNER JOIN users u ON r.id_user = u.id_use
 $result = $conn->query($sql);
 
 if ($result->rowCount() > 0) {
+    $numero = 1;
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 
-        $accordionTitle = "Reserva #" . $row['id_reserved'];
+        $numeroreserva = "Reserva #" . $numero;
 
         echo '<div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading' . $row['id_reserved'] . '">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse' . $row['id_reserved'] . '" aria-expanded="true" aria-controls="collapse' . $row['id_reserved'] . '">
-                            ' . $accordionTitle . '
+                            ' . $numeroreserva . '
                         </button>
                     </h2>
                     <div id="collapse' . $row['id_reserved'] . '" class="accordion-collapse collapse show" aria-labelledby="heading' . $row['id_reserved'] . '" data-bs-parent="#reservationsAccordion">
@@ -31,6 +32,7 @@ if ($result->rowCount() > 0) {
                 </div>
             </div>';
 
+            $numero = $numero + 1;
     }
 } else {
     echo "No s'han trobat reserves.";

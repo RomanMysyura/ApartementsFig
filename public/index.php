@@ -32,6 +32,9 @@ include "../src/Emeset/Container.php";
 include "../src/Emeset/Request.php";
 include "../src/Emeset/Response.php";
 
+// Scripts
+
+
 // 
 $request = new \Emeset\Request();
 $response = new \Emeset\Response();
