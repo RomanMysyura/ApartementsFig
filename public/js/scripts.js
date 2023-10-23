@@ -1,36 +1,22 @@
+
+// Serveix per obrir o tencar els formularis de canvi de dades del usuari
 $(document).ready(function() {
     $("#mostrarFormulariName").click(function() {
-        $("#formulariName").toggle(); // Alternar la visibilidad del formulario al hacer clic en el botón.
+        $("#formulariName").toggle(); // Formulari per cambiar el Nom
     });
-});
-
-$(document).ready(function() {
     $("#mostrarFormulariSurName").click(function() {
-        $("#formulariSurName").toggle(); // Alternar la visibilidad del formulario al hacer clic en el botón.
+        $("#formulariSurName").toggle(); // Formulari per cambiar el Cognom
     });
-});
-
-$(document).ready(function() {
     $("#mostrarFormulariTelephone").click(function() {
-        $("#formulariTelephone").toggle(); // Alternar la visibilidad del formulario al hacer clic en el botón.
+        $("#formulariTelephone").toggle(); // Formulari per cambiar el Telefon
     });
-});
-
-$(document).ready(function() {
     $("#mostrarFormulariEmail").click(function() {
-        $("#formulariEmail").toggle(); // Alternar la visibilidad del formulario al hacer clic en el botón.
+        $("#formulariEmail").toggle(); // Formulari per cambiar el Email
     });
-});
-
-$(document).ready(function() {
     $("#mostrarFormulariCard").click(function() {
-        $("#formulariCard").toggle(); // Alternar la visibilidad del formulario al hacer clic en el botón.
+        $("#formulariCard").toggle(); // Formulari per cambiar la tarjeta de crédit
     });
 });
-
-
-
-
 
 
 $(document).ready(function() {

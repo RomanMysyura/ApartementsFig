@@ -23,7 +23,7 @@
                         <?php include '../src/models/menu_logout.php'?>
                             <div class="dropdown-divider"></div>
                             <li>
-                            <a class="dropdown-item" href="<?php echo $compteLink; ?>">El meu compte</a>
+                            <a class="" href="<?php echo $compteLink; ?>">El meu compte</a>
                             </li>                                
                         </ul>
                     </li>

@@ -1,7 +1,19 @@
 <?php
+// Inicializa la variable de error
+$error_message = "";
+
+
+// Verifica si el usuario está autenticado
+if (!isset($_SESSION['user_id'])) {
+    // Redirige al usuario a la página de inicio de sesión si no está autenticado
+    header("Location: login.php");
+    exit();
+}
+
+// Incluye el archivo de conexión a la base de datos
 include '../src/models/ModelConnectBDD.php';
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 
 $sql = "SELECT r.* FROM reservation r INNER JOIN users u ON r.id_user = u.id_user WHERE u.id_user = $user_id";
 
@@ -32,7 +44,7 @@ if ($result->rowCount() > 0) {
                 </div>
             </div>';
 
-            $numero = $numero + 1;
+        $numero = $numero + 1;
     }
 } else {
     echo "No s'han trobat reserves.";
