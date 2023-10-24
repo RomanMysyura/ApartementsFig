@@ -9,5 +9,10 @@
 <body>
 <?php require "menu.php" ?>
     <h3>UBICACIÓ</h3>
+    <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
 </body>
 </html>

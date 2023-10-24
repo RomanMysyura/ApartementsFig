@@ -10,5 +10,10 @@
   <?php include '../src/models/carrusel.php';?>
   <h3 class="text-center texttitol">Els nostres apartaments</h3>
   <?php include '../src/models/apartaments.php'; ?>
+  <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
 </body>
 </html>
