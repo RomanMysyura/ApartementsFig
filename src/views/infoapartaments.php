@@ -22,7 +22,7 @@
                     <h1 class="text-white">GOOGLE MAPS</h1>
                     
 
-                    <div id="map"></div>
+                    <div id="map" data-latitude="<?php echo $apartment['latitude']; ?>" data-longitude="<?php echo $apartment['length']; ?>"></div>
 
 
                     
@@ -34,6 +34,15 @@
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
      crossorigin=""></script>
+     <script>
+            var apartmentId = <?php echo json_encode($apartmentId); ?>;
+            var latitude = <?php echo json_encode($apartment['latitude']); ?>;
+            var length = <?php echo json_encode($apartment['length']); ?>;
+    </script>
+    
+    
+
      <script src="js/scripts.js"></script>
+     
 </body>
 </html>

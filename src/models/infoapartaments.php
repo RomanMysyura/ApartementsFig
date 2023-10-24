@@ -10,6 +10,8 @@ if (isset($_GET['id'])) {
     $stmt->bindParam(':id', $apartmentId, PDO::PARAM_INT);
     $stmt->execute();
 
+    
+
     if ($stmt->rowCount() > 0) {
         $apartment = $stmt->fetch(PDO::FETCH_ASSOC);
 
