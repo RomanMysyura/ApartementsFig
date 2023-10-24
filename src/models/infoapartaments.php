@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
         // Por ejemplo:
         echo '<h1>' . $apartment['title'] . '</h1>';
         echo '<p>Precio por día: ' . $apartment['price_day_low_season'] . '€</p>';
-        echo '<p>Descripción: ' . $apartment['description'] . '</p>';
+        echo '<p>Descripción: ' . $apartment['short_description'] . '</p>';
         // ... y así sucesivamente.
 
     } else {
