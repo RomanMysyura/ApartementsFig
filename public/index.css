@@ -225,19 +225,18 @@ body {
     background: #fff;
     color: #222222;
 
-
-}
-.confirmaredit:hover {
-    border-color: #000000;
-    background: #f7f7f7;
-}
-
-.card {
-    width: 350px; 
-    margin-bottom: 20px;
-    margin: 10px; 
 }
 
 #map {
-    height: 300px;
+    width: 100%;
+    height: 580px;
+    box-shadow: 5px 5px 5px #888;
+}
+
+.btnobrirtaula{
+    width: 100%;
+    background-color: #212529;
+    color: #fff;
+    border: solid;
+    border-color: #303030;
 }

@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION['username'] = $user['name'];
         $_SESSION['user_id'] = $user['id_user'];
+        $_SESSION['role_id'] = $user['id_role'];
 
         // Redirige al usuario a la página "compte.php" si ha iniciado sesión con éxito
         header("Location: index.php?r=compte");

@@ -17,12 +17,14 @@ include '../src/controllers/registrar.php';
 include '../src/controllers/infoapartaments.php';
 include '../src/controllers/compte.php';
 include '../src/controllers/logout.php';
+include '../src/controllers/paneldecontrol.php';
+
 
 // Models
 include '../src/models/ModelConnectBDD.php';
 include '../src/models/login.php';
 include '../src/models/signup.php';
-
+include '../src/models/paneldecontrolactualitzar.php';
 
 // Llibreria
 include '../src/views/libs.php';
@@ -63,6 +65,8 @@ if ($r == '') {
     controllercompte($request, $response, $container);
 } else if ($r == 'logout'){
     controllerlogout($request, $response, $container);
+}else if ($r == 'paneldecontrol'){
+    controllerpaneldecontrol($request, $response, $container);
 }
 
 $response->response();
