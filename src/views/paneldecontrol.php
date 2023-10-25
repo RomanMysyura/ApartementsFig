@@ -56,7 +56,7 @@ try {
         echo '</td></tr>';
     }
     
-    // Cierra la tabla y el contenedor div
+    // Cierra la tabla y el contenedor divddd
     echo '</tbody></table>';
     echo '</div>';
 } catch (PDOException $e) {
