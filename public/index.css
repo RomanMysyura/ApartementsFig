@@ -2,7 +2,7 @@ body {
     margin: auto;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     overflow: auto;
-    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    background: linear-gradient(315deg, rgba(101, 0, 94, 1) 3%, rgba(60, 132, 206, 1) 38%, rgba(48, 238, 226, 1) 68%, rgba(255, 25, 25, 1) 98%);
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
@@ -12,9 +12,11 @@ body {
     0% {
         background-position: 0% 0%;
     }
+
     50% {
         background-position: 100% 100%;
     }
+
     100% {
         background-position: 0% 0%;
     }
@@ -67,6 +69,7 @@ body {
         transform: translateX(1);
     }
 }
+
 .titolpagina {
     text-align: center;
     margin-top: 10px;
@@ -91,6 +94,7 @@ body {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
 }
+
 .btnlogin :hover {
     color: #fff;
     background-color: #0b5ed7;
@@ -146,44 +150,52 @@ body {
     -moz-box-shadow: 8px 37px 80px 0px rgba(0, 0, 0, 0.55);
     box-shadow: 8px 37px 80px 0px rgba(0, 0, 0, 0.55);
 }
+
 .divapartaments {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 40px;
-   
+
 }
 
 .card {
-    width: 350px; 
+    width: 350px;
     margin-bottom: 20px;
-    margin: 10px; 
+    margin: 10px;
 }
 
 
 
 /* Estilo para el botón "Settings" */
 .btn-settings {
-    background-color: #ffffff; /* Color de fondo del botón */
-    color: #000000; /* Color del texto del botón */
-    border: solid; /* Sin borde */
-    padding: 10px 20px; /* Relleno interno del botón */
-    border-radius: 8px; /* Radio de borde para bordes redondeados */
-    
-    cursor: pointer; /* Cambia el cursor al pasar el mouse por encima */
-    
+    background-color: #ffffff;
+    /* Color de fondo del botón */
+    color: #000000;
+    /* Color del texto del botón */
+    border: solid;
+    /* Sin borde */
+    padding: 10px 20px;
+    /* Relleno interno del botón */
+    border-radius: 8px;
+    /* Radio de borde para bordes redondeados */
+
+    cursor: pointer;
+    /* Cambia el cursor al pasar el mouse por encima */
+
 }
 
 /* Estilo para el botón cuando se coloca el cursor encima */
 .btn-settings:hover {
-    background-color: #000000; /* Cambia el color de fondo al pasar el mouse por encima */
+    background-color: #000000;
+    /* Cambia el color de fondo al pasar el mouse por encima */
     color: #ffffff;
 }
 
 
 
-.texteditdades{
-    
+.texteditdades {
+
     box-shadow: inset #abacaf 0 0 0 2px;
     border: 0;
     background: rgba(141, 116, 116, 0);
@@ -198,20 +210,22 @@ body {
     font-weight: 400;
     height: 40px;
     transition: all .2s ease;
-    
-    
+
+
 }
-.texteditdades:hover{
+
+.texteditdades:hover {
     box-shadow: 0 0 0 0 #fff inset, #061bda 0 0 0 2px;
 }
-.texteditdades:focus{
+
+.texteditdades:focus {
     background: #fff;
     outline: 0;
     box-shadow: 0 0 0 0 #fff inset, #03c091 0 0 0 3px;
 }
 
-.confirmaredit{
-    
+.confirmaredit {
+
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -233,10 +247,89 @@ body {
     box-shadow: 5px 5px 5px #888;
 }
 
-.btnobrirtaula{
+.btnobrirtaula {
     width: 100%;
     background-color: #212529;
     color: #fff;
     border: solid;
     border-color: #303030;
+}
+
+.scrollable-table {
+    max-height: 310px;
+    /* Define la altura máxima para activar el scroll */
+    overflow-y: scroll;
+    /* Agrega un desplazamiento vertical */
+}
+
+
+.taulausuaris, .taulaapartaments {
+    margin-left: 0px;
+    margin-right: 0px;
+    -webkit-box-shadow: 2px 5px 15px 2px #000000;
+    box-shadow: 2px 5px 15px 2px #000000;
+    background-color: #ffffff;
+}
+
+.formularicrearusuaripanel {
+    width: 100% !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.afegirusuari{
+    margin-top: -16px;
+}
+
+
+.inputnomcontrol{
+        width: 160px;
+}
+.inputcognomcontrol{
+    width: 160px;
+}
+
+
+.llistadeusuaris {
+    
+    background-color: #212529;
+    margin-bottom: 0px;
+    height: 4px;
+}
+.panelusuaris{
+    font-family: sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: normal;
+    text-decoration: none solid rgb(68, 68, 68);
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #212529;
+    margin-bottom: 0px;
+}
+.panelapartaments{
+    font-family: sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: normal;
+    text-decoration: none solid rgb(68, 68, 68);
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #212529;
+    margin-bottom: 0px;
+    width: 100%;
+
+}
+.usuarieliminat {
+    font-family: sans-serif;
+    font-size: 26px;
+    color: #00d841;
+    font-weight: normal;
+    text-decoration: none solid rgb(68, 68, 68);
+
+    text-transform: uppercase;
+    text-align: center;
+    /* Añade esta línea para centrar horizontalmente */
+    background-color: #212529;
+    margin-bottom: 0px;
 }

@@ -1,3 +1,5 @@
+
+
 // Serveix per obrir o tencar els formularis de canvi de dades del usuari
 $(document).ready(function() {
     $("#mostrarFormulariName").click(function() {
@@ -45,3 +47,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var marker = L.marker([latitude, length]).addTo(map);
+
+
+
