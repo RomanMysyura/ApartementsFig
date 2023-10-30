@@ -1,4 +1,5 @@
 <?php include '../src/models/infoapartaments.php'?>
+<?php include '../src/models/reserva.php';?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -9,7 +10,7 @@
     <?php include '../src/views/menu.php'; ?>
     <div class="container">
         <div class="row">
-            <div class="col-md-7 mx-auto">
+            <div class="col-md-6 mx-auto">
                 <div class="p-3">
                     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner rounded">
@@ -28,7 +29,7 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-                    <ol class="list-group custom-list">
+                    <ol class="list-group rounded-0 mt-3">
                         <?php foreach ($apartmentData as $label => $value): ?>
                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                 <div class="ms-2 me-auto">
@@ -38,7 +39,20 @@
                             </li>
                         <?php endforeach; ?>
                     </ol>
-                    <div id="map" data-latitude="<?= $apartment['latitude']; ?>" data-longitude="<?= $apartment['length']; ?>"></div>
+                    <div id="map" data-latitude="<?= $apartment['latitude']; ?>" data-longitude="<?= $apartment['length']; ?>" class="mt-3">
+                    </div>
+                    <h1>Reservar</h1>
+                    <form action="" method="POST">
+                    <div class="form-group me-2 my-3">
+                        <input class="form-control" type="date" id="startDate" name="startDate"/>
+                    </div>
+                    <div class="form-group me-2 my-3">
+                        <input class="form-control" type="date" id="endDate" name="endDate"/>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                            <button type="submit" class="btn btn-primary mb-2 text-center">Fer reserva</button>
+                        </div> 
+                    </form>
                 </div>
             </div>
         </div>
@@ -62,4 +76,3 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
-
