@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Iniciar sessió</title>
+    <title>Iniciar sesión</title>
     <script src="js/scripts.js"></script>
 </head>
 
@@ -43,14 +43,14 @@
                             <p class="text-center text-white">No tens cap compte? <a href="index.php?r=signup" class="text-decoration-none text-primary-emphasis">Registra't</a></p>
                         </div>
                     </form>
-                </div>
+                    </div>
             </div>
         </div>
     </div>
     <div>
-     <div class="wave"></div>
-     <div class="wave"></div>
-     <div class="wave"></div>
-  </div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
 </body>
 </html>

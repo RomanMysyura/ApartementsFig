@@ -24,7 +24,6 @@ include '../src/controllers/paneldecontrol.php';
 include '../src/models/ModelConnectBDD.php';
 include '../src/models/login.php';
 include '../src/models/signup.php';
-include '../src/models/paneldecontrolactualitzar.php';
 
 // Llibreria
 include '../src/views/libs.php';
