@@ -86,8 +86,10 @@
 
                 <form class="d-lg-flex collapse text-center mb-0" id="searchForm" method="POST">
                     <div class="form-group me-2 my-3">
-                        <input class="form-control me-sm-2" type="search" id="address" name="address"
-                            placeholder="Adreça postal">
+                        <input class="form-control" type="date" id="startDate" name="startDate"/>
+                    </div>
+                    <div class="form-group me-2 my-3">
+                        <input class="form-control" type="date" id="endDate" name="endDate"/>
                     </div>
                     <div class="form-group me-2 my-3">
                         <input class="form-control" type="number" id="numRooms" name="numRooms"

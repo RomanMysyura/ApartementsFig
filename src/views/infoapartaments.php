@@ -1,4 +1,4 @@
-<?php include '../src/models/infoapartaments.php'?>
+<?php include '../src/models/infoapartaments.php';?>
 <?php include '../src/models/reserva.php';?>
 
 <!DOCTYPE html>
@@ -44,10 +44,10 @@
                     <h1>Reservar</h1>
                     <form action="" method="POST">
                     <div class="form-group me-2 my-3">
-                        <input class="form-control" type="date" id="startDate" name="startDate"/>
+                        <input class="form-control" type="date" id="startDate" name="startDate" min="<?= $apartment['start_date'] ?>" max="<?= $apartment['end_date'] ?>" required>
                     </div>
                     <div class="form-group me-2 my-3">
-                        <input class="form-control" type="date" id="endDate" name="endDate"/>
+                        <input class="form-control" type="date" id="endDate" name="endDate" min="<?= $apartment['start_date'] ?>" max="<?= $apartment['end_date'] ?>" required/>
                     </div>
                     <div class="d-flex justify-content-center align-items-center">
                             <button type="submit" class="btn btn-primary mb-2 text-center">Fer reserva</button>
