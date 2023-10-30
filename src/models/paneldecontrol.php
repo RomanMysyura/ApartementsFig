@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apartment_id'])) {
     $stmt->bindParam(':apartment_id', $apartment_id, PDO::PARAM_INT);
 
     if ($stmt->execute()) {
-        // Los datos se han actualizado correctamente
+        // Los datos se han actualizado correctamentefgd
         // header("Location: index.php?r=paneldecontrol");
         // exit;
     } else {
