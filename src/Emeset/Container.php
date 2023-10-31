@@ -27,9 +27,10 @@ class Container
      *
      * @param $config array paràmetres de configuració de l'aplicació.
      **/
-    public function __construct($config)
-    {
+    public function __construct($config) {
         $this->config = $config;
+        $conn = new \Daw\Connection($config);
+        $this->sql = $conn->getConnection();
     }
 
     public function response()
@@ -42,4 +43,11 @@ class Container
         return new \Emeset\Request();
     }
 
+    public function apartaments() {
+        return new \Daw\Apartaments($this->sql);
+    }
+    
+    public function users() {
+        return new \Daw\Users($this->sql);
+    }
 }

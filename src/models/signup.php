@@ -5,7 +5,6 @@ $error_message = "";
 // Verificar si el formulario se ha enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Incluir el archivo de conexión a la base de datos
-    include '../src/models/ModelConnectBDD.php';
 
     // Obtener los datos del formulario
     $name = $_POST["name"] ?? "";

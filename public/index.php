@@ -3,7 +3,6 @@
 
 // Config.php
 include "../src/config.php";
-$config = [];
 
 // Controllers
 include '../src/controllers/index.php';
@@ -20,10 +19,17 @@ include '../src/controllers/logout.php';
 include '../src/controllers/paneldecontrol.php';
 
 
+
+include "../src/controllers/controllerDoLogin.php";
+
+
+include "../src/middleware/isLogged.php";
+
 // Models
-include '../src/models/ModelConnectBDD.php';
-include '../src/models/login.php';
+include '../src/models/connection.php';
+include '../src/models/apartaments.php';
 include '../src/models/signup.php';
+include '../src/models/users.php';
 
 // Llibreria
 include '../src/views/libs.php';
@@ -41,11 +47,13 @@ $request = new \Emeset\Request();
 $response = new \Emeset\Response();
 $container = new \Emeset\Container($config);
 
-
-$r = isset($_GET['r']) ? $_GET['r'] : '';
+$r = '';
+if (isset($_REQUEST["r"])) {
+  $r = $_REQUEST["r"];
+}
 
 if ($r == '') {
-    controllerindex($request, $response, $container);
+    isLogged($request, $response, $container, "controllerindex");
 } else if ($r == 'signup'){
     controllerentrar($request, $response, $container);
 } else if ($r == 'login'){
@@ -66,6 +74,8 @@ if ($r == '') {
     controllerlogout($request, $response, $container);
 }else if ($r == 'paneldecontrol'){
     controllerpaneldecontrol($request, $response, $container);
+} else if($r == 'dologin') {
+    controllerDoLogin($request, $response, $container);
 }
 
 $response->response();

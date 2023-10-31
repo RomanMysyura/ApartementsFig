@@ -1,7 +1,7 @@
 <?php
 include '../src/models/infoapartaments.php';
 // Asegúrate de que la sesión esté iniciada
-session_start();
+
 
 // Incluye la conexión a la base de datos y otras configuraciones necesarias
 include '../src/models/ModelConnectBDD.php';

@@ -22,13 +22,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php?r=ubicacio">Ubicació</a>
                     </li>
+                    
                     <li class="nav-item dropdown">
                         
-                        <?php if (isset($_SESSION['user_id'])): ?>
+                        <?php if (isset($_SESSION['logged'])): ?>
                         <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Benvingut, <?php echo $_SESSION['username']; ?>
+                            Benvingut, <?php echo $_SESSION['name']; ?>
                         </a>
+
                         <?php else: ?>
                         <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Àrea
@@ -84,19 +86,21 @@
                 <button class="btn btn-primary d-lg-none my-3" data-bs-toggle="collapse" data-bs-target="#searchForm"
                     id="toggleSearchButton">Obrir buscador</button>
 
-                <form class="d-lg-flex collapse text-center mb-0" id="searchForm" method="POST">
-                    <div class="form-group me-2 my-3">
-                        <input class="form-control me-sm-2" type="search" id="address" name="address"
-                            placeholder="Adreça postal">
-                    </div>
-                    <div class="form-group me-2 my-3">
-                        <input class="form-control" type="number" id="numRooms" name="numRooms"
-                            placeholder="Número d'habitacions" />
-                    </div>
-                    <div class="form-group me-2 my-3">
-                        <button class="btn btn-primary" type="submit">Buscar</button>
-                    </div>
-                </form>
+                    <form class="d-lg-flex collapse text-center mb-0" id="searchForm" method="GET">
+                        <div class="form-group me-2 my-3">
+                            <input class="form-control" type="date" id="startDate" name="startDate"/>
+                        </div>
+                        <div class="form-group me-2 my-3">
+                            <input class="form-control" type="date" id="endDate" name="endDate"/>
+                        </div>
+                        <div class="form-group me-2 my-3">
+                            <input class="form-control" type="number" id="numRooms" name="numRooms"
+                                placeholder="Número d'habitacions" />
+                        </div>
+                        <div class="form-group me-2 my-3">
+                            <button class="btn btn-primary" type="submit">Buscar</button>
+                        </div>
+                    </form>
             </div>
         </div>
     </nav>

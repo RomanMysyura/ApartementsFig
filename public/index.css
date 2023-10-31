@@ -263,7 +263,8 @@ body {
 }
 
 
-.taulausuaris, .taulaapartaments {
+.taulausuaris,
+.taulaapartaments {
     margin-left: 0px;
     margin-right: 0px;
     -webkit-box-shadow: 2px 5px 15px 2px #000000;
@@ -277,26 +278,28 @@ body {
     padding-right: 0px !important;
 }
 
-.afegirusuari{
+.afegirusuari {
     margin-top: -16px;
 }
 
 
-.inputnomcontrol{
-        width: 160px;
+.inputnomcontrol {
+    width: 160px;
 }
-.inputcognomcontrol{
+
+.inputcognomcontrol {
     width: 160px;
 }
 
 
 .llistadeusuaris {
-    
+
     background-color: #212529;
     margin-bottom: 0px;
     height: 4px;
 }
-.panelusuaris{
+
+.panelusuaris {
     font-family: sans-serif;
     font-size: 30px;
     color: #ffffff;
@@ -307,7 +310,8 @@ body {
     background-color: #212529;
     margin-bottom: 0px;
 }
-.panelapartaments{
+
+.panelapartaments {
     font-family: sans-serif;
     font-size: 30px;
     color: #ffffff;
@@ -320,6 +324,7 @@ body {
     width: 100%;
 
 }
+
 .usuarieliminat {
     font-family: sans-serif;
     font-size: 26px;
@@ -332,4 +337,47 @@ body {
     /* Añade esta línea para centrar horizontalmente */
     background-color: #212529;
     margin-bottom: 0px;
+}
+
+
+
+/*ESTILS PER LA VISTA MODAL */
+
+.preu {
+    font-size: 25px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: 700;
+    margin-left: 10px;
+}
+.modal-body{
+    padding: 0px !important;
+
+}
+.modal-content{
+    padding: 0px !important;
+    border-color: #000000 !important;
+}
+.modal-dialog{
+    background-color: #ffffff !important;
+    
+    border-radius: 8px !important;
+}
+.imgmodal{
+    
+    border-radius: 5px !important;
+}
+
+
+.servicesextra{
+    margin-top: -10px;
+    margin-left: 25px;
+}
+.descripcioapartmenttitol{
+    margin-left: 25px;
+    font-weight: bold;
+}
+.descripcioapartment{
+    margin-left: 25px;
 }
