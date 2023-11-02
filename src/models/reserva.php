@@ -3,8 +3,8 @@ include '../src/models/ModelConnectBDD.php';
 include '../src/models/infoapartaments.php';
 
 
-if ($_SERVER["REQUEST_METHOD"] === 'POST') {
-
+if ($_SERVER["REQUEST_METHOD"] === 'POST' && isset($_POST['reservar'])) {
+   
     $startDate = new DateTime($_POST["startDate"]);
     $endDate = new DateTime($_POST["endDate"]);
 
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
 
     $sql = "SELECT * FROM season";
     $result = $conn->query($sql);
-
+    echo "fondo4";
     if ($result->num_rows > 0) {
         $highStartDateSeason = null;
         $highEndDateSeason = null;
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
             }
         }
     }
-
+    echo "fondo3";
     $sql = "SELECT * FROM apartment";
     $result = $conn->query($sql);
 
@@ -71,7 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
 
     $id_apartment = $apartmentId;
     $state = "Pendent";
-
     $sql = "INSERT INTO reservation (entry_date, output_date, state, price, id_user, id_apartment, id_season) 
                 VALUES (:entry_date, :output_date, :state, :price, :id_user, :id_apartment, :id_season)";
 
@@ -90,7 +89,8 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
     } else {
         echo "Error al realizar la reserva: " . $stmt->errorInfo()[2];
     }
-
+  echo "fondo";
+die();
 } else {
     echo 'Error';
 }

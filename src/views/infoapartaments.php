@@ -42,7 +42,7 @@
                     <div id="map" data-latitude="<?= $apartment['latitude']; ?>" data-longitude="<?= $apartment['length']; ?>" class="mt-3">
                     </div>
                     <h1>Reservar</h1>
-                    <form action="" method="POST">
+                    <form method="POST" name="reservationForm">
                     <div class="form-group me-2 my-3">
                         <input class="form-control" type="date" id="startDate" name="startDate" min="<?= $apartment['start_date'] ?>" max="<?= $apartment['end_date'] ?>" required>
                     </div>
@@ -50,8 +50,8 @@
                         <input class="form-control" type="date" id="endDate" name="endDate" min="<?= $apartment['start_date'] ?>" max="<?= $apartment['end_date'] ?>" required/>
                     </div>
                     <div class="d-flex justify-content-center align-items-center">
-                            <button type="submit" class="btn btn-primary mb-2 text-center">Fer reserva</button>
-                        </div> 
+                        <button type="submit" class="btn btn-primary mb-2 text-center" name="reservar">Fer reserva</button>
+                    </div> 
                     </form>
                 </div>
             </div>
