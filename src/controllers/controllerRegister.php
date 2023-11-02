@@ -1,6 +1,7 @@
 <?php
-function controllerentrar($request, $response, $container){
-    
+function controllerRegister($request, $response, $container){
+
+  
     $response->setTemplate("signup.php");
 
     return $response;

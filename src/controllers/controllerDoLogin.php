@@ -8,13 +8,12 @@ function controllerDoLogin($request, $response, $container){
     $userModel = $container->users();
 
     $userModel = $userModel->login($email, $password);
-
+    
     if($userModel) {
-
         $response->setSession("user", $userModel);
         $response->setSession("logged", true);
-        $response->redirect("location: index.php");
-        $response->setSession("name", $userModel['name']);
+        $response->redirect("location: index.php?r=compte");
+        
 
     } else {
         $response->redirect("location: index.php?r=login");
