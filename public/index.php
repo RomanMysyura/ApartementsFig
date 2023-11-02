@@ -6,7 +6,7 @@ include "../src/config.php";
 include '../src/controllers/controllerindex.php';
 include '../src/controllers/menu.php';
 include '../src/controllers/controllerDoRegister.php';
-include '../src/controllers/login.php';
+include '../src/controllers/controllerLogin.php';
 include '../src/controllers/reservar.php';
 include '../src/controllers/controllerContactar.php';
 include '../src/controllers/ubicacio.php';
@@ -19,6 +19,7 @@ include "../src/controllers/controllerDoLogin.php";
 include "../src/controllers/controllerDeleteUser.php";
 include "../src/controllers/controllerAddUser.php";
 include "../src/controllers/controllerUpdateApartment.php";
+include "../src/controllers/controllerAddApartment.php";
 
 
 // Middleware
@@ -84,6 +85,8 @@ if ($r == '') {
     controllerAddUser($request, $response, $container);
 }else if($r == 'updateapartment') {
     controllerUpdateApartment($request, $response, $container);
+}else if($r == 'addapartment') {
+    controllerAddApartment($request, $response, $container);
 }
 
 

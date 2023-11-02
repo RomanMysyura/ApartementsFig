@@ -15,7 +15,7 @@ function controllerUpdateApartment($request, $response, $container){
         $priceHighSeason = $_POST["price_day_high_season"];
 
         // Ejecuta la consulta SQL para actualizar el apartamento
-        $container->users()->updateApartment(
+        $container->apartaments()->updateApartment(
             $apartmentId,
             $title,
             $postalAddress,
