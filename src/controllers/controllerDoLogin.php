@@ -13,6 +13,7 @@ function controllerDoLogin($request, $response, $container){
         $response->setSession("user", $userModel);
         $response->setSession("logged", true);
         $response->redirect("location: index.php?r=compte");
+
         
 
     } else {

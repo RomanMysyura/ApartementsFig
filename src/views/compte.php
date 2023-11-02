@@ -135,7 +135,6 @@
                     $numeroreservanum = 1;
                     foreach($reservations as $reservation) { 
                         ?>
-
                     <div class="p-3">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">

@@ -37,13 +37,15 @@
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.php?r=login">Iniciar sessió</a>
+                                <a class="dropdown-item" href="index.php?r=login">Iniciar sessió</a> 
                             </li>
                       
                             <li>
                                 <a class="dropdown-item" href="index.php?r=signup"><strong>Registrar-se</strong></a>
                             </li>
                             <li>
+                                <?php ?>
+
                                 <a class="dropdown-item" href="index.php?r=logout"><strong>Tancar sessió</strong></a>
                             </li>
 
