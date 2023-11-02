@@ -12,8 +12,6 @@
 <body>
 <h1 class="panelusuaris">Usuaris</h1>
     
-    <?php include '../src/models/paneldecontrol.php';?>
-
     <div class="taulausuaris scrollable-table">
         <table class="table table-striped">
             <thead class="thead-dark">
@@ -45,7 +43,7 @@
                                 }
                     ?></td>
                     <td>
-                        <form method="post" action="">
+                        <form method="post" action="index.php?r=deleteuser">
                             <input type="hidden" name="user_id" value="<?= $user['id_user'] ?>">
                             <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
@@ -68,7 +66,7 @@
             </div>
     <div class="taulausuaris scrollable-table">
     
-    <form method="POST" action="">
+    <form method="POST" action="index.php?r=adduser">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -83,7 +81,6 @@
                 </tr>
             </thead>
             <tbody>
-                
                 <tr>
                     <th><input type="hidden" id="formularipanel" name="formularipanel" value="1"></th>
                     <td><input type="text" class="form-control" id="name" name="name" placeholder="Nom" required></td>
@@ -140,7 +137,7 @@
         <tbody>
             <?php foreach ($apartments as $apartment): ?>
                 <tr>
-                    <form method="POST" action="">
+                    <form method="POST" action="index.php?r=updateapartment">
                         <input type="hidden" name="apartment_id" value="<?= $apartment['id_apartment'] ?>">
                         <td><?= $apartment['id_apartment'] ?></td>
                         <td><input type="text" name="title" value="<?= $apartment['title'] ?>"></td>

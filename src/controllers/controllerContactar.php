@@ -1,7 +1,9 @@
 <?php
 function controllercontactar($request, $response, $container){
-    
-    $response->setTemplate("contactar.php");
+    $users = $container->users()->selectAllUsers();
+
+    $response->set("users", $users);
+    $response->setTemplate("paneldecontrol.php");
 
     return $response;
     
