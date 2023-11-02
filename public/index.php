@@ -66,7 +66,6 @@ if ($r == '') {
     controllerinfoapartaments($request, $response, $container);
 } else if ($r == 'compte'){
     isLogged($request, $response, $container, "controllerCompte");
-    
 } else if ($r == 'logout'){
     controllerDoLogout($request, $response, $container);
 }else if ($r == 'paneldecontrol'){

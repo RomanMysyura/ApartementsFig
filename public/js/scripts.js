@@ -48,5 +48,5 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 var marker = L.marker([latitude, length]).addTo(map);
 
-
-
+console.log(latitude);
+console.log(length);

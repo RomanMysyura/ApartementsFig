@@ -1,13 +1,5 @@
-<?php include '../src/models/infoapartaments.php';?>
-<?php include '../src/models/reserva.php';?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title><?= $apartment['title']; ?></title>
-</head>
-<body>
-    <?php include '../src/views/menu.php'; ?>
+    
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
@@ -58,11 +50,7 @@
         </div>
     </div>
 
-    <div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
+    
 
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
             integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="

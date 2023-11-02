@@ -1,9 +1,6 @@
 <?php
 function controllerindex($request, $response, $container){
 
-
-
-
     $startDate = $request->get(INPUT_GET, "startDate");
     $endDate = $request->get(INPUT_GET, "endDate");
     $numRooms = $request->get(INPUT_GET, "numRooms");
@@ -13,7 +10,6 @@ function controllerindex($request, $response, $container){
     } else {
         $apartaments = $container->apartaments()->getAll();
     }
-
 
     $response->set("apartaments", $apartaments);
 
