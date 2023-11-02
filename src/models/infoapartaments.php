@@ -20,8 +20,7 @@ if (isset($_GET['id'])) {
             'Descripció' => $apartment['short_description'],
             'Metres quadrats' => $apartment['square_metres'],
             'Número d\'habitacions' => $apartment['number_rooms'],
-            'Serveis i extres' => $apartment['services_extra'],
-            'Reserva' => $apartment['start_date'] . ' - ' .  $apartment['end_date']
+            'Serveis i extres' => $apartment['services_extra']
         );
     }
 

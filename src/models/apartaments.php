@@ -1,63 +1,34 @@
 <?php
-include '../src/models/ModelConnectBDD.php';
 
-$error_message = "";
+namespace Daw;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+class Apartaments {
+    private $sql;
 
-    $startDate = $_POST['startDate'];
-    $endDate = $_POST['endDate'];
-    $numRooms = $_POST['numRooms'];
-
-    if (!empty($startDate) && !empty($endDate) && !empty($numRooms)) {
-        $sql = "SELECT * FROM apartment WHERE start_date = :startDate AND end_date = :endDate AND number_rooms = :numRooms";
-    } else if (!empty($startDate) && !empty($endDate)) {
-        $sql = "SELECT * FROM apartment WHERE start_date = :startDate AND end_date = :endDate";
-    } else if (!empty($startDate) && !empty($numRooms)) {
-        $sql = "SELECT * FROM apartment WHERE start_date = :startDate AND number_rooms = :numRooms";
-    } else if (!empty($endDate) && !empty($numRooms)) {
-        $sql = "SELECT * FROM apartment WHERE end_date = :endDate AND number_rooms = :numRooms";
-    } else if (!empty($startDate)) {
-        $sql = "SELECT * FROM apartment WHERE start_date = :startDate";
-    } else if (!empty($endDate)) {
-        $sql = "SELECT * FROM apartment WHERE end_date = :endDate";
-    } else if (!empty($numRooms)) {
-        $sql = "SELECT * FROM apartment WHERE number_rooms = :numRooms";
+    public function __construct($sql) {
+        $this->sql = $sql;
     }
 
-    $stmt = $conn->prepare($sql);
-
-    if (!empty($startDate) && !empty($endDate) && !empty($numRooms)) {
-        $stmt->bindParam(":startDate", $startDate);
-        $stmt->bindParam(":endDate", $endDate);
-        $stmt->bindParam(":numRooms", $numRooms);
-    } elseif (!empty($startDate) && !empty($endDate)) {
-        $stmt->bindParam(":startDate", $startDate);
-        $stmt->bindParam(":endDate", $endDate);
-    } elseif (!empty($startDate) && !empty($numRooms)) {
-        $stmt->bindParam(":startDate", $startDate);
-        $stmt->bindParam(":numRooms", $numRooms);
-    } elseif (!empty($endDate) && !empty($numRooms)) {
-        $stmt->bindParam(":endDate", $endDate);
-        $stmt->bindParam(":numRooms", $numRooms);
-    } elseif (!empty($startDate)) {
-        $stmt->bindParam(":startDate", $startDate);
-    } elseif (!empty($endDate)) {
-        $stmt->bindParam(":endDate", $endDate);
-    } elseif (!empty($numRooms)) {
-        $stmt->bindParam(":numRooms", $numRooms);
-    } 
-
-    try {
+    public function getAll() {
+        $query = "SELECT * FROM apartment";
+        $stmt = $this->sql->prepare($query);
         $stmt->execute();
-    } catch (PDOException $e) {
-        $error_message = "Error en la consulta: " . $e->getMessage();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
     }
-    
-} else {
+    public function getAllSearch($startDate, $endDate, $numRooms) {
 
-    $sql = "SELECT * FROM apartment";
-    $stmt = $conn->query($sql);
+        $query = "SELECT * FROM apartment WHERE start_date <= :startDate AND end_date >= :endDate AND number_rooms >= :numRooms";
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindValue(':startDate', $startDate);
+        $stmt->bindValue(':endDate', $endDate);
+        $stmt->bindValue(':numRooms', $numRooms);
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
+        return $result;
+
+    }
 }
 ?>

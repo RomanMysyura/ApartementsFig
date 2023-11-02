@@ -1,5 +1,3 @@
-<?php include '../src/models/login.php';?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +20,7 @@
                         <img src="/img/ApartamentsFiguerencs2.ico" alt="ApartamentsFiguerencs" width="100px" height="100px">
                     </div>
                     <form action="" method="POST">
+                        <input type="hidden" name="r" value="dologin">
                         <div class="mb-3">
                             <label for="email" class="form-label text-white">Correu electrònic</label>
                             <div class="input-group">
