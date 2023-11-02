@@ -12,7 +12,7 @@ function controllerDoLogin($request, $response, $container){
     if($userModel) {
         $response->setSession("user", $userModel);
         $response->setSession("logged", true);
-        $response->redirect("location: index.php?r=compte");
+        $response->redirect("location: index.php?r=compte"); //dsf
 
         
 
