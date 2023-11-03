@@ -1,6 +1,4 @@
 <?php
-
-
 // Config.php
 include "../src/config.php";
 
@@ -9,25 +7,31 @@ include '../src/controllers/controllerindex.php';
 include '../src/controllers/menu.php';
 include '../src/controllers/footer.php';
 include '../src/controllers/controllerDoRegister.php';
-include '../src/controllers/login.php';
+include '../src/controllers/controllerLogin.php';
 include '../src/controllers/reservar.php';
 include '../src/controllers/controllerContactar.php';
 include '../src/controllers/ubicacio.php';
 include '../src/controllers/controllerRegister.php';
-include '../src/controllers/infoapartaments.php';
+include '../src/controllers/controllerUpdateUser.php';
 include '../src/controllers/controllerCompte.php';
 include '../src/controllers/controllerDoLogout.php';
 include '../src/controllers/paneldecontrol.php';
-include '../src/controllers/controllerDoReservas.php';
 
 include "../src/controllers/controllerDoLogin.php";
+include "../src/controllers/controllerDeleteUser.php";
+include "../src/controllers/controllerAddUser.php";
+include "../src/controllers/controllerUpdateApartment.php";
+include "../src/controllers/controllerAddApartment.php";
+include "../src/controllers/controllerDeleteReservation.php";
 
+// Middleware//
 include "../src/middleware/isLogged.php";
 
 // Models
 include '../src/models/connection.php';
 include '../src/models/apartaments.php';
 include '../src/models/users.php';
+include '../src/models/reserves.php';
 
 // Llibreria
 include '../src/views/libs.php';
@@ -70,14 +74,12 @@ if ($r == '') {
     isLogged($request, $response, $container, "controllerCompte");
 } else if ($r == 'logout'){
     controllerDoLogout($request, $response, $container);
-}else if ($r == 'paneldecontrol'){
-    controllerpaneldecontrol($request, $response, $container);
+} else if ($r == 'paneldecontrol'){
+    controllerPanelDeControl($request, $response, $container);
 } else if($r == 'dologin') {
     controllerDoLogin($request, $response, $container);
-}else if($r == 'doregister') {
+} else if($r == 'doregister') {
     controllerRegister($request, $response, $container);
-} else if($r == 'doreserva') {
-    controllerDoReservas($request, $response, $container);
-} 
+}
 
 $response->response();

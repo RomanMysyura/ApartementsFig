@@ -1,21 +1,27 @@
 
-
-// Serveix per obrir o tencar els formularis de canvi de dades del usuari
 $(document).ready(function() {
     $("#mostrarFormulariName").click(function() {
-        $("#formulariName").toggle(); // Formulari per cambiar el Nom
+        $("#formulariName").show();
     });
+});
+$(document).ready(function() {
     $("#mostrarFormulariSurName").click(function() {
-        $("#formulariSurName").toggle(); // Formulari per cambiar el Cognom
+        $("#formulariSurName").show();
     });
+});
+$(document).ready(function() {
     $("#mostrarFormulariTelephone").click(function() {
-        $("#formulariTelephone").toggle(); // Formulari per cambiar el Telefon
+        $("#formulariTelephone").show();
     });
+});
+$(document).ready(function() {
     $("#mostrarFormulariEmail").click(function() {
-        $("#formulariEmail").toggle(); // Formulari per cambiar el Email
+        $("#formulariEmail").show();
     });
+});
+$(document).ready(function() {
     $("#mostrarFormulariCard").click(function() {
-        $("#formulariCard").toggle(); // Formulari per cambiar la tarjeta de crédit
+        $("#formulariCard").show();
     });
 });
 

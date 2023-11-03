@@ -16,103 +16,32 @@
                     </div>
                     <h1 class="mt-1 text-center text-white">DADES PERSONALS</h1>
                     <div class="p-3">
-                        <ul class="list-group list-group-flush rounded">
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="ms-2">
-                                        <div class="fw-bold">Nom:</div>
-                                        <?php echo $users[0]["name"]; ?>
-                                    </div>
-                                    <a id="mostrarFormulariName" class="float-end">
-                                        <button class="btneditar btn-settings">Editar</button>
-                                    </a>
-                                </div>
-                            </li>
-                            <form id="formulariName" method="post" action="" class="text-center" style="display: none;">
-                                <div class="mb-3">
-                                    <label for="name" class="form-label text-white"></label>
-                                    <input type="tel" class="texteditdades" id="name" name="name" placeholder="Nom" required>
-                                </div>
-                                <button type="submit" class="confirmaredit">Confirmar</button>
-                            </form>
 
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="ms-2">
-                                        <div class="fw-bold">Cognoms:</div>
-                                        <?php echo $users[0]["last_name"]; ?>
-                                    </div>
-                                    <a id="mostrarFormulariSurName" class="float-end">
-                                        <button class="btneditar btn-settings">Editar</button>
-                                    </a>
-                                </div>
-                            </li>
-                            <form id="formulariSurName" method="post" action="" class="text-center" style="display: none;">
-                                <div class="mb-3">
-                                    <label for="last_name" class="form-label"></label>
-                                    <input type="tel" class="texteditdades" id="last_name" name="last_name" placeholder="Cognom" required>
-                                </div>
-                                <button type="submit" class="confirmaredit">Confirmar</button>
-                            </form>
-
-
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="ms-2">
-                                        <div class="fw-bold">Telèfon:</div>
-                                        <?php echo $users[0]["telephone"]; ?>
-                                    </div>
-                                    <a id="mostrarFormulariTelephone" class="float-end">
-                                        <button class="btneditar btn-settings">Editar</button>
-                                    </a>
-                                </div>
-                            </li>
-                            <form id="formulariTelephone" method="post" action="" class="text-center" style="display: none;">
-                                <div class="mb-3">
-                                    <label for="telephone" class="form-label"></label>
-                                    <input type="tel" class="texteditdades" id="telephone" name="telephone" placeholder="987654321" required>
-                                </div>
-                                <button type="submit" class="confirmaredit">Confirmar</button>
-                            </form>
-
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="ms-2">
-                                        <div class="fw-bold">Correu Electrònic:</div>
-                                        <?php echo $users[0]["email"]; ?>
-                                    </div>
-                                    <a id="mostrarFormulariEmail" class="float-end">
-                                        <button class="btneditar btn-settings">Editar</button>
-                                    </a>
-                                </div>
-                            </li>
-                            <form id="formulariEmail" method="post" action="" class="text-center" style="display: none;">
-                                <div class="mb-3">
-                                    <label for="email" class="form-label"></label>
-                                    <input type="text" class="texteditdades" id="email" name "email" placeholder="1234567891011121" required>
-                                </div>
-                                <button type="submit" class="confirmaredit">Confirmar</button>
-                            </form>
-
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="ms-2">
-                                        <div class="fw-bold">Tarjeta de crèdit:</div>
-                                        <?php echo $users[0]["card_number"]; ?>
-                                    </div>
-                                    <a id="mostrarFormulariCard" class="float-end">
-                                        <button class="btneditar btn-settings">Editar</button>
-                                    </a>
-                                </div>
-                            </li>
-                            <form id="formulariCard" method="post" action="" class="text-center" style="display: none;">
-                                <div class="mb-3">
-                                    <label for="credit_card" class="form-label"></label>
-                                    <input type="text" class="texteditdades" id="credit_card" name="credit_card" placeholder="1234567891011121" required>
-                                </div>
-                                <button type="submit" class="confirmaredit">Confirmar</button>
-                            </form>
-                        </ul>
+                    <form id="formulariName" method="post" action="index.php?r=updateuser" class="text-center">
+                            
+                            <div class="mb-1">
+                                <p class="textform">Nom</p>
+                                <input type="text" class="texteditdades" id="name" name="name" value="<?php echo $users[0]["name"]; ?>" placeholder="Nom" required>
+                            </div>
+                            <div class="mb-1">
+                                <p class="textform">Cognom:</p>
+                                <input type="text" class="texteditdades" id="last_name" name="last_name" value="<?php echo $users[0]["last_name"]; ?>" required>
+                            </div>
+                            <div class="mb-1">
+                                <p class="textform">Telèfon:</p>
+                                <input type="text" class="texteditdades" id="telephone" name="telephone" value="<?php echo $users[0]["telephone"]; ?>" required>
+                            </div>
+                            <div class="mb-1">
+                                <p class="textform">Correu Electrònic:</p>
+                                <input type="text" class="texteditdades" id="email" name="email" value="<?php echo $users[0]["email"]; ?>" required>
+                            </div>
+                            <div class="mb-1">
+                                <p class="textform">Tarjeta de crèdit:</p>
+                                <input type="text" class="texteditdades" id="card_number" name="card_number" value="<?php echo $users[0]["card_number"]; ?>" required>
+                            </div>
+                            
+                            <button type="submit" class="confirmaredit">Confirmar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -157,11 +86,12 @@
                     <?php
                         $numeroreserva++;
                         $numeroreservanum++;
-                    }
-                    ?>
+                        } ?>
                 </div>
             </div>
         </div>
+    </div>
+    
     </div>
 </body>
 </html>

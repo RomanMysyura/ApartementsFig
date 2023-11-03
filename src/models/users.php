@@ -16,13 +16,33 @@ class Users {
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
-    public function selectReservation($id){
-        $query = "SELECT r.* FROM reservation r INNER JOIN users u ON r.id_user = u.id_user WHERE u.id_user = :id";
+    public function selectAllUsers(){
+        $query = "SELECT * FROM users";
         $stmt = $this->sql->prepare($query);
-        $stmt->execute([':id' => $id]);
+        $stmt->execute();
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
+    public function deleteUser($id) {
+        $query = "DELETE FROM users WHERE id_user = :id";
+        $stmt = $this->sql->prepare($query);
+        $stmt->execute([':id' => $id]);
+    }
+    
+    public function addUser($name, $last_name, $telephone, $email, $password, $id_role) {
+        $query = "INSERT INTO users (name, last_name, telephone, email, password, id_role) VALUES (:name, :last_name, :telephone, :email, :password, :id_role)";
+        $stmt = $this->sql->prepare($query);
+        $stmt->execute([
+            ':name' => $name,
+            ':last_name' => $last_name,
+            ':telephone' => $telephone,
+            ':email' => $email,
+            ':password' => $password,
+            ':id_role' => $id_role
+        ]);
+    }
+
+   
 
     public function login($email, $password){
         $stm = $this->sql->prepare('select * from users where email=:email;');
@@ -43,6 +63,27 @@ class Users {
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
+
+
+    public function updateUser($id_user, $name, $last_name, $telephone, $email, $card_number) {
+        $query = "UPDATE users SET name = :name, last_name = :last_name, telephone = :telephone, email = :email, card_number = :card_number WHERE id_user = :id_user";
+        $stmt = $this->sql->prepare($query);
+        $stmt->execute([
+            ':id_user' => $id_user,
+            ':name' => $name,
+            ':last_name' => $last_name,
+            ':telephone' => $telephone,
+            ':email' => $email,
+            ':card_number' => $card_number
+        ]);
+    }
+    
+    
+    
+    
+    
 }
+
+
 
 ?>
