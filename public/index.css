@@ -345,5 +345,40 @@ body {
 }
 
 .btnopenform{
-    background-color: #00d841 !important;
+    background-color: #9b9b9b !important;
+    width: 100%;
+    color: #000000 !important;
+    border-radius: 0px !important;
+    font-size: 20px !important;
+}
+.inputapart{
+    border-radius: 5px;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.inputtitol{
+    width: 100px;
+    
+}
+.inputlenilat{
+    width: 70px;
+}
+.inputdescripciocurta{
+    width: 400px;
+}
+.inpumq{
+    width: 55px;
+}
+.innumhab{
+    width: 40px;
+}
+.inputextra{
+    width: 200px;
+}
+.inputprice{
+    width: 55px;
+}
+.tdapart{
+    padding-left: 3px !important;
+    padding-right: 3px !important;
 }

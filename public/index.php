@@ -20,15 +20,16 @@ include "../src/controllers/controllerDeleteUser.php";
 include "../src/controllers/controllerAddUser.php";
 include "../src/controllers/controllerUpdateApartment.php";
 include "../src/controllers/controllerAddApartment.php";
+include "../src/controllers/controllerDeleteReservation.php";
 
-
-// Middleware
+// Middleware//
 include "../src/middleware/isLogged.php";
 
 // Models
 include '../src/models/connection.php';
 include '../src/models/apartaments.php';
 include '../src/models/users.php';
+include '../src/models/reserves.php';
 
 // Llibreria
 include '../src/views/libs.php';
@@ -71,22 +72,24 @@ if ($r == '') {
     isLogged($request, $response, $container, "controllerCompte");
 } else if ($r == 'logout'){
     controllerDoLogout($request, $response, $container);
-}else if ($r == 'paneldecontrol'){
+} else if ($r == 'paneldecontrol'){
     controllerPanelDeControl($request, $response, $container);
 } else if($r == 'dologin') {
     controllerDoLogin($request, $response, $container);
-}else if($r == 'doregister') {
+} else if($r == 'doregister') {
     controllerRegister($request, $response, $container);
-}else if($r == 'updateuser') {
+} else if($r == 'updateuser') {
     controllerUpdateUser($request, $response, $container);
-}else if($r == 'deleteuser') {
+} else if($r == 'deleteuser') {
     controllerDeleteUser($request, $response, $container);
-}else if($r == 'adduser') {
+} else if($r == 'adduser') {
     controllerAddUser($request, $response, $container);
-}else if($r == 'updateapartment') {
+} else if($r == 'updateapartment') {
     controllerUpdateApartment($request, $response, $container);
-}else if($r == 'addapartment') {
+} else if($r == 'addapartment') {
     controllerAddApartment($request, $response, $container);
+} else if($r == 'deletereservation') {
+    controllerDeleteReservation($request, $response, $container);
 }
 
 
