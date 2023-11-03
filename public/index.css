@@ -1,11 +1,5 @@
 body {
-    margin: auto;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow: auto;
-    background: linear-gradient(315deg, rgba(101, 0, 94, 1) 3%, rgba(60, 132, 206, 1) 38%, rgba(48, 238, 226, 1) 68%, rgba(255, 25, 25, 1) 98%);
-    animation: gradient 15s ease infinite;
-    background-size: 400% 400%;
-    background-attachment: fixed;
+    background-color: #dbdbdb !important;
 }
 
 @keyframes gradient {
@@ -22,53 +16,8 @@ body {
     }
 }
 
-.wave {
-    background: rgb(255 255 255 / 25%);
-    border-radius: 1000% 1000% 0 0;
-    position: fixed;
-    width: 200%;
-    height: 12em;
-    animation: wave 10s -3s linear infinite;
-    transform: translate3d(0, 0, 0);
-    opacity: 0.8;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-}
 
-.wave:nth-of-type(2) {
-    bottom: -1.25em;
-    animation: wave 18s linear reverse infinite;
-    opacity: 0.8;
-}
 
-.wave:nth-of-type(3) {
-    bottom: -2.5em;
-    animation: wave 20s -1s reverse infinite;
-    opacity: 0.9;
-}
-
-@keyframes wave {
-    2% {
-        transform: translateX(1);
-    }
-
-    25% {
-        transform: translateX(-25%);
-    }
-
-    50% {
-        transform: translateX(-50%);
-    }
-
-    75% {
-        transform: translateX(-25%);
-    }
-
-    100% {
-        transform: translateX(1);
-    }
-}
 
 .titolpagina {
     text-align: center;
@@ -194,25 +143,7 @@ body {
 
 
 
-.texteditdades {
 
-    box-shadow: inset #abacaf 0 0 0 2px;
-    border: 0;
-    background: rgba(141, 116, 116, 0);
-    appearance: none;
-    width: 100%;
-    position: relative;
-    border-radius: 3px;
-    padding: 9px 12px;
-    line-height: 1.4;
-    color: rgb(0, 0, 0);
-    font-size: 16px;
-    font-weight: 400;
-    height: 40px;
-    transition: all .2s ease;
-
-
-}
 
 .texteditdades:hover {
     box-shadow: 0 0 0 0 #fff inset, #061bda 0 0 0 2px;
@@ -225,7 +156,7 @@ body {
 }
 
 .confirmaredit {
-
+    margin-top: 10px;
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -235,7 +166,6 @@ body {
     border-radius: 8px;
     padding: 13px 23px;
     border: 1px solid #222222;
-    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
     background: #fff;
     color: #222222;
 
@@ -351,19 +281,9 @@ body {
     font-weight: 700;
     margin-left: 10px;
 }
-.modal-body{
-    padding: 0px !important;
 
-}
-.modal-content{
-    padding: 0px !important;
-    border-color: #000000 !important;
-}
-.modal-dialog{
-    background-color: #ffffff !important;
-    
-    border-radius: 8px !important;
-}
+
+
 .imgmodal{
     
     border-radius: 5px !important;
@@ -380,4 +300,50 @@ body {
 }
 .descripcioapartment{
     margin-left: 25px;
+}
+
+.textform{
+    
+    color: white;
+    margin-bottom: 2px !important;
+    margin-top: 0px;
+    text-align: left; 
+}
+.texteditdades {
+    border: 0;
+    background: #212529;
+    appearance: none;
+    width: 100%;
+    position: relative;
+    border-radius: 3px;
+    padding: 9px 12px;
+    line-height: 1.4;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 400;
+    height: 35px;
+    transition: all .2s ease;
+    border-bottom: 2px solid rgb(255, 255, 255); /* Agrega una línea negra debajo del input */
+}
+
+
+.texteditdades:focus {
+    background: black;
+    outline: 0;
+    box-shadow: rgb(0, 0, 0)0 0 #fff inset, #03c091 0 0 0 3px;
+}
+
+.accordion-button{
+    background-color: #b3b3b3 !important;
+}
+.accordion-body{
+    background-color: #ffffff !important;
+}
+.accordion-item{
+    border: 0px solid !important; 
+
+}
+
+.btnopenform{
+    background-color: #00d841 !important;
 }

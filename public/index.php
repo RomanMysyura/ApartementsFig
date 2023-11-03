@@ -1,6 +1,4 @@
 <?php
-
-
 // Config.php
 include "../src/config.php";
 
@@ -8,18 +6,23 @@ include "../src/config.php";
 include '../src/controllers/controllerindex.php';
 include '../src/controllers/menu.php';
 include '../src/controllers/controllerDoRegister.php';
-include '../src/controllers/login.php';
+include '../src/controllers/controllerLogin.php';
 include '../src/controllers/reservar.php';
 include '../src/controllers/controllerContactar.php';
 include '../src/controllers/ubicacio.php';
 include '../src/controllers/controllerRegister.php';
-include '../src/controllers/infoapartaments.php';
+include '../src/controllers/controllerUpdateUser.php';
 include '../src/controllers/controllerCompte.php';
 include '../src/controllers/controllerDoLogout.php';
-include '../src/controllers/paneldecontrol.php';
-
+include '../src/controllers/controllerPanelDeControl.php';
 include "../src/controllers/controllerDoLogin.php";
+include "../src/controllers/controllerDeleteUser.php";
+include "../src/controllers/controllerAddUser.php";
+include "../src/controllers/controllerUpdateApartment.php";
+include "../src/controllers/controllerAddApartment.php";
 
+
+// Middleware
 include "../src/middleware/isLogged.php";
 
 // Models
@@ -66,15 +69,25 @@ if ($r == '') {
     controllerinfoapartaments($request, $response, $container);
 } else if ($r == 'compte'){
     isLogged($request, $response, $container, "controllerCompte");
-    
 } else if ($r == 'logout'){
     controllerDoLogout($request, $response, $container);
 }else if ($r == 'paneldecontrol'){
-    controllerpaneldecontrol($request, $response, $container);
+    controllerPanelDeControl($request, $response, $container);
 } else if($r == 'dologin') {
     controllerDoLogin($request, $response, $container);
 }else if($r == 'doregister') {
     controllerRegister($request, $response, $container);
+}else if($r == 'updateuser') {
+    controllerUpdateUser($request, $response, $container);
+}else if($r == 'deleteuser') {
+    controllerDeleteUser($request, $response, $container);
+}else if($r == 'adduser') {
+    controllerAddUser($request, $response, $container);
+}else if($r == 'updateapartment') {
+    controllerUpdateApartment($request, $response, $container);
+}else if($r == 'addapartment') {
+    controllerAddApartment($request, $response, $container);
 }
+
 
 $response->response();
