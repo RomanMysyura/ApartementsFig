@@ -5,7 +5,7 @@
     <?php require "menu.php" ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Usuarios</title>
+    <title>Editar Usuaris</title>
     <script src="js/scripts.js"></script>
 </head>
 
@@ -66,7 +66,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 80%;">
         <div class="modal-content">
             <div class="taulaapartaments scrollable-table">
-            <form method="POST" action="index.php?r=adduser">
+            <form method="POST" action="index.php?r=adduser"> 
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
