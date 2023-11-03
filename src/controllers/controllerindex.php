@@ -10,7 +10,7 @@ function controllerindex($request, $response, $container){
     } else {
         $apartaments = $container->apartaments()->getAll();
     }
-
+    
     $response->set("apartaments", $apartaments);
 
     $response->setTemplate("index.php");

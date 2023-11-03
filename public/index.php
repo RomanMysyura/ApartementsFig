@@ -7,6 +7,7 @@ include "../src/config.php";
 // Controllers
 include '../src/controllers/controllerindex.php';
 include '../src/controllers/menu.php';
+include '../src/controllers/footer.php';
 include '../src/controllers/controllerDoRegister.php';
 include '../src/controllers/login.php';
 include '../src/controllers/reservar.php';
@@ -17,6 +18,7 @@ include '../src/controllers/infoapartaments.php';
 include '../src/controllers/controllerCompte.php';
 include '../src/controllers/controllerDoLogout.php';
 include '../src/controllers/paneldecontrol.php';
+include '../src/controllers/controllerDoReservas.php';
 
 include "../src/controllers/controllerDoLogin.php";
 
@@ -74,6 +76,8 @@ if ($r == '') {
     controllerDoLogin($request, $response, $container);
 }else if($r == 'doregister') {
     controllerRegister($request, $response, $container);
-}
+} else if($r == 'doreserva') {
+    controllerDoReservas($request, $response, $container);
+} 
 
 $response->response();

@@ -30,5 +30,8 @@ class Apartaments {
         return $result;
 
     }
+
+    
+
 }
 ?>
