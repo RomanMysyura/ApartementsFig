@@ -281,19 +281,9 @@ body {
     font-weight: 700;
     margin-left: 10px;
 }
-.modal-body{
-    padding: 0px !important;
 
-}
-.modal-content{
-    padding: 0px !important;
-    border-color: #000000 !important;
-}
-.modal-dialog{
-    background-color: #ffffff !important;
-    
-    border-radius: 8px !important;
-}
+
+
 .imgmodal{
     
     border-radius: 5px !important;
@@ -344,7 +334,7 @@ body {
 }
 
 .accordion-button{
-    background-color: #0D6EFD !important;
+    background-color: #b3b3b3 !important;
 }
 .accordion-body{
     background-color: #ffffff !important;
@@ -352,4 +342,8 @@ body {
 .accordion-item{
     border: 0px solid !important; 
 
+}
+
+.btnopenform{
+    background-color: #00d841 !important;
 }
