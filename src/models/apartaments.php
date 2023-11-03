@@ -17,6 +17,8 @@ class Apartaments {
 
         return $result;
     }
+    
+    
     public function getAllSearch($startDate, $endDate, $numRooms) {
 
         $query = "SELECT * FROM apartment WHERE start_date <= :startDate AND end_date >= :endDate AND number_rooms >= :numRooms";
