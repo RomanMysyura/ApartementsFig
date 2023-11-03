@@ -17,7 +17,7 @@ class Reserves {
         return $result;
     }
     public function deleteReservation($reservationId) {
-        $query = "DELETE FROM reservation WHERE id_reserved = :reservationId";
+        $query = "DELETE FROM reservation WHERE id_reserved = :reservationId"; 
         $stmt = $this->sql->prepare($query);
         $stmt->bindValue(':reservationId', $reservationId);
         $stmt->execute();

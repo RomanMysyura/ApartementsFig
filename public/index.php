@@ -22,7 +22,7 @@ include "../src/controllers/controllerUpdateApartment.php";
 include "../src/controllers/controllerAddApartment.php";
 include "../src/controllers/controllerDeleteReservation.php";
 
-// Middleware
+// Middleware//
 include "../src/middleware/isLogged.php";
 
 // Models
