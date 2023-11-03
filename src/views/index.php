@@ -9,7 +9,7 @@
     <div class="container mt-5">
     <div class="divapartaments">
         <?php foreach ($apartaments as $apartament) { ?>
-            <div class="card">
+            <div class="card" id="card">
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">

@@ -266,11 +266,11 @@ body {
     margin-bottom: 0px;
 }
 
-.card {
+#card {
     transition: transform 0.3s; /* Aplica una transición suave de 0.3 segundos al transform */
 }
 
-.card:hover {
+#card:hover {
     transform: scale(1.1); /* Escala la tarjeta en un 110% en el hover */
 }
 

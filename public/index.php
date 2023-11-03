@@ -5,7 +5,6 @@ include "../src/config.php";
 // Controllers
 include '../src/controllers/controllerindex.php';
 include '../src/controllers/menu.php';
-include '../src/controllers/footer.php';
 include '../src/controllers/controllerDoRegister.php';
 include '../src/controllers/controllerLogin.php';
 include '../src/controllers/reservar.php';
@@ -15,8 +14,7 @@ include '../src/controllers/controllerRegister.php';
 include '../src/controllers/controllerUpdateUser.php';
 include '../src/controllers/controllerCompte.php';
 include '../src/controllers/controllerDoLogout.php';
-include '../src/controllers/paneldecontrol.php';
-
+include '../src/controllers/controllerPanelDeControl.php';
 include "../src/controllers/controllerDoLogin.php";
 include "../src/controllers/controllerDeleteUser.php";
 include "../src/controllers/controllerAddUser.php";
@@ -80,6 +78,19 @@ if ($r == '') {
     controllerDoLogin($request, $response, $container);
 } else if($r == 'doregister') {
     controllerRegister($request, $response, $container);
+} else if($r == 'updateuser') {
+    controllerUpdateUser($request, $response, $container);
+} else if($r == 'deleteuser') {
+    controllerDeleteUser($request, $response, $container);
+} else if($r == 'adduser') {
+    controllerAddUser($request, $response, $container);
+} else if($r == 'updateapartment') {
+    controllerUpdateApartment($request, $response, $container);
+} else if($r == 'addapartment') {
+    controllerAddApartment($request, $response, $container);
+} else if($r == 'deletereservation') {
+    controllerDeleteReservation($request, $response, $container);
 }
+
 
 $response->response();
