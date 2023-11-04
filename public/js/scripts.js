@@ -13,43 +13,34 @@ $(document).ready(function() {
 var apartamentId = $(this).data("apartament-id");
 
 
-
-
-
-
-
-
-
 $(document).ready(function() {
     // Agrega un evento click en las tarjetas de apartamentos
     $(".card-body").on("click", function() {
         var apartamentId = $(this).data("apartament-id");
+
+        // Limpia la información anterior en la ventana modal
+        var modal = $("#exampleModal");
+        modal.find(".modal-title").text("");
+        var modalBody = modal.find(".modal-body");
+        modalBody.html("");
 
         // Realiza una petición AJAX para obtener la información del apartamento
         $.ajax({
             type: "GET",
             url: "index.php?r=infoapartamentajax",
             data: { apartament_id: apartamentId },
-            ontentType: "application/json; charset=utf-8",
-            dataType: "json", // Especifica que esperas una respuesta en formato JSON
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
 
             success: function(data) {
+                console.log(data);
 
-                console.log(data)
                 if (data.length > 0) {
-                    var apartamento = data[0]; // El primer elemento del array
-
-                    console.log(apartamento)
+                    var apartamento = data[0];
 
                     // Llena el modal con la información obtenida
-                    var modal = $("#exampleModal");
                     modal.find(".modal-title").text(apartamento.title);
-
-                    // Llena el modal-body con los atributos específicos del apartamento
                     var modalBody = modal.find(".modal-body");
-                    modalBody.html(""); // Limpia cualquier contenido previo.
-
-                    // Agrega los atributos deseados al modal-body
                     modalBody.append("<p><strong>Short Description:</strong> " + apartamento.short_description + "</p>");
                     modalBody.append("<p><strong>Postal Address:</strong> " + apartamento.postal_address + "</p>");
                     modalBody.append("<p><strong>ID Apartment:</strong> " + apartamento.id_apartment + "</p>");
