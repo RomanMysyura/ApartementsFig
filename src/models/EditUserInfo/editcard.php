@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message = "Si us plau, completeu tots els camps del formulari.";
     } else {
         // Asegúrate de que la sesión esté iniciada para obtener el user_id
-        session_start();
+        
         if (isset($_SESSION['user_id'])) {
             $user_id = $_SESSION['user_id'];
 

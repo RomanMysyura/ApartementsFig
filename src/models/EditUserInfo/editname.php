@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include '../src/models/ModelConnectBDD.php';
 
     // Asegúrate de que la sesión esté iniciada
-    session_start();
+   
 
     // Obtener los datos del formulario
     $name = $_POST["name"] ?? "";
