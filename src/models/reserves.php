@@ -22,6 +22,16 @@ class Reserves {
         $stmt->bindValue(':reservationId', $reservationId);
         $stmt->execute();
     }
+    public function updateReservation($reservationId, $entryDate, $outputDate, $state) {
+        $query = "UPDATE reservation SET entry_date = :entryDate, output_date = :outputDate, state = :state WHERE id_reserved = :reservationId";
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindValue(':reservationId', $reservationId);
+        $stmt->bindValue(':entryDate', $entryDate);
+        $stmt->bindValue(':outputDate', $outputDate);
+        $stmt->bindValue(':state', $state);
+        $stmt->execute();
+    }
+    
     
 }
 

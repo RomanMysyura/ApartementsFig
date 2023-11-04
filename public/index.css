@@ -122,7 +122,7 @@ body {
     border: solid;
     /* Sin borde */
     padding: 10px 20px;
-    /* Relleno interno del botón */
+    /* Relleno interno del botóddn */
     border-radius: 8px;
     /* Radio de borde para bordes redondeados */
 
@@ -143,7 +143,7 @@ body {
 
 
 .texteditdades:hover {
-    box-shadow: 0 0 0 0 #fff inset, #061bda 0 0 0 2px;
+    box-shadow: 0 0 0 0 #fff inset, #ffffff 0 0 0 2px;
 }
 
 .texteditdades:focus {

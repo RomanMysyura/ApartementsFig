@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php require "menu.php" ?>
+    <?php require "menu.php" ?> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuaris</title>
@@ -138,16 +138,21 @@
             <?php foreach ($reservations as $reservation): ?>
             <tr>
                 <th scope="row"><?= $reservation['id_reserved'] ?></th>
-                <td><?= $reservation['entry_date'] ?></td>
-                <td><?= $reservation['output_date'] ?></td>
                 <td>
-                    <form method="post" action="index.php?r=updatestate">
+                    <form method="post" action="index.php?r=updatereservation">
+                        <input type="hidden" name="reservation_id" value="<?= $reservation['id_reserved'] ?>">
+                        <input type="date" name="entry_date" value="<?= $reservation['entry_date'] ?>">
+                </td>
+                <td>
+                    <input type="date" name="output_date" value="<?= $reservation['output_date'] ?>">
+                </td>
+                <td>
                         <input type="hidden" name="reservation_id" value="<?= $reservation['id_reserved'] ?>">
                         <select name="state">
                             <option value="Pending" <?= ($reservation['state'] === 'Pending') ? 'selected' : '' ?>>Pending</option>
                             <option value="Confirmed" <?= ($reservation['state'] === 'Confirmed') ? 'selected' : '' ?>>Confirmed</option>
                         </select>
-                        <button type="submit" class="btn btn-primary">Aplicar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
                 </td>
                 <td><?= $reservation['price'] ?></td>
