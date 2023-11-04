@@ -21,6 +21,8 @@ include "../src/controllers/controllerAddUser.php";
 include "../src/controllers/controllerUpdateApartment.php";
 include "../src/controllers/controllerAddApartment.php";
 include "../src/controllers/controllerDeleteReservation.php";
+include "../src/controllers/controllerUpdateReservation.php";
+
 
 // Middleware//
 include "../src/middleware/isLogged.php";
@@ -90,6 +92,8 @@ if ($r == '') {
     controllerAddApartment($request, $response, $container);
 } else if($r == 'deletereservation') {
     controllerDeleteReservation($request, $response, $container);
+}else if($r == 'updatereservation') {
+    controllerUpdateReservation($request, $response, $container);
 }
 
 
