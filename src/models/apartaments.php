@@ -109,6 +109,18 @@ class Apartaments {
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getApartamentInfoById($id) {
+        $query = "SELECT * FROM apartment WHERE id_apartment = :id";
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    
 }
 
     

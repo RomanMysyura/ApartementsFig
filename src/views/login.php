@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Iniciar sesión</title>
+    <?php require 'libs.php'; ?>
     <script src="js/scripts.js"></script>
 </head>
 

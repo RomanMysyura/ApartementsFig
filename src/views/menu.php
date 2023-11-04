@@ -1,4 +1,3 @@
-<script src="js/scripts.js"></script>
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">

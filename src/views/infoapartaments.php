@@ -1,66 +1,31 @@
-
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="p-3">
-                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner rounded">
-                            <?php $active = 'active'; ?>
-                            <div class="carousel-item <?= $active ?>">
-                                <img src="<?= $apartment["image_path"] ?>" class="d-block w-100" alt="Image for <?= $apartment["title"] ?>">
-                            </div>
-                            <?php $active = ''; ?>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <ol class="list-group rounded-0 mt-3">
-                        <?php foreach ($apartmentData as $label => $value): ?>
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold"><?= $label ?>:</div>
-                                    <?= $value ?>
+<div class="row">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?= $apartament['image_path'];?>" class="d-block img-fluid" alt="Image for <?= $apartament["title"] ?>">    
                                 </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ol>
-                    <div id="map" data-latitude="<?= $apartment['latitude']; ?>" data-longitude="<?= $apartment['length']; ?>" class="mt-3">
+                            </div>
+                        </div>
+                        <h2><?php echo $apartament["title"]; ?></h2>
+                        <ul class="list-unstyled">
+                            <li><i class="fa-solid fa-location-dot"></i> <?php echo $apartament["postal_address"]; ?></li>
+                            <li><i class="fa-solid fa-map"></i> <span class="latitude"><?= $apartament["latitude"]; ?></span> <span class="longitude"><?= $apartament["length"]; ?></span></li>
+                            <li><i class="fa-solid fa-house"></i> <?php echo $apartament["square_metres"] . " " . $apartament['number_rooms']; ?></li>
+                            <li><i class="fa-solid fa-wifi"></i> <?php echo $apartament["services_extra"]; ?></li>
+                            <li><i class="fa-solid fa-book"></i> <?php echo $apartament["short_description"]; ?></li>
+                        </ul>
+                        <div id="map" class="mt-3" style="width: 100%; height: 400px;"></div>
+                        <form class="d-lg-flex collapse text-center mb-0" id="DoReservation" method="POST">
+                            <div class="form-group me-2 my-3">
+                                <input class="form-control" type="date" id="startDate" name="startDate"/>
+                            </div>
+                            <div class="form-group me-2 my-3">
+                                <input class="form-control" type="date" id="endDate" name="endDate"/>
+                            </div>
+                            <div class="form-group me-2 my-3">
+                                <button class="btn btn-primary" type="submit">Reservar</button>
+                            </div>
+                        </form>
                     </div>
-                    <h1>Reservar</h1>
-                    <form method="POST" name="reservationForm">
-                    <div class="form-group me-2 my-3">
-                        <input class="form-control" type="date" id="startDate" name="startDate" min="<?= $apartment['start_date'] ?>" max="<?= $apartment['end_date'] ?>" required>
-                    </div>
-                    <div class="form-group me-2 my-3">
-                        <input class="form-control" type="date" id="endDate" name="endDate" min="<?= $apartment['start_date'] ?>" max="<?= $apartment['end_date'] ?>" required/>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <button type="submit" class="btn btn-primary mb-2 text-center" name="reservar">Fer reserva</button>
-                    </div> 
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-            crossorigin=""></script>
-    <script>
-        var apartmentId = <?= json_encode($apartmentId); ?>;
-        var latitude = <?= json_encode($apartment['latitude']); ?>;
-        var length = <?= json_encode($apartment['length']); ?>;
-    </script>
-
-    <script src="js/scripts.js"></script>
-</body>
-</html>
+                </div>    
+      </div>

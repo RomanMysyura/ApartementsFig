@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Registrar-se</title>
+    <?php require 'libs.php'; ?>
     <script src="js/scripts.js"></script>
 </head>
 <body class="p-0 m-0 border-0 bd-example m-0 border-0">

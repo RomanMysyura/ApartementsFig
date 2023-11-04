@@ -15,15 +15,16 @@ include '../src/controllers/controllerUpdateUser.php';
 include '../src/controllers/controllerCompte.php';
 include '../src/controllers/controllerDoLogout.php';
 include '../src/controllers/controllerPanelDeControl.php';
-include "../src/controllers/controllerDoLogin.php";
-include "../src/controllers/controllerDeleteUser.php";
-include "../src/controllers/controllerAddUser.php";
-include "../src/controllers/controllerUpdateApartment.php";
-include "../src/controllers/controllerAddApartment.php";
-include "../src/controllers/controllerDeleteReservation.php";
+include '../src/controllers/controllerDoLogin.php';
+include '../src/controllers/controllerDeleteUser.php';
+include '../src/controllers/controllerAddUser.php';
+include '../src/controllers/controllerUpdateApartment.php';
+include '../src/controllers/controllerAddApartment.php';
+include '../src/controllers/controllerDeleteReservation.php';
+include '../src/controllers/controllerInfoApartamentAjax.php';
 
 // Middleware//
-include "../src/middleware/isLogged.php";
+include '../src/middleware/isLogged.php';
 
 // Models
 include '../src/models/connection.php';
@@ -31,15 +32,11 @@ include '../src/models/apartaments.php';
 include '../src/models/users.php';
 include '../src/models/reserves.php';
 
-// Llibreria
-include '../src/views/libs.php';
-
 // Emeset Framework
 include "../src/Emeset/Container.php";
 include "../src/Emeset/Request.php";
 include "../src/Emeset/Response.php";
 
-// Scripts
 
 
 // 
@@ -90,6 +87,8 @@ if ($r == '') {
     controllerAddApartment($request, $response, $container);
 } else if($r == 'deletereservation') {
     controllerDeleteReservation($request, $response, $container);
+} else if($r == 'infoapartamentajax') {
+    controllerInfoApartamentAjax($request, $response, $container);
 }
 
 
