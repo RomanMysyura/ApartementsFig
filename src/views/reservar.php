@@ -10,4 +10,6 @@
 <?php require "menu.php" ?>
     <h3>RESERVAR</h3>
 </body>
+<?php require "footer.php"; ?>
+
 </html>

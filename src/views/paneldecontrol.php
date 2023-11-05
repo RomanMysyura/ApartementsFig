@@ -112,12 +112,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
     <h1 class="panelapartaments">RESERVES</h1>
     <div class="taulausuaris scrollable-table">
     <table class="table table-striped">

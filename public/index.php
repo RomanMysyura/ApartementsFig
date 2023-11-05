@@ -22,6 +22,9 @@ include "../src/controllers/controllerUpdateApartment.php";
 include "../src/controllers/controllerAddApartment.php";
 include "../src/controllers/controllerDeleteReservation.php";
 include "../src/controllers/controllerUpdateReservation.php";
+include "../src/controllers/controllerSendMessage.php";
+include "../src/controllers/controllerMessagesContact.php";
+
 
 
 // Middleware//
@@ -92,9 +95,14 @@ if ($r == '') {
     controllerAddApartment($request, $response, $container);
 } else if($r == 'deletereservation') {
     controllerDeleteReservation($request, $response, $container);
-}else if($r == 'updatereservation') {
+} else if($r == 'updatereservation') {
     controllerUpdateReservation($request, $response, $container);
+} else if($r == 'sendmessage') {
+    controllerSendMessage($request, $response, $container);
+}else if($r == 'messagescontact') {
+    controllerMessagesContact($request, $response, $container);
 }
+
 
 
 $response->response();

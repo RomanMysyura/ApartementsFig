@@ -7,7 +7,7 @@
 
 <body>
     <?php require "menu.php"; ?>
-    <div class="container mt-5">
+    <div class="container mt-5 contenidorcompte">
         <div class="row">
             <div class="col-md-6 mb-3 mt-md-0">
                 <div class="bg-primary p-3 bg-dark rounded">
@@ -93,5 +93,7 @@
     </div>
     
     </div>
+
+    <?php require "footer.php"; ?>
 </body>
 </html>

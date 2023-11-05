@@ -16,14 +16,43 @@ body {
     }
 }
 
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important; /* Ajusta el valor de z-index según sea necesario para evitar superposiciones con otros elementos */
+    
+  }
+  .divmenu{
+    margin-bottom: 87px !important;
+  }
+.contenidorcompte{
+    padding-top: 25px !important;
+}
 
-
-
-.titolpagina {
+.sloganweb {
+   
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
 }
+.formularicontactar{
+    
+    margin-bottom: 100px !important;
+    padding: 100px !important;
+    padding-left: 300px !important;
+    padding-right: 300px !important;
+}
+.inputformcontactar{
+    margin: 10px;
+}
+
+.btnformcontactar{
+    margin-left: 10px !important;
+    width: 100px !important;
+}
+
 
 .btnlogin {
 
@@ -110,8 +139,12 @@ body {
     width: 300px;
     margin: 15px;
 }
-
-
+.formloginsignup{
+    margin-bottom: 130px !important;
+}
+.formsignup, .formlogin{
+    width: 350px !important;
+}
 
 /* Estilo para el botón "Settings" */
 .btn-settings {
@@ -387,3 +420,4 @@ body {
     padding-left: 3px !important;
     padding-right: 3px !important;
 }
+
