@@ -11,6 +11,16 @@ function controllerindex($request, $response, $container){
         $apartaments = $container->apartaments()->getAll();
     }
 
+    $images = [];
+
+    foreach ($apartaments as $apartament) {
+        $id = $apartament['id_apartment'];
+        $apartmentImages = $container->apartaments()->getImage($id);
+        $images[$id] = $apartmentImages;
+    }
+
+    $response->set("images", $images);
+
     $response->set("apartaments", $apartaments);
 
     $response->setTemplate("index.php");

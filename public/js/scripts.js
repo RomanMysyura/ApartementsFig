@@ -13,6 +13,8 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
+    $(".card-body").off('click');
+
     // Agrega un evento click en las tarjetas de apartamentos
     $(".card-body").on("click", function() {
         var apartamentId = $(this).data("apartament-id");
@@ -49,18 +51,6 @@ $(document).ready(function() {
                         "<div id='map' class='mb-4'></div>"
                     );
 
-
-                    // modalBody.append(
-                    //     "<div id='carouselExampleSlidesOnly' class='carousel slide' data-bs-ride='carousel'>" +
-                    //         "<div class='carousel-inner'>" +
-                    //             "<div class='carousel-item active'>" +
-                    //                 "<img src='" + apartment.image_path + "' class='d-block img-fluid' alt=''>" +
-                    //             "</div>" +
-                    //         "</div>" +
-                    //     "</div>"
-                    // );
-                    
-
                     modalBody.append(
                         "<ul class='list-group'>" +
                             "<li class='list-group-item'><i class='fa-solid fa-location-dot me-3'></i>" + apartment.postal_address + "</li>" +
@@ -75,6 +65,8 @@ $(document).ready(function() {
                     modalBody.append(
                         "<form class='d-lg-flex collapse text-center mb-0' id='DoReservation' method='POST' action='index.php?r=doreservation'>" +
                         "<input type='hidden' name='apartment_id' id='apartment_id' value='" + apartment.id_apartment + "' />" +
+                        "<input type='hidden' name='high_price' id='high_price' value='" + apartment.price_day_high_season + "' />" +
+                        "<input type='hidden' name='low_price' id='low_price' value='" + apartment.price_day_low_season + "' />" +
                             "<div class='form-group me-2 my-3'>" +
                                 "<input class='form-control' type='date' id='startDate' name='startDate' min='" + apartment.start_date + "' max='" + apartment.end_date + "'/>" +
                             "</div>" +

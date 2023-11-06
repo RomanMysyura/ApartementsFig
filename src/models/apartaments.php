@@ -120,6 +120,17 @@ class Apartaments {
         return $result;
     }
 
+    public function getImage($id) {
+        $query = "SELECT * FROM img_apartments WHERE id_apartment = :id";
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
+
+    }
+
     
 }
 

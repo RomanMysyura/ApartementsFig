@@ -1,5 +1,4 @@
 <script src="js/scripts.js"></script>
-<div class="container-fluid p-0 divmenu">
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">
@@ -78,5 +77,4 @@
             </div>
         </div>
     </nav>
-</div>
 </div>
