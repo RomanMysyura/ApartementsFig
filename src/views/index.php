@@ -3,7 +3,6 @@
 <head>
     <title>ApartamentsFiguerencs</title>
     <?php require 'libs.php'; ?>
-    
     <script src="js/scripts.js"></script>
 
 </head>
@@ -43,13 +42,10 @@
       </div>
       <div class="modal-body">
       
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
 </div>
+
 
 
 

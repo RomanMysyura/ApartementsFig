@@ -10,13 +10,14 @@ $(document).ready(function() {
         toggleSearchButton.text('Obrir buscador');
     });
 });
-var apartamentId = $(this).data("apartament-id");
 
 
 $(document).ready(function() {
     // Agrega un evento click en las tarjetas de apartamentos
     $(".card-body").on("click", function() {
         var apartamentId = $(this).data("apartament-id");
+
+        console.log(apartamentId);
 
         // Limpia la información anterior en la ventana modal
         var modal = $("#exampleModal");
@@ -26,6 +27,7 @@ $(document).ready(function() {
 
         // Realiza una petición AJAX para obtener la información del apartamento
         $.ajax({
+
             type: "GET",
             url: "index.php?r=infoapartamentajax",
             data: { apartament_id: apartamentId },
@@ -33,20 +35,73 @@ $(document).ready(function() {
             dataType: "json",
 
             success: function(data) {
-                console.log(data);
 
-                if (data.length > 0) {
-                    var apartamento = data[0];
+                    console.log(data);
 
-                    // Llena el modal con la información obtenida
-                    modal.find(".modal-title").text(apartamento.title);
+                    var apartment = data[0];
+
+                    modal.find(".modal-title").text(apartment.title);
+
                     var modalBody = modal.find(".modal-body");
-                    modalBody.append("<p><strong>Short Description:</strong> " + apartamento.short_description + "</p>");
-                    modalBody.append("<p><strong>Postal Address:</strong> " + apartamento.postal_address + "</p>");
-                    modalBody.append("<p><strong>ID Apartment:</strong> " + apartamento.id_apartment + "</p>");
-                } else {
-                    console.log("No se encontraron datos del apartamento en la respuesta.");
-                }
+
+                    modalBody.append(
+                        "<h1>On em quedaré?</h1>" + 
+                        "<div id='map' class='mb-4'></div>"
+                    );
+
+
+                    // modalBody.append(
+                    //     "<div id='carouselExampleSlidesOnly' class='carousel slide' data-bs-ride='carousel'>" +
+                    //         "<div class='carousel-inner'>" +
+                    //             "<div class='carousel-item active'>" +
+                    //                 "<img src='" + apartment.image_path + "' class='d-block img-fluid' alt=''>" +
+                    //             "</div>" +
+                    //         "</div>" +
+                    //     "</div>"
+                    // );
+                    
+
+                    modalBody.append(
+                        "<ul class='list-group'>" +
+                            "<li class='list-group-item'><i class='fa-solid fa-location-dot me-3'></i>" + apartment.postal_address + "</li>" +
+                            "<li class='list-group-item'><i class='fa-solid fa-map me-3'></i> Length: " + apartment.length + " - Latitude: " + apartment.latitude + "</li>" +
+                            "<li class='list-group-item'><i class='fa-solid fa-house me-3'></i> Metres quadrats: " + apartment.square_metres + " - Número d'habitacions: " + apartment.number_rooms + "</li>" +
+                            "<li class='list-group-item'><i class='fa-solid fa-wifi me-3'></i>" + apartment.services_extra + "</li>" +
+                            "<li class='list-group-item'><i class='fa-solid fa-book me-3'></i>" + apartment.short_description + "</li>" +
+                        "</ul>"
+                    );                  
+
+
+                    modalBody.append(
+                        "<form class='d-lg-flex collapse text-center mb-0' id='DoReservation' method='POST' action='index.php?r=doreservation'>" +
+                        "<input type='hidden' name='apartment_id' id='apartment_id' value='" + apartment.id_apartment + "' />" +
+                            "<div class='form-group me-2 my-3'>" +
+                                "<input class='form-control' type='date' id='startDate' name='startDate' min='" + apartment.start_date + "' max='" + apartment.end_date + "'/>" +
+                            "</div>" +
+                            "<div class='form-group me-2 my-3'>" +
+                                "<input class='form-control' type='date' id='endDate' name='endDate' min='" + apartment.start_date + "' max='" + apartment.end_date + "'/>" +
+                            "</div>" +
+                            "<div class='form-group me-2 my-3'>" +
+                                "<button class='btn btn-primary' type='submit'>Reservar</button>" +
+                            "</div>" +
+                        "</form>"
+                    );
+                    
+                    
+                    
+                    
+
+
+
+                    var map = L.map('map').setView([apartment.latitude, apartment.length], 7);
+
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+
+                    var marker = L.marker([apartment.latitude, apartment.length]).addTo(map);
+                
             },
             error: function(xhr, textStatus, errorThrown) {
                 console.log("Error en la solicitud AJAX: " + errorThrown);

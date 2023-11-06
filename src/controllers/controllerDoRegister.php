@@ -10,8 +10,6 @@ function controllerDoRegister($request, $response, $container){
    
     $userModel = $container->users();
     $userModel = $userModel->register($name, $last_name, $telephone, $email, $password);
-
-
     
     $response->redirect("location: index.php?r=compte");
 }

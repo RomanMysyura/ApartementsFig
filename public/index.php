@@ -22,6 +22,7 @@ include '../src/controllers/controllerUpdateApartment.php';
 include '../src/controllers/controllerAddApartment.php';
 include '../src/controllers/controllerDeleteReservation.php';
 include '../src/controllers/controllerInfoApartamentAjax.php';
+include '../src/controllers/controllerDoReservas.php';
 
 // Middleware//
 include '../src/middleware/isLogged.php';
@@ -89,6 +90,8 @@ if ($r == '') {
     controllerDeleteReservation($request, $response, $container);
 } else if($r == 'infoapartamentajax') {
     controllerInfoApartamentAjax($request, $response, $container);
+} else if ($r == 'doreservation') {
+    controllerDoReservas($request, $response, $container);
 }
 
 
