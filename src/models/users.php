@@ -8,7 +8,25 @@ class Users {
     public function __construct($sql){
         $this->sql = $sql;
     }
-
+    public function sendMessage($name, $email, $message) {
+        // Inserta los datos en la tabla "contact_requests"
+        $query = "INSERT INTO contact_requests (name, email, message) VALUES (:name, :email, :message)";
+        $stmt = $this->sql->prepare($query);
+        $stmt->execute([
+            ':name' => $name,
+            ':email' => $email,
+            ':message' => $message,
+        ]);
+    }
+    
+    public function selectAllMessages() {
+        $query = "SELECT * FROM contact_requests";
+        $stmt = $this->sql->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+    
     public function selectUser($id){
         $query = "SELECT * FROM users WHERE id_user = :id";
         $stmt = $this->sql->prepare($query);

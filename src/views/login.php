@@ -8,7 +8,7 @@
 
 <body class="p-0 m-0 border-0 bd-example m-0 border-0">
     <?php require "menu.php" ?>
-    <div class="container mt-5">
+    <div class="container mt-5 formloginsignup">
         <?php
         if (!empty($error_message)) {
             echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="btn-close" data-bs-dismiss="alert"></button>' . $error_message . '</div>';
@@ -16,7 +16,7 @@
         ?>
         <div class="row justify-content-center">
             <div class="col-md-6 d-flex flex-column align-items-center">
-                <div class="card p-4 bg-dark container-opacity" data-bs-theme="dark">
+                <div class="card p-4 bg-dark container-opacity formlogin" data-bs-theme="dark">
                     <div class="col-12 d-flex justify-content-center align-items-center">
                         <img src="/img/ApartamentsFiguerencs2.ico" alt="ApartamentsFiguerencs" width="100px" height="100px">
                     </div>
@@ -47,10 +47,7 @@
             </div>
         </div>
     </div>
-    <div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
+    <?php require "footer.php"; ?>
+
 </body>
 </html>

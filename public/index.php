@@ -2,7 +2,7 @@
 // Config.php
 include "../src/config.php";
 
-// Controllers
+// Controllers TEESTss
 include '../src/controllers/controllerindex.php';
 include '../src/controllers/menu.php';
 include '../src/controllers/controllerDoRegister.php';
@@ -23,6 +23,13 @@ include '../src/controllers/controllerAddApartment.php';
 include '../src/controllers/controllerDeleteReservation.php';
 include '../src/controllers/controllerInfoApartamentAjax.php';
 include '../src/controllers/controllerDoReservas.php';
+include "../src/controllers/controllerUpdateReservation.php";
+include "../src/controllers/controllerSendMessage.php";
+include "../src/controllers/controllerMessagesContact.php";
+include "../src/controllers/controllerGeneratePDF.php";
+
+include '../src/libs/fpdf.php';
+
 
 // Middleware//
 include '../src/middleware/isLogged.php';
@@ -92,7 +99,17 @@ if ($r == '') {
     controllerInfoApartamentAjax($request, $response, $container);
 } else if ($r == 'doreservation') {
     controllerDoReservas($request, $response, $container);
+} else if($r == 'updatereservation') {
+    controllerUpdateReservation($request, $response, $container);
+} else if($r == 'sendmessage') {
+    controllerSendMessage($request, $response, $container);
+}else if($r == 'messagescontact') {
+    controllerMessagesContact($request, $response, $container);
+}else if($r == 'generatepdf') {
+    controllerGeneratePDF($request, $response, $container);
 }
+
+
 
 
 $response->response();

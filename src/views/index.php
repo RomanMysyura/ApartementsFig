@@ -7,7 +7,11 @@
 
 </head>
 <body>
+    
     <?php require "menu.php"; ?>
+
+
+    <h1 class="sloganweb">Reserva el teu racó a Figueres, el teu apartament a la Costa Brava.</h1>
 
     <div class="container mt-5">
         <div class="divapartaments">

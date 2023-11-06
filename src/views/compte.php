@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>ApartamentsFiguerencs</title>
     <?php require 'libs.php'; ?>
@@ -8,7 +9,7 @@
 
 <body>
     <?php require "menu.php"; ?>
-    <div class="container mt-5">
+    <div class="container mt-5 contenidorcompte">
         <div class="row">
             <div class="col-md-6 mb-3 mt-md-0">
                 <div class="bg-primary p-3 bg-dark rounded">
@@ -18,35 +19,40 @@
                     <h1 class="mt-1 text-center text-white">DADES PERSONALS</h1>
                     <div class="p-3">
 
-                    <form id="formulariName" method="post" action="index.php?r=updateuser" class="text-center">
-                            
+                        <form id="formulariName" method="post" action="index.php?r=updateuser" class="text-center">
+
                             <div class="mb-1">
                                 <p class="textform">Nom</p>
-                                <input type="text" class="texteditdades" id="name" name="name" value="<?php echo $users[0]["name"]; ?>" placeholder="Nom" required>
+                                <input type="text" class="texteditdades" id="name" name="name"
+                                    value="<?php echo $users[0]["name"]; ?>" placeholder="Nom" required>
                             </div>
                             <div class="mb-1">
                                 <p class="textform">Cognom:</p>
-                                <input type="text" class="texteditdades" id="last_name" name="last_name" value="<?php echo $users[0]["last_name"]; ?>" required>
+                                <input type="text" class="texteditdades" id="last_name" name="last_name"
+                                    value="<?php echo $users[0]["last_name"]; ?>" required>
                             </div>
                             <div class="mb-1">
                                 <p class="textform">Telèfon:</p>
-                                <input type="text" class="texteditdades" id="telephone" name="telephone" value="<?php echo $users[0]["telephone"]; ?>" required>
+                                <input type="text" class="texteditdades" id="telephone" name="telephone"
+                                    value="<?php echo $users[0]["telephone"]; ?>" required>
                             </div>
                             <div class="mb-1">
                                 <p class="textform">Correu Electrònic:</p>
-                                <input type="text" class="texteditdades" id="email" name="email" value="<?php echo $users[0]["email"]; ?>" required>
+                                <input type="text" class="texteditdades" id="email" name="email"
+                                    value="<?php echo $users[0]["email"]; ?>" required>
                             </div>
                             <div class="mb-1">
                                 <p class="textform">Tarjeta de crèdit:</p>
-                                <input type="text" class="texteditdades" id="card_number" name="card_number" value="<?php echo $users[0]["card_number"]; ?>" required>
+                                <input type="text" class="texteditdades" id="card_number" name="card_number"
+                                    value="<?php echo $users[0]["card_number"]; ?>" required>
                             </div>
-                            
+
                             <button type="submit" class="confirmaredit">Confirmar</button>
                         </form>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Sección derecha -->
             <div class="col-md-6 mb-3 mt-md-0">
                 <div class="bg-second p-3 bg-dark rounded">
@@ -59,31 +65,51 @@
                     $numeroreservanum = 1;
                     foreach ($reservations as $reservation) {
                     ?>
-                        <div class="accordion" id="reservationsAccordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading<?php echo $reservations[$numeroreserva]["id_reserved"] ?>">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
-                                        aria-expanded="true"
-                                        aria-controls="collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>">
-                                        <?php echo 'Reserva: ' . $numeroreservanum; ?>
-                                    </button>
-                                </h2>
-                                <div id="collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
-                                    class="accordion-collapse collapse show"
-                                    aria-labelledby="heading<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
-                                    data-bs-parent="#reservationsAccordion">
-                                    <div class="accordion-body">
-                                        <strong>Fecha de Entrada:</strong>
-                                        <?php echo $reservations[$numeroreserva]["entry_date"] ?><br>
-                                        <strong>Fecha de Salida:</strong>
-                                        <?php echo $reservations[$numeroreserva]["output_date"] ?><br>
-                                        <strong>Estado:</strong> <?php echo $reservations[$numeroreserva]["state"] ?><br>
-                                        <strong>Precio:</strong> <?php echo $reservations[$numeroreserva]["price"] ?><br>
-                                    </div>
+                    <div class="accordion" id="reservationsAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"
+                                id="heading<?php echo $reservations[$numeroreserva]["id_reserved"] ?>">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
+                                    aria-expanded="true"
+                                    aria-controls="collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>">
+                                    <?php echo 'Reserva: ' . $numeroreservanum; ?>
+
+                                </button>
+                            </h2>
+                            <div id="collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
+                                class="accordion-collapse collapse show"
+                                aria-labelledby="heading<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
+                                data-bs-parent="#reservationsAccordion">
+                                <div class="accordion-body">
+                                    <strong>Data de la entrada:</strong>
+                                    <?php echo $reservations[$numeroreserva]["entry_date"] ?><br>
+                                    <strong>Data de la sortida:</strong>
+                                    <?php echo $reservations[$numeroreserva]["output_date"] ?><br>
+                                    <strong>Estat:</strong>
+                                    <?php
+                                        $state = $reservations[$numeroreserva]["state"];
+                                        if ($state === "Pending") {
+                                            echo '<span style="color: red;">' . $state . '</span>';
+                                        } elseif ($state === "Confirmed") {
+                                            echo '<span style="color: green;">' . $state . '</span>';
+                                        } else {
+                                            echo $state;
+                                        }
+                                        ?><br>
+                                    <strong>Preu:</strong>
+                                    <?php echo $reservations[$numeroreserva]["price"] ?><br>
+                                    <form method="POST" action="index.php?r=generatepdf">
+                                        <input type="hidden" name="reservation_id"
+                                            value="<?php echo $reservations[$numeroreserva]["id_reserved"]; ?>">
+                                        <button type="submit" class="btn btn-primary">Descarregar resguard de la
+                                            reserva</button>
+                                    </form>
                                 </div>
                             </div>
+
                         </div>
+                    </div>
                     <?php
                         $numeroreserva++;
                         $numeroreservanum++;
@@ -92,7 +118,10 @@
             </div>
         </div>
     </div>
-    
+
     </div>
+
+    <?php require "footer.php"; ?>
 </body>
+
 </html>

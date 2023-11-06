@@ -2,40 +2,37 @@
     <div class="container">
         <div class="row justify-content-center"> <!-- Añade justify-content-center aquí -->
             <div class="col-6 col-md-3 mb-3">
-                <h5>Información</h5>
+                <h5>Informació</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Inicio</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Acerca de nosotros</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Contacto</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Términos y condiciones</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Política de privacidad</a></li>
+                    <li class="nav-item mb-2"><a href="index.php?r= " class="nav-link p-0 text-light">Inici</a></li>
+                    <li class="nav-item mb-2"><a href="index.php?r=contactar" class="nav-link p-0 text-light">Contactar amb nosaltes</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Ubicació</a></li>
                 </ul>
             </div>
 
             <div class="col-6 col-md-3 mb-3">
-                <h5>Reservas</h5>
+                <h5>Reserves</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Buscar habitaciones</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Reservar</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Cancelar reservas</a></li>
+                    <li class="nav-item mb-2"><a href="index.php?r= " class="nav-link p-0 text-light">Buscar habitaciones</a></li>
+                    <li class="nav-item mb-2"><a href="index.php?r= " class="nav-link p-0 text-light">Reservar</a></li>
+                    <li class="nav-item mb-2"><a href="index.php?r=compte" class="nav-link p-0 text-light">Cancelar reservas</a></li>
                 </ul>
             </div>
 
             <div class="col-6 col-md-3 mb-3">
-                <h5>Servicios</h5>
+                <h5>Ajuda</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Desayuno incluido</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Wi-Fi gratuito</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Piscina</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Aparcamiento gratuito</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Centre de ajuda</a></li>
+                    <li class="nav-item mb-2"><a href="index.php?r=contactar" class="nav-link p-0 text-light">Contactar amb nosaltes</a></li>
+                    
                 </ul>
             </div>
 
             <div class="col-6 col-md-3 mb-3">
-                <h5>Contacto</h5>
+                <h5>Contacte</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Teléfono: (123) 456-7890</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Correo electrónico: info@tuhotel.com</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Teléfon: (123) 456-7890</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-light">Correu electronic: aparatamencsfiguerencs@apfig.com</a></li>
                 </ul>
             </div>
         </div>

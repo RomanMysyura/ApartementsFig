@@ -1,4 +1,5 @@
-<div class="container-fluid p-0">
+<script src="js/scripts.js"></script>
+<div class="container-fluid p-0 divmenu">
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">
@@ -36,6 +37,7 @@
                                     echo '<div class="dropdown-divider"></div>';
                             if (isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2) {
                                     echo '<li><a class="dropdown-item" href="index.php?r=paneldecontrol">Panel de Control</a></li>';
+                                    echo '<li><a class="dropdown-item" href="index.php?r=messagescontact">Missatges rebuts</a></li>';
                             }
                                     echo '<li><a class="dropdown-item" href="index.php?r=logout"><strong>Tancar sessió</strong></a></li>';
                             } else {
