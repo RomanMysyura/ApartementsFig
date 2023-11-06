@@ -24,7 +24,9 @@ include "../src/controllers/controllerDeleteReservation.php";
 include "../src/controllers/controllerUpdateReservation.php";
 include "../src/controllers/controllerSendMessage.php";
 include "../src/controllers/controllerMessagesContact.php";
+include "../src/controllers/controllerGeneratePDF.php";
 
+include '../src/libs/fpdf.php';
 
 
 // Middleware//
@@ -101,7 +103,10 @@ if ($r == '') {
     controllerSendMessage($request, $response, $container);
 }else if($r == 'messagescontact') {
     controllerMessagesContact($request, $response, $container);
+}else if($r == 'generatepdf') {
+    controllerGeneratePDF($request, $response, $container);
 }
+
 
 
 

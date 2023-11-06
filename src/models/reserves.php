@@ -32,6 +32,16 @@ class Reserves {
         $stmt->execute();
     }
     
+    public function getReservationData($reservationId) {
+        $query = "SELECT * FROM reservation WHERE id_reserved = :reservationId";
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindValue(':reservationId', $reservationId);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    
+    
+    
     
 }
 
