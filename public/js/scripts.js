@@ -111,4 +111,72 @@ $(document).ready(function() {
 });
 
 
-  
+$(document).ready(function() {
+    $("#usuarios-tab").click(function() {
+        $("#usuarios-tab").addClass("active");
+        $("#reservas-tab").removeClass("active");
+        $("#apartaments-tab").removeClass("active");
+        $("#afegir-usuaris-content").removeClass("active");
+        $("#afegir-apartaments-content").removeClass("active");
+        $("#usuarios-content").removeClass("d-none");
+        $("#reservas-content").addClass("d-none");
+        $("#afegir-content").addClass("d-none");
+        $("#apartament-content").addClass("d-none");
+        $("#apartament-afegir").addClass("d-none");
+
+    });
+
+    $("#afegir-usuaris-content").click(function() {
+        $("#afegir-usuaris-content").addClass("active");
+        $("#apartaments-tab").removeClass("active");
+        $("#usuarios-tab").removeClass("active");
+        $("#reservas-tab").removeClass("active");
+        $("#afegir-apartaments-content").removeClass("active");
+        $("#usuarios-content").addClass("d-none");
+        $("#afegir-content").removeClass("d-none");
+        $("#reservas-content").addClass("d-none");
+        $("#apartament-content").addClass("d-none");
+        $("#apartament-afegir").addClass("d-none");
+
+    });
+
+    $("#reservas-tab").click(function() {
+        $("#reservas-tab").addClass("active");
+        $("#apartaments-tab").removeClass("active");
+        $("#usuarios-tab").removeClass("active");
+        $("#afegir-usuaris-content").removeClass("active");
+        $("#afegir-apartaments-content").removeClass("active");
+        $("#reservas-content").removeClass("d-none");
+        $("#usuarios-content").addClass("d-none");
+        $("#afegir-content").addClass("d-none");
+        $("#apartament-content").addClass("d-none");
+        $("#apartament-afegir").addClass("d-none");
+    });
+
+
+    $("#apartaments-tab").click(function() {
+        $("#apartaments-tab").addClass("active");
+        $("#reservas-tab").removeClass("active");
+        $("#usuarios-tab").removeClass("active");
+        $("#afegir-apartaments-content").removeClass("active");
+        $("#afegir-usuaris-content").removeClass("active");
+        $("#reservas-content").addClass("d-none");
+        $("#usuarios-content").addClass("d-none");
+        $("#afegir-content").addClass("d-none");
+        $("#apartament-content").removeClass("d-none");
+        $("#apartament-afegir").addClass("d-none");
+    });
+
+    $("#afegir-apartaments-content").click(function() {
+        $("#afegir-apartaments-content").addClass("active");
+        $("#apartaments-tab").removeClass("active");
+        $("#reservas-tab").removeClass("active");
+        $("#usuarios-tab").removeClass("active");
+        $("#afegir-usuaris-content").removeClass("active");
+        $("#reservas-content").addClass("d-none");
+        $("#usuarios-content").addClass("d-none");
+        $("#afegir-content").addClass("d-none");
+        $("#apartament-content").addClass("d-none");
+        $("#apartament-afegir").removeClass("d-none");
+    });
+});

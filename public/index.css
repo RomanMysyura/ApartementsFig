@@ -25,7 +25,7 @@ body {
     
   }
   .divmenu{
-    margin-bottom: 87px !important;
+    margin-bottom: 86px !important;
   }
 .contenidorcompte{
     padding-top: 25px !important;
@@ -210,19 +210,20 @@ body {
 }
 
 .scrollable-table {
-    max-height: 310px;
+    max-height: 890px;
     /* Define la altura máxima para activar el scroll */
     overflow-y: scroll;
     /* Agrega un desplazamiento vertical */
 }
-
+.taulausuaris{
+    width: 100% !important;
+}
 
 .taulausuaris,
 .taulaapartaments {
     margin-left: 0px;
     margin-right: 0px;
-    -webkit-box-shadow: 2px 5px 15px 2px #000000;
-    box-shadow: 2px 5px 15px 2px #000000;
+    
     background-color: #ffffff;
 }
 
@@ -415,3 +416,31 @@ body {
     padding-right: 3px !important;
 }
 
+/*CSS PER A DASHBOARD*/
+
+.dashboarddiv {
+    display: flex;
+}
+
+.vertical-menu {
+    width: 200px; /* Ajusta el ancho a tu preferencia */
+    background-color: #212529;
+    color: #fff;
+    padding: 10px;
+    height: 890px;
+}
+
+.vertical-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.vertical-menu a:hover {
+    background-color: #555;
+}
+
+.vertical-menu a.active {
+    background-color: #4c9baf;
+}
