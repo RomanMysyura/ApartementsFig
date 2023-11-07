@@ -113,63 +113,118 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $("#usuarios-tab").click(function() {
+        $("#seasons-tab").removeClass("active");
+        $("#editar-usuaris-content").removeClass("active");
+        $("#afegir-apartaments-content").removeClass("active");
+        $("#apartaments-tab").removeClass("active");
+        $("#reservas-tab").removeClass("active");
         $("#usuarios-tab").addClass("active");
+        $("#afegir-usuaris-content").removeClass("active");
+        $("#reservas-content").addClass("d-none");
+        $("#usuarios-content").removeClass("d-none");
+        $("#afegir-content").addClass("d-none");
+        $("#apartament-content").addClass("d-none");
+        $("#apartament-afegir").addClass("d-none");
+        $("#seasons-content").addClass("d-none");
+        $("#edit-users").addClass("d-none");
+    });
+
+    $("#editar-usuaris-content").click(function() {
+        $("#editar-usuaris-content").addClass("active");
+        $("#usuarios-tab").removeClass("active");
         $("#reservas-tab").removeClass("active");
         $("#apartaments-tab").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
-        $("#usuarios-content").removeClass("d-none");
+        $("#seasons-tab").removeClass("active");
+        $("#usuarios-content").addClass("d-none");
         $("#reservas-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
         $("#apartament-content").addClass("d-none");
+        $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
+        $("#edit-users").removeClass("d-none");
+
 
     });
+    
 
     $("#afegir-usuaris-content").click(function() {
         $("#afegir-usuaris-content").addClass("active");
+        $("#editar-usuaris-content").removeClass("active");
         $("#apartaments-tab").removeClass("active");
         $("#usuarios-tab").removeClass("active");
         $("#reservas-tab").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
+        $("#seasons-tab").removeClass("active");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").removeClass("d-none");
         $("#reservas-content").addClass("d-none");
         $("#apartament-content").addClass("d-none");
+        $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
+        $("#edit-users").addClass("d-none");
 
     });
 
     $("#reservas-tab").click(function() {
         $("#reservas-tab").addClass("active");
+        $("#editar-usuaris-content").removeClass("active");
         $("#apartaments-tab").removeClass("active");
         $("#usuarios-tab").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
+        $("#seasons-tab").removeClass("active");
         $("#reservas-content").removeClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
         $("#apartament-content").addClass("d-none");
+        $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
+        $("#edit-users").addClass("d-none");
     });
 
 
     $("#apartaments-tab").click(function() {
         $("#apartaments-tab").addClass("active");
+        $("#editar-usuaris-content").removeClass("active");
         $("#reservas-tab").removeClass("active");
         $("#usuarios-tab").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
+        $("#seasons-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
         $("#apartament-content").removeClass("d-none");
+        $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
+        $("#edit-users").addClass("d-none");
     });
 
     $("#afegir-apartaments-content").click(function() {
         $("#afegir-apartaments-content").addClass("active");
         $("#apartaments-tab").removeClass("active");
+        $("#editar-usuaris-content").removeClass("active");
+        $("#reservas-tab").removeClass("active");
+        $("#usuarios-tab").removeClass("active");
+        $("#seasons-tab").removeClass("active");
+        $("#afegir-usuaris-content").removeClass("active");
+        $("#reservas-content").addClass("d-none");
+        $("#usuarios-content").addClass("d-none");
+        $("#afegir-content").addClass("d-none");
+        $("#apartament-content").addClass("d-none");
+        $("#seasons-content").addClass("d-none");
+        $("#apartament-afegir").removeClass("d-none");
+        $("#edit-users").addClass("d-none");
+    });
+
+
+    $("#seasons-tab").click(function() {
+        $("#seasons-tab").addClass("active");
+        $("#afegir-apartaments-content").removeClass("active");
+        $("#apartaments-tab").removeClass("active");
+        $("#editar-usuaris-content").removeClass("active");
         $("#reservas-tab").removeClass("active");
         $("#usuarios-tab").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
@@ -177,6 +232,10 @@ $(document).ready(function() {
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
         $("#apartament-content").addClass("d-none");
-        $("#apartament-afegir").removeClass("d-none");
+        $("#apartament-afegir").addClass("d-none");
+        $("#seasons-content").removeClass("d-none");
+        $("#edit-users").addClass("d-none");
     });
+
 });
+

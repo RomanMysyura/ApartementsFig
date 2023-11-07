@@ -39,6 +39,10 @@
                                     echo '<li><a class="dropdown-item" href="index.php?r=paneldecontrol">Panel de Control</a></li>';
                                     echo '<li><a class="dropdown-item" href="index.php?r=messagescontact">Missatges rebuts</a></li>';
                             }
+                            if (isset($_SESSION['id_role']) && $_SESSION['id_role'] == 3) {
+                                echo '<li><a class="dropdown-item" href="index.php?r=paneldecontrol">Panel de Control</a></li>';
+                                echo '<li><a class="dropdown-item" href="index.php?r=messagescontact">Missatges rebuts</a></li>';
+                        }
                                     echo '<li><a class="dropdown-item" href="index.php?r=logout"><strong>Tancar sessió</strong></a></li>';
                             } else {
                                     echo '<li><a class="dropdown-item" href="index.php?r=login">Iniciar sessió</a></li>';

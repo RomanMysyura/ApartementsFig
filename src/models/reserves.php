@@ -13,7 +13,6 @@ class Reserves {
         $stmt = $this->sql->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
         return $result;
     }
     public function deleteReservation($reservationId) {
@@ -28,9 +27,19 @@ class Reserves {
         $stmt = $this->sql->prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
         return $result;
     }
+
+    public function updateSeason($seasonId, $name, $start_date, $end_date) {
+        $query = "UPDATE season SET name = :name, start_date = :start_date, end_date = :end_date WHERE id_season = :seasonId";
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindValue(':seasonId', $seasonId);
+        $stmt->bindValue(':name', $name);
+        $stmt->bindValue(':start_date', $start_date);
+        $stmt->bindValue(':end_date', $end_date);
+        $stmt->execute();
+    }
+    
 
     public function DoReservation($startDate, $endDate, $state, $price, $idUser, $idApartment, $idSeason) {
         $query = "INSERT INTO reservation (entry_date, output_date, state, price, id_user, id_apartment, id_season) VALUES (:startDate, :endDate, :state, :price, :idUser, :idApartment, :idSeason)";

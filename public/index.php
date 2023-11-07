@@ -27,6 +27,8 @@ include "../src/controllers/controllerUpdateReservation.php";
 include "../src/controllers/controllerSendMessage.php";
 include "../src/controllers/controllerMessagesContact.php";
 include "../src/controllers/controllerGeneratePDF.php";
+include "../src/controllers/controllerUpdateUserFromPanel.php";
+include "../src/controllers/controllerUpdateSeason.php";
 
 include '../src/libs/fpdf.php';
 
@@ -78,7 +80,7 @@ if ($r == '') {
 } else if ($r == 'logout'){
     controllerDoLogout($request, $response, $container);
 } else if ($r == 'paneldecontrol'){
-    controllerPanelDeControl($request, $response, $container);
+    isLogged($request, $response, $container, "controllerPanelDeControl");
 } else if($r == 'dologin') {
     controllerDoLogin($request, $response, $container);
 } else if($r == 'doregister') {
@@ -107,7 +109,12 @@ if ($r == '') {
     controllerMessagesContact($request, $response, $container);
 }else if($r == 'generatepdf') {
     controllerGeneratePDF($request, $response, $container);
+}else if($r == 'updateseason') {
+    controllerUpdateSeason($request, $response, $container);
+}else if($r == 'updateuserfrompanel') {
+    controllerUpdateUserFromPanel($request, $response, $container);
 }
+
 
 
 
