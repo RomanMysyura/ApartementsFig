@@ -2,34 +2,30 @@
 <html lang="en">
 
 <head>
-    <?php require "menu.php" ?>
+    <?php require "menu.php"; ?>
     <?php require 'libs.php'; ?>
-
     <title>Editar Usuaris</title>
     <script src="js/scripts.js"></script>
 </head>
 
 <body>
-
     <div class="dashboarddiv">
         <div class="vertical-menu">
             <a href="#" id="usuarios-tab" class="active">Usuaris</a>
             <?php 
-        if (isset($_SESSION['id_role']) && $_SESSION['id_role'] == 3) {
-            echo '<a href="#" id="editar-usuaris-content"> - Editar usuaris</a>';
-        }
-        ?>
+            if (isset($_SESSION['id_role']) && $_SESSION['id_role'] == 3) {
+                echo '<a href="#" id="editar-usuaris-content"> - Editar usuaris</a>';
+            }
+            ?>
             <a href="#" id="afegir-usuaris-content"> - Afegir usuaris</a>
             <a href="#" id="reservas-tab">Reservas</a>
             <a href="#" id="apartaments-tab">Apartaments</a>
             <a href="#" id="afegir-apartaments-content"> - Afegir apartament</a>
             <a href="#" id="seasons-tab">Temporades</a>
         </div>
-
         <div id="usuarios-content" class="taulausuaris scrollable-table">
             <h1 class="panelusuaris">Usuaris</h1>
-
-            <table class="table table-striped">
+            <table id="usuarios-table" class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
@@ -54,14 +50,13 @@
                         <td> <?php
                                 if ($user['id_role'] == 1) {
                                     echo '<p style="background-color: #52b69a; width: 58px; padding: 2px; border-radius: 3px;">USUARI</p>';
-
                                 } if ($user['id_role'] == 3) {
                                     echo '<p style="background-color: #f4acb7; width: 56px; padding: 2px; border-radius: 3px;">ADMIN</p>';
-
                                 } elseif ($user['id_role'] == 2) {
                                     echo '<p style="background-color: #ecf39e; width: 61px; padding: 2px; border-radius: 3px;">GESTOR</p>';
                                 }
-                    ?></td>
+                                ?>
+                        </td>
                         <td>
                             <form method="post" action="index.php?r=deleteuser">
                                 <input type="hidden" name="user_id" value="<?= $user['id_user'] ?>">
@@ -73,7 +68,6 @@
                 </tbody>
             </table>
         </div>
-
 
         <div id="edit-users" class="taulausuaris scrollable-table d-none">
             <h1 class="panelusuaris">Editar usuaris</h1>
@@ -118,13 +112,9 @@
             </table>
         </div>
 
-
-
-
         <div id="afegir-content" class="taulausuaris scrollable-table d-none">
             <div class="taulaapartaments scrollable-table">
                 <h1 class="panelusuaris">Afegir usuaris</h1>
-
                 <form method="POST" action="index.php?r=adduser">
                     <table class="table table-striped">
                         <thead class="thead-dark">
@@ -161,27 +151,16 @@
                                 <td><button type="submit" class="btnlogin btn btn-primary "
                                         id="BotonLogin">Crear</button>
                                 </td>
-
                             </tr>
-
                         </tbody>
                     </table>
                 </form>
-
             </div>
-
         </div>
-
-
-
-
-
-
 
         <div id="reservas-content" class="taulausuaris scrollable-table d-none">
             <h1 class="panelusuaris">Reservas</h1>
-
-            <table class="table table-striped">
+            <table id="reservas-table" class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
@@ -235,13 +214,9 @@
             </table>
         </div>
 
-
-
-
         <div id="apartament-content" class="taulausuaris scrollable-table d-none">
             <h1 class="panelusuaris">Apartaments</h1>
-
-            <table class="table table-striped">
+            <table id="apartament-table" class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
@@ -292,15 +267,11 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-
         </div>
-
-
 
         <div id="apartament-afegir" class="taulausuaris scrollable-table d-none">
             <div class="taulaapartaments scrollable-table">
                 <h1 class="panelusuaris">Afegir apartaments</h1>
-
                 <form method="POST" action="index.php?r=addapartment">
                     <table class="table table-striped">
                         <thead class="thead-dark">
@@ -346,14 +317,11 @@
                     </table>
                 </form>
             </div>
-
-
         </div>
-
 
         <div id="seasons-content" class="taulausuaris scrollable-table d-none">
             <h1 class="panelusuaris">Temporades</h1>
-            <table class="table table-striped">
+            <table id="seasons-table" class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
@@ -382,27 +350,7 @@
                 </tbody>
             </table>
         </div>
-
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>
