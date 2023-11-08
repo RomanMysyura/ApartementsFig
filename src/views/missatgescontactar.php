@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <title>Missatges rebuts</title>
-    <?php require "libs.php" ?>
     <script src="js/scripts.js"></script>
+    <?php require 'libs.php'; ?>
+
 </head>
 <body>
 

@@ -1,4 +1,4 @@
-<footer class="bg-dark text-light py-4 mt-5">
+<footer class="bg-dark text-light py-4">
     <div class="container">
         <div class="row align-items-center justify-content-center"> <!-- Centra tanto vertical como horizontalmente -->
             <div class="col-12 col-md-6 col-lg-3 mb-3">

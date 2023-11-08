@@ -90,11 +90,11 @@
                                     <?php
                                         $state = $reservations[$numeroreserva]["state"];
                                         if ($state === "Pending") {
-                                            echo '<span style="color: red;">' . $state . '</span>';
+                                            echo '<span style="color: red;"><strong>' . $state . '</strong></span>';
                                         } elseif ($state === "Confirmed") {
-                                            echo '<span style="color: green;">' . $state . '</span>';
+                                            echo '<span style="color: green;"><strong>' . $state . '</strong></span>';
                                         } else {
-                                            echo $state;
+                                            echo '<strong>' . $state . '</strong>';
                                         }
                                         ?><br>
                                     <strong>Preu:</strong>
