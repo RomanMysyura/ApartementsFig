@@ -38,11 +38,7 @@ body {
     margin-bottom: 20px;
 }
 .formularicontactar{
-    
-    margin-bottom: 100px !important;
-    padding: 100px !important;
-    padding-left: 300px !important;
-    padding-right: 300px !important;
+   width: 40% !important;
 }
 .inputformcontactar{
     margin: 10px;

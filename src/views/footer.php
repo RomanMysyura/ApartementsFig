@@ -1,4 +1,4 @@
-<footer class="bg-dark text-light py-4 mt-5">
+<footer class="bg-dark text-light py-4">
     <div class="container">
         <div class="row justify-content-center"> <!-- Añade justify-content-center aquí -->
             <div class="col-6 col-md-3 mb-3">

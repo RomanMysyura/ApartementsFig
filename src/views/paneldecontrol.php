@@ -212,6 +212,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <a class="dropdown-item" href="index.php?r=exportICS">Exportar Calendari en ICS</a>
         </div>
 
         <div id="apartament-content" class="taulausuaris scrollable-table d-none">

@@ -29,6 +29,8 @@ include "../src/controllers/controllerMessagesContact.php";
 include "../src/controllers/controllerGeneratePDF.php";
 include "../src/controllers/controllerUpdateUserFromPanel.php";
 include "../src/controllers/controllerUpdateSeason.php";
+include "../src/controllers/controllerExportICS.php";
+
 
 include '../src/libs/fpdf.php';
 
@@ -113,6 +115,8 @@ if ($r == '') {
     controllerUpdateSeason($request, $response, $container);
 }else if($r == 'updateuserfrompanel') {
     controllerUpdateUserFromPanel($request, $response, $container);
+}else if($r == 'exportICS') {
+    controllerExportICS($request, $response, $container);
 }
 
 
