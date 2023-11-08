@@ -9,7 +9,7 @@ function controllerExportICS($request, $response, $container) {
     $ics_data .= "BEGIN:VEVENT\r\n";
     
     $reservations = $container->reserves()->getAllReservations();
-    $reservation = $reservations[0]; // Siempre toma el primer elemento
+    $reservation = $reservations[0]; // Siempre toma el primer elementoo
 
     $id = $reservation['id_reserved'];
     $start_date = new DateTime($reservation['entry_date']);
