@@ -5,11 +5,13 @@ function controllerDoReservas($request, $response, $container) {
             $startDate = $request->get(INPUT_POST, "startDate");
             $endDate = $request->get(INPUT_POST, "endDate");
             $apartamentId = $request->get(INPUT_POST, "apartment_id");
+            $priceDayHigh = $request->get(INPUT_POST, "high_price");
+            $priceDayLow = $request->get(INPUT_POST, "low_price");
             $idUser = $_SESSION["user"]["id_user"];
             $state = "Pending";
 
             // Llama a la función calculateSeasonAndPrice para obtener idSeason y precio, incluyendo la obtención de apartamento y temporada
-            $seasonAndPrice = calculateSeasonAndPrice($startDate, $endDate, $apartamentId, $container);
+            $seasonAndPrice = calculateSeasonAndPrice($startDate, $endDate, $container, $priceDayHigh, $priceDayLow);
             $idSeason = $seasonAndPrice['idSeason'];
             $price = $seasonAndPrice['totalPrice'];
 
@@ -30,8 +32,7 @@ function controllerDoReservas($request, $response, $container) {
     }
 }
 
-function calculateSeasonAndPrice($startDate, $endDate, $apartmentId, $container) {
-    $apartment = $container->apartaments()->getApartamentInfoById($apartmentId);
+function calculateSeasonAndPrice($startDate, $endDate, $container, $priceDayHigh, $priceDayLow) {
     $Season = $container->reserves()->getSeason();
 
     $lowSeason = $Season[0];
@@ -60,15 +61,15 @@ function calculateSeasonAndPrice($startDate, $endDate, $apartmentId, $container)
             }
         }
 
-        $totalDays++; // Incrementa el contador de días
+        $totalDays++;
 
         $currentDate->modify('+1 day');
     }
 
     if ($currentSeasonId == 1) {
-        $pricePerDay = $apartment['price_day_low_season'];
+        $pricePerDay = $priceDayLow;
     } else {
-        $pricePerDay = $apartment['price_day_high_season'];
+        $pricePerDay = $priceDayHigh;
     }
 
     $totalPrice = $totalDays * $pricePerDay;

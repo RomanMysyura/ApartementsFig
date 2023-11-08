@@ -17,7 +17,6 @@ body {
 }
 
 .navbar {
-    
     z-index: 1000 !important; /* Ajusta el valor de z-index según sea necesario para evitar superposiciones con otros elementos */
     
   }
@@ -190,9 +189,7 @@ body {
 
 }
 
-#map {
-    height: 180px; /* Establece la altura del mapa según tus necesidades */
-}
+
 
 .btnobrirtaula {
     width: 100%;
@@ -436,4 +433,58 @@ body {
 
 .vertical-menu a.active {
     background-color: #4c9baf;
+}
+
+.sloganweb {
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+}
+
+
+
+.list-item-container {
+    display: flex;
+    align-items: center;
+}
+
+.list-item-container i {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+}
+
+.list-item-container p {
+    flex: 1;
+    margin: 0;
+}
+
+
+#map {
+    height: 200px; /* Establece una altura mínima para el mapaaa */
+
+}
+
+.modal-dialog {
+    transition: all 0.3s;
+}
+
+
+
+
+.sloganweb {
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+    white-space: nowrap;
+    animation: moveText 20s linear infinite;
+    overflow: hidden;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
