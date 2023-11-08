@@ -3,97 +3,98 @@ $(document).ready(function() {
     var searchForm = $('#searchForm');
 
     searchForm.on('show.bs.collapse', function () {
-        toggleSearchButton.text('Tancar buscador');
+        toggleSearchButton.text('Tancar');
     });
 
     searchForm.on('hide.bs.collapse', function () {
-        toggleSearchButton.text('Obrir buscador');
+        toggleSearchButton.text('Obrir');
     });
 });
 
 
+
+
+var map;
+
 $(document).ready(function() {
-    $(".card-body").off('click');
 
-    // Agrega un evento click en las tarjetas de apartamentos
-    $(".card-body").on("click", function() {
-        var apartamentId = $(this).data("apartament-id");
+    $('#exampleModal').on('shown.bs.modal', function (e) {
+        if (map) {
+            map.invalidateSize(); // Refresh the map when the modal is opened
+        }
+    });
 
-        console.log(apartamentId);
+    $(".card-body").off("click").on("click", function() {
+        var $this = $(this);
+        var apartamentId = $this.data("apartament-id");
 
-        // Limpia la información anterior en la ventana modal
-        var modal = $("#exampleModal");
-        modal.find(".modal-title").text("");
-        var modalBody = modal.find(".modal-body");
-        modalBody.html("");
-
-        // Realiza una petición AJAX para obtener la información del apartamento
         $.ajax({
-
             type: "GET",
             url: "index.php?r=infoapartamentajax",
             data: { apartament_id: apartamentId },
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-
             success: function(data) {
 
-                    console.log(data);
+                if (map) { map.remove(); }
 
-                    var apartment = data[0];
-
-                    modal.find(".modal-title").text(apartment.title);
-
-                    var modalBody = modal.find(".modal-body");
-
-                    modalBody.append(
-                        "<h1>On em quedaré?</h1>" + 
-                        "<div id='map' class='mb-4'></div>"
-                    );
-
-                    modalBody.append(
-                        "<ul class='list-group'>" +
-                            "<li class='list-group-item'><i class='fa-solid fa-location-dot me-3'></i>" + apartment.postal_address + "</li>" +
-                            "<li class='list-group-item'><i class='fa-solid fa-map me-3'></i> Length: " + apartment.length + " - Latitude: " + apartment.latitude + "</li>" +
-                            "<li class='list-group-item'><i class='fa-solid fa-house me-3'></i> Metres quadrats: " + apartment.square_metres + " - Número d'habitacions: " + apartment.number_rooms + "</li>" +
-                            "<li class='list-group-item'><i class='fa-solid fa-wifi me-3'></i>" + apartment.services_extra + "</li>" +
-                            "<li class='list-group-item'><i class='fa-solid fa-book me-3'></i>" + apartment.short_description + "</li>" +
-                        "</ul>"
-                    );                  
-
-
-                    modalBody.append(
-                        "<form class='d-lg-flex collapse text-center mb-0' id='DoReservation' method='POST' action='index.php?r=doreservation'>" +
-                        "<input type='hidden' name='apartment_id' id='apartment_id' value='" + apartment.id_apartment + "' />" +
-                        "<input type='hidden' name='high_price' id='high_price' value='" + apartment.price_day_high_season + "' />" +
-                        "<input type='hidden' name='low_price' id='low_price' value='" + apartment.price_day_low_season + "' />" +
-                            "<div class='form-group me-2 my-3'>" +
-                                "<input class='form-control' type='date' id='startDate' name='startDate' min='" + apartment.start_date + "' max='" + apartment.end_date + "'/>" +
-                            "</div>" +
-                            "<div class='form-group me-2 my-3'>" +
-                                "<input class='form-control' type='date' id='endDate' name='endDate' min='" + apartment.start_date + "' max='" + apartment.end_date + "'/>" +
-                            "</div>" +
-                            "<div class='form-group me-2 my-3'>" +
-                                "<button class='btn btn-primary' type='submit'>Reservar</button>" +
-                            "</div>" +
-                        "</form>"
-                    );
-                    
-                    
-                    
-                    
-
-
-
-                    var map = L.map('map').setView([apartment.latitude, apartment.length], 7);
-
-                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 19,
-                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    }).addTo(map);
-
-                    var marker = L.marker([apartment.latitude, apartment.length]).addTo(map);
                 
+
+                var apartment = data['apartament'][0];
+                var lowSeason = data['season'][0];
+                var highSeason = data['season'][1];
+
+                var price = getPrice(apartment, lowSeason, highSeason);
+
+                // Rellenar los elementos HTML con los datos obtenidos
+                $(".modal-title").text(apartment.title);
+                $(".address").text(apartment.postal_address);
+                $(".length_latitude").text(apartment.latitude + " - " + apartment.length);
+                $(".square_metres").text(apartment.square_metres + " m²");
+                $(".number_rooms").text(apartment.number_rooms + " habitaciones");
+                $(".services_extra").text(apartment.services_extra);
+                $(".short_description").text(apartment.short_description);
+                $(".price").text(price + " € per dia");
+
+                // Llenar los valores de los campos ocultos
+                $("#apartment_id").val(apartment.id_apartment);
+                $("#high_price").val(apartment.price_day_high_season);
+                $("#low_price").val(apartment.price_day_low_season);
+
+                // Actualiza los atributos "min" y "max" de los campos de fecha
+                $("#start_Date").datepicker("option", "minDate", apartment.start_date);
+                $("#start_Date").datepicker("option", "maxDate", apartment.end_date);
+                $("#end_Date").datepicker("option", "minDate", apartment.start_date);
+                $("#end_Date").datepicker("option", "maxDate", apartment.end_date);
+
+                function getPrice(apartment, lowSeason, highSeason) {
+                    if (apartment.start_date >= lowSeason.start_date && apartment.end_date <= lowSeason.end_date) {
+                        return apartment.price_day_low_season;
+                    } else if (apartment.start_date >= highSeason.start_date && apartment.end_date <= highSeason.end_date) {
+                        return apartment.price_day_high_season;
+                    } else {
+                        var highSeasonDays = Math.max(0, Math.min(apartment.start_date, highSeason.end_date) - Math.max(apartment.start_date, highSeason.start_date)) + 1;
+                        var lowSeasonDays = Math.max(0, Math.min(apartment.start_date, lowSeason.end_date) - Math.max(apartment.start_date, lowSeason.start_date)) + 1;
+
+                        if (highSeasonDays > lowSeasonDays) {
+                            return apartment.price_day_high_season;
+                        } else {
+                            return apartment.price_day_low_season;
+                        }
+                    }
+                }
+
+                map = L.map('map').setView([apartment.latitude, apartment.length], 7);
+
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                 maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+               
+                var marker = L.marker([apartment.latitude, apartment.length]).addTo(map);
+
+               
+
             },
             error: function(xhr, textStatus, errorThrown) {
                 console.log("Error en la solicitud AJAX: " + errorThrown);
@@ -102,5 +103,63 @@ $(document).ready(function() {
     });
 });
 
+
+
+$(function() {
+    $("#end_Date").datepicker({
+        dateFormat: "yy-mm-dd", // Formato de fecha personalizado
+        minDate: 0, // Establece la fecha mínima a hoy
+        maxDate: "+1Y", // Establece la fecha máxima a un año a partir de hoy
+        changeMonth: true, // Permite cambiar el mes
+        changeYear: true, // Permite cambiar el año
+    });
+
+    $("#start_Date").datepicker({
+        dateFormat: "yy-mm-dd", // Formato de fecha personalizado
+        minDate: 0, // Establece la fecha mínima a hoy
+        maxDate: "+1Y", // Establece la fecha máxima a un año a partir de hoy
+        changeMonth: true, // Permite cambiar el mes
+        changeYear: true, // Permite cambiar el año
+    });
+
+    // Abre el calendario al hacer clic en el input
+    $("#end_Date").on("click", function() {
+        $(this).datepicker("show");
+    });
+
+    $("#start_Date").on("click", function() {
+        $(this).datepicker("show");
+    });
+}); 
+
+                    
+$(function() {
+    $("#endDate").datepicker({
+        dateFormat: "yy-mm-dd", // Formato de fecha personalizado
+        minDate: 0, // Establece la fecha mínima a hoy
+        maxDate: "+1Y", // Establece la fecha máxima a un año a partir de hoy
+        changeMonth: true, // Permite cambiar el mes
+        changeYear: true, // Permite cambiar el año
+    });
+
+    $("#startDate").datepicker({
+        dateFormat: "yy-mm-dd", // Formato de fecha personalizado
+        minDate: 0, // Establece la fecha mínima a hoy
+        maxDate: "+1Y", // Establece la fecha máxima a un año a partir de hoy
+        changeMonth: true, // Permite cambiar el mes
+        changeYear: true, // Permite cambiar el año
+    });
+
+    // Abre el calendario al hacer clic en el input
+    $("#endDate").on("click", function() {
+        $(this).datepicker("show");
+    });
+
+    $("#startDate").on("click", function() {
+        $(this).datepicker("show");
+    });
+});          
+
+                
 
   

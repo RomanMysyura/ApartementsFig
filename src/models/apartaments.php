@@ -21,7 +21,7 @@ class Apartaments {
     
     public function getAllSearch($startDate, $endDate, $numRooms) {
 
-        $query = "SELECT * FROM apartment WHERE start_date <= :startDate AND end_date >= :endDate AND number_rooms >= :numRooms";
+        $query = "SELECT * FROM apartment WHERE start_date >= :startDate AND end_date <= :endDate AND number_rooms >= :numRooms";
         $stmt = $this->sql->prepare($query);
         $stmt->bindValue(':startDate', $startDate);
         $stmt->bindValue(':endDate', $endDate);

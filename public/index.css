@@ -1,5 +1,6 @@
 body {
     background-color: #dbdbdb !important;
+    overflow-x: hidden; /* Oculta el desbordamiento horizontal */
 }
 
 @keyframes gradient {
@@ -33,12 +34,8 @@ body {
     padding-top: 25px !important;
 }
 
-.sloganweb {
-   
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
+
+
 .formularicontactar{
     
     margin-bottom: 100px !important;
@@ -199,9 +196,6 @@ body {
 
 }
 
-#map {
-    height: 180px; /* Establece la altura del mapa según tus necesidades */
-}
 
 .btnobrirtaula {
     width: 100%;
@@ -420,4 +414,61 @@ body {
 
 .carousel-item img {
     width: 100vw; /* Establece el ancho al 100% del ancho de la ventana */
+}
+
+
+
+
+.sloganweb {
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+}
+
+
+
+.list-item-container {
+    display: flex;
+    align-items: center;
+}
+
+.list-item-container i {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+}
+
+.list-item-container p {
+    flex: 1;
+    margin: 0;
+}
+
+
+#map {
+    height: 200px; /* Establece una altura mínima para el mapa */
+
+}
+
+.modal-dialog {
+    transition: all 0.3s;
+}
+
+
+
+
+.sloganweb {
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+    white-space: nowrap;
+    animation: moveText 20s linear infinite;
+    overflow: hidden;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }

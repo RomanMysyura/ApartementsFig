@@ -61,7 +61,7 @@ function calculateSeasonAndPrice($startDate, $endDate, $container, $priceDayHigh
             }
         }
 
-        $totalDays++; // Incrementa el contador de días
+        $totalDays++;
 
         $currentDate->modify('+1 day');
     }
