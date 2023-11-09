@@ -9,13 +9,12 @@ function controllerGeneratePDF($request, $response, $container) {
     $pdf->AddPage();
 
     $reserves = $container->reserves();
-    $users = $container->users(); // Assuming you have a Users class
+    $users = $container->users();
 
     $reservationData = $reserves->getReservationData($reservationId);
 
     $pdf->SetFont('Arial', 'B', 16);
 
-    // Add the reservation ID at the top
     $pdf->Cell(0, 10, 'Identificador de la reserva: ' . $reservationId, 0, 1, 'C');
 
     foreach ($reservationData as $data) {
@@ -25,7 +24,6 @@ function controllerGeneratePDF($request, $response, $container) {
         if (!empty($userData)) {
             $user = $userData[0];
 
-            // User Information Table
             $pdf->SetFont('Arial', 'B', 16);
             $pdf->Cell(40, 10, 'Informacio del usuari', 0, 1);
             $pdf->SetFont('Arial', '', 12);
@@ -34,7 +32,6 @@ function controllerGeneratePDF($request, $response, $container) {
             $pdf->Cell(40, 10, 'Correu electronic:', 0);
             $pdf->MultiCell(0, 10, $user['email'], 0, 'L');
 
-            // Reservation Information Table
             $pdf->SetFont('Arial', 'B', 16);
             $pdf->Cell(40, 10, 'Dades de la reserva', 0, 1);
             $pdf->SetFont('Arial', '', 12);
@@ -47,7 +44,6 @@ function controllerGeneratePDF($request, $response, $container) {
             $pdf->Cell(40, 10, 'Preu:', 0);
             $pdf->MultiCell(0, 10, $data['price'], 0, 'L');
 
-            // Add space between user and reservation information
             $pdf->Ln(10);
         }
     }

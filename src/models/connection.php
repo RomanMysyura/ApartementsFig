@@ -1,25 +1,27 @@
 <?php
 
-    namespace Daw;
+namespace Daw;
 
-    class Connection {
-        private $sql = null;
+// Class Connection
+class Connection {
 
-        public function __construct($config) {
-            $dsn = "mysql:host={$config["database"]["server"]};dbname={$config["database"]["database"]};charset=utf8";
-            $user = $config["database"]["username"];
-            $password = $config["database"]["password"];
-            try {
-                $this->sql = new \PDO($dsn, $user, $password);
-            } catch (PDOException $e) {
-                die("Connexió fallida");
-            }
-        }
+    private $sql = null;
 
-        public function getConnection() {
-            return $this->sql;
+    // Connexió a la base de dades
+    public function __construct($config) {
+        $dsn = "mysql:host={$config["database"]["server"]};dbname={$config["database"]["database"]};charset=utf8";
+        $user = $config["database"]["username"];
+        $password = $config["database"]["password"];
+        try {
+            $this->sql = new \PDO($dsn, $user, $password);
+        } catch (PDOException $e) {
+            die("Connexió fallida");
         }
     }
 
+    public function getConnection() {
+        return $this->sql;
+    }
+}
 
 ?>

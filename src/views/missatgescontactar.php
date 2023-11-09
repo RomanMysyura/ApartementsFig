@@ -7,9 +7,7 @@
 
 </head>
 <body>
-
     <?php require "menu.php" ?>
-
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
@@ -30,6 +28,5 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    
 </body>
 </html>

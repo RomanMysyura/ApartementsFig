@@ -1,19 +1,22 @@
 <?php
 function controllerSendMessage($request, $response, $container) {
+
+    // Comprovem s'hi s'ha enviat la informació per POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Recopila los datos del formulario
+        
+        // Guardem les dades en variables
         $name = $_POST['name'];
         $email = $_POST['email'];
         $message = $_POST['message'];
 
-        // Llama a la función sendMessage para guardar los datos
+        // Guardem l'objecte en una variable
         $users = $container->users();
+
+        // Fem un insert per guardar el missatge
         $users->sendMessage($name, $email, $message);
 
-        // Redirige a la página deseada después de enviar el formulario
-        header('Location: index.php?r= '); // Puedes personalizar la URL de redirección
-        exit;
+        // Redirigim a la pàgina principal
+        $response->redirect("location: index.php?r=");
+        return $response;
     }
-
-    return $response;
 }

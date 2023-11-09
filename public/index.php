@@ -1,15 +1,14 @@
 <?php
-// Config.php
+
+// Configuració
 include "../src/config.php";
 
-// Controllers TEESTss
-include '../src/controllers/controllerindex.php';
-include '../src/controllers/menu.php';
+// Controllers
+include '../src/controllers/controllerIndex.php';
+include '../src/controllers/controllerMenu.php';
 include '../src/controllers/controllerDoRegister.php';
 include '../src/controllers/controllerLogin.php';
-include '../src/controllers/reservar.php';
 include '../src/controllers/controllerContactar.php';
-include '../src/controllers/ubicacio.php';
 include '../src/controllers/controllerRegister.php';
 include '../src/controllers/controllerUpdateUser.php';
 include '../src/controllers/controllerCompte.php';
@@ -32,8 +31,9 @@ include "../src/controllers/controllerUpdateSeason.php";
 include "../src/controllers/controllerExportICS.php";
 include "../src/controllers/controllerExportICSuser.php";
 
+include '../src/controllers/controllerAddImage.php';
+include '../src/controllers/controllerUpdateImage.php';
 include '../src/libs/fpdf.php';
-
 
 // Middleware//
 include '../src/middleware/isLogged.php';
@@ -49,9 +49,7 @@ include "../src/Emeset/Container.php";
 include "../src/Emeset/Request.php";
 include "../src/Emeset/Response.php";
 
-
-
-// 
+// Instanciom els objectes Emeset
 $request = new \Emeset\Request();
 $response = new \Emeset\Response();
 $container = new \Emeset\Container($config);
@@ -62,26 +60,20 @@ if (isset($_REQUEST["r"])) {
 }
 
 if ($r == '') {
-    controllerindex($request, $response, $container);
-} else if ($r == 'signup'){
+    controllerIndex($request, $response, $container);
+} else if ($r == 'signup') {
     controllerRegister($request, $response, $container);
-} else if ($r == 'login'){
-    controllerlogin($request, $response, $container);
-} else if ($r == 'reservar'){
-    controllerreservar($request, $response, $container);
-} else if ($r == 'contactar'){
-    controllercontactar($request, $response, $container);
-} else if ($r == 'ubicacio'){
-    controllerubicacio($request, $response, $container);
-} else if ($r == 'registrar'){
+} else if ($r == 'login') {
+    controllerLogin($request, $response, $container);
+} else if ($r == 'contactar') {
+    controllerContactar($request, $response, $container);
+} else if ($r == 'registrar') {
     controllerDoRegister($request, $response, $container);
-} else if ($r == 'infoapartaments'){
-    controllerinfoapartaments($request, $response, $container);
-} else if ($r == 'compte'){
+} else if ($r == 'compte') {
     isLogged($request, $response, $container, "controllerCompte");
-} else if ($r == 'logout'){
+} else if ($r == 'logout') {
     controllerDoLogout($request, $response, $container);
-} else if ($r == 'paneldecontrol'){
+} else if ($r == 'paneldecontrol') {
     isLogged($request, $response, $container, "controllerPanelDeControl");
 } else if($r == 'dologin') {
     controllerDoLogin($request, $response, $container);
@@ -107,22 +99,22 @@ if ($r == '') {
     controllerUpdateReservation($request, $response, $container);
 } else if($r == 'sendmessage') {
     controllerSendMessage($request, $response, $container);
-}else if($r == 'messagescontact') {
+} else if($r == 'messagescontact') {
     controllerMessagesContact($request, $response, $container);
-}else if($r == 'generatepdf') {
+} else if($r == 'generatepdf') {
     controllerGeneratePDF($request, $response, $container);
-}else if($r == 'updateseason') {
+} else if($r == 'updateseason') {
     controllerUpdateSeason($request, $response, $container);
-}else if($r == 'updateuserfrompanel') {
+} else if($r == 'updateuserfrompanel') {
     controllerUpdateUserFromPanel($request, $response, $container);
-}else if($r == 'exportICS') {
+} else if($r == 'exportICS') {
     controllerExportICS($request, $response, $container);
 }else if($r == 'exportICSuser') {
     controllerExportICSuser($request, $response, $container);
+} else if($r == 'addimage') {
+    controllerAddImage($request, $response, $container);
+} else if($r == 'updateimage') {
+    controllerUpdateImage($request, $response, $container);
 }
-
-
-
-
 
 $response->response();

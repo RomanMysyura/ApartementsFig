@@ -1,3 +1,6 @@
+var map; // Inicialitzem una variable pel mapa
+
+// Event que canvia el text del botó del buscador
 $(document).ready(function() {
     var toggleSearchButton = $('#toggleSearchButton');
     var searchForm = $('#searchForm');
@@ -11,20 +14,44 @@ $(document).ready(function() {
     });
 });
 
+// Funció anònima
+$(function() {
 
+    // Funció per formatar el calendari
+    function initializeDatepicker(selector) {
+        $(selector).datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: 0,
+            maxDate: "+1Y",
+            changeMonth: true,
+            changeYear: true,
+        });
 
+        // Event per obrir el calendari
+        $(selector).on("click", function() {
+            $(this).datepicker("show");
+        });
+    }
 
-var map;
+    // Inicialitzem els calendaris
+    initializeDatepicker("#end_Date");
+    initializeDatepicker("#start_Date");
+    initializeDatepicker("#endDate");
+    initializeDatepicker("#startDate");
+});
 
+// Ajax
 $(document).ready(function() {
 
+    // Event per reajustar el mapa carregat
     $('#exampleModal').on('shown.bs.modal', function (e) {
-        if (map) {
-            map.invalidateSize(); // Refresh the map when the modal is opened
-        }
+        if (map) { map.invalidateSize(); }
     });
 
+    // Event que fara una petició ajax a un controlador al obrir el modal
     $(".card-body").off("click").on("click", function() {
+
+        // Obtenim l'id del apartament
         var $this = $(this);
         var apartamentId = $this.data("apartament-id");
 
@@ -36,17 +63,18 @@ $(document).ready(function() {
             dataType: "json",
             success: function(data) {
 
+                // Si existeix el mapa del anterior modal carregat, l'eliminem
                 if (map) { map.remove(); }
 
-                
-
+                // Declarem les variables per l'apartament i les temporades
                 var apartment = data['apartament'][0];
                 var lowSeason = data['season'][0];
                 var highSeason = data['season'][1];
 
+                // Obtenim el preu per dia de l'apartament a partir de la temporada
                 var price = getPrice(apartment, lowSeason, highSeason);
 
-                // Rellenar los elementos HTML con los datos obtenidos
+                // Emplenem el contingut del modal amb les dades del apartament
                 $(".modal-title").text(apartment.title);
                 $(".address").text(apartment.postal_address);
                 $(".length_latitude").text(apartment.latitude + " - " + apartment.length);
@@ -56,34 +84,18 @@ $(document).ready(function() {
                 $(".short_description").text(apartment.short_description);
                 $(".price").text(price + " € per dia");
 
-                // Llenar los valores de los campos ocultos
+                // Emplenem els valors ocults del formulari
                 $("#apartment_id").val(apartment.id_apartment);
                 $("#high_price").val(apartment.price_day_high_season);
                 $("#low_price").val(apartment.price_day_low_season);
 
-                // Actualiza los atributos "min" y "max" de los campos de fecha
+                // Actuaitzem el valors del formulario de reserva
                 $("#start_Date").datepicker("option", "minDate", apartment.start_date);
                 $("#start_Date").datepicker("option", "maxDate", apartment.end_date);
                 $("#end_Date").datepicker("option", "minDate", apartment.start_date);
                 $("#end_Date").datepicker("option", "maxDate", apartment.end_date);
 
-                function getPrice(apartment, lowSeason, highSeason) {
-                    if (apartment.start_date >= lowSeason.start_date && apartment.end_date <= lowSeason.end_date) {
-                        return apartment.price_day_low_season;
-                    } else if (apartment.start_date >= highSeason.start_date && apartment.end_date <= highSeason.end_date) {
-                        return apartment.price_day_high_season;
-                    } else {
-                        var highSeasonDays = Math.max(0, Math.min(apartment.start_date, highSeason.end_date) - Math.max(apartment.start_date, highSeason.start_date)) + 1;
-                        var lowSeasonDays = Math.max(0, Math.min(apartment.start_date, lowSeason.end_date) - Math.max(apartment.start_date, lowSeason.start_date)) + 1;
-
-                        if (highSeasonDays > lowSeasonDays) {
-                            return apartment.price_day_high_season;
-                        } else {
-                            return apartment.price_day_low_season;
-                        }
-                    }
-                }
-
+                // Inicialitzem el calendari amb les dades de cada apartament
                 map = L.map('map').setView([apartment.latitude, apartment.length], 7);
 
                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -92,9 +104,6 @@ $(document).ready(function() {
                 }).addTo(map);
                
                 var marker = L.marker([apartment.latitude, apartment.length]).addTo(map);
-
-               
-
             },
             error: function(xhr, textStatus, errorThrown) {
                 console.log("Error en la solicitud AJAX: " + errorThrown);
@@ -103,62 +112,27 @@ $(document).ready(function() {
     });
 });
 
+// Funcio per obtenir el preu del apartament a partir de la temporada
+function getPrice(apartment, lowSeason, highSeason) {
+    if (apartment.start_date >= lowSeason.start_date && apartment.end_date <= lowSeason.end_date) {
+        return price = apartment.price_day_low_season;
+    } else if (apartment.start_date >= highSeason.start_date && apartment.end_date <= highSeason.end_date) {
+        return price = apartment.price_day_high_season;
+    } else {
+        var daysLowSeason = Math.floor((lowSeason.end_date - apartment.start_date) / (1000 * 60 * 60 * 24));
+        var daysHighSeason = Math.floor((apartment.end_date - highSeason.start_date) / (1000 * 60 * 60 * 24));
+    
+        if (daysHighSeason > daysLowSeason) {
+            return price = apa.price_day_high_season;
+        } else {
+            return price = apartment.price_day_low_season;
+        }
+    }
+};
 
 
-$(function() {
-    $("#end_Date").datepicker({
-        dateFormat: "yy-mm-dd", // Formato de fecha personalizado
-        minDate: 0, // Establece la fecha mínima a hoy
-        maxDate: "+1Y", // Establece la fecha máxima a un año a partir de hoy
-        changeMonth: true, // Permite cambiar el mes
-        changeYear: true, // Permite cambiar el año
-    });
 
-    $("#start_Date").datepicker({
-        dateFormat: "yy-mm-dd", // Formato de fecha personalizado
-        minDate: 0, // Establece la fecha mínima a hoy
-        maxDate: "+1Y", // Establece la fecha máxima a un año a partir de hoy
-        changeMonth: true, // Permite cambiar el mes
-        changeYear: true, // Permite cambiar el año
-    });
-
-    // Abre el calendario al hacer clic en el input
-    $("#end_Date").on("click", function() {
-        $(this).datepicker("show");
-    });
-
-    $("#start_Date").on("click", function() {
-        $(this).datepicker("show");
-    });
-}); 
-
-                    
-$(function() {
-    $("#endDate").datepicker({
-        dateFormat: "yy-mm-dd", // Formato de fecha personalizado
-        minDate: 0, // Establece la fecha mínima a hoy
-        maxDate: "+1Y", // Establece la fecha máxima a un año a partir de hoy
-        changeMonth: true, // Permite cambiar el mes
-        changeYear: true, // Permite cambiar el año
-    });
-
-    $("#startDate").datepicker({
-        dateFormat: "yy-mm-dd", // Formato de fecha personalizado
-        minDate: 0, // Establece la fecha mínima a hoy
-        maxDate: "+1Y", // Establece la fecha máxima a un año a partir de hoy
-        changeMonth: true, // Permite cambiar el mes
-        changeYear: true, // Permite cambiar el año
-    });
-
-    // Abre el calendario al hacer clic en el input
-    $("#endDate").on("click", function() {
-        $(this).datepicker("show");
-    });
-
-    $("#startDate").on("click", function() {
-        $(this).datepicker("show");
-    });
-});          
+         
 
                 
 
@@ -172,6 +146,7 @@ $(document).ready(function() {
         $("#reservas-tab").removeClass("active");
         $("#usuarios-tab").addClass("active");
         $("#afegir-usuaris-content").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").removeClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -179,6 +154,8 @@ $(document).ready(function() {
         $("#apartament-afegir").addClass("d-none");
         $("#seasons-content").addClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
     });
 
     $("#editar-usuaris-content").click(function() {
@@ -189,6 +166,7 @@ $(document).ready(function() {
         $("#afegir-usuaris-content").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
         $("#seasons-tab").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#usuarios-content").addClass("d-none");
         $("#reservas-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -196,6 +174,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").removeClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
 
 
     });
@@ -209,6 +189,7 @@ $(document).ready(function() {
         $("#reservas-tab").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
         $("#seasons-tab").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").removeClass("d-none");
         $("#reservas-content").addClass("d-none");
@@ -216,6 +197,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
 
     });
 
@@ -227,6 +210,7 @@ $(document).ready(function() {
         $("#afegir-usuaris-content").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
         $("#seasons-tab").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").removeClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -234,6 +218,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
     });
 
 
@@ -245,6 +231,7 @@ $(document).ready(function() {
         $("#afegir-apartaments-content").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
         $("#seasons-tab").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -252,6 +239,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
     });
 
     $("#afegir-apartaments-content").click(function() {
@@ -262,6 +251,7 @@ $(document).ready(function() {
         $("#usuarios-tab").removeClass("active");
         $("#seasons-tab").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -269,6 +259,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").removeClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
     });
 
 
@@ -280,6 +272,7 @@ $(document).ready(function() {
         $("#reservas-tab").removeClass("active");
         $("#usuarios-tab").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -287,6 +280,29 @@ $(document).ready(function() {
         $("#apartament-afegir").addClass("d-none");
         $("#seasons-content").removeClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+                $("#apartament-images-tab").removeClass("active");
+
+    });
+
+    $("#apartament-images-tab").click(function() {
+        // Añade o quita las clases según sea necesario
+        $("#apartaments-tab").removeClass("active");
+        $("#apartament-images-tab").addClass("active");
+        $("#editar-usuaris-content").removeClass("active");
+        $("#reservas-tab").removeClass("active");
+        $("#usuarios-tab").removeClass("active");
+        $("#afegir-apartaments-content").removeClass("active");
+        $("#afegir-usuaris-content").removeClass("active");
+        $("#seasons-tab").removeClass("active");
+        $("#reservas-content").addClass("d-none");
+        $("#usuarios-content").addClass("d-none");
+        $("#afegir-content").addClass("d-none");
+        $("#apartament-content").addClass("d-none");
+        $("#seasons-content").addClass("d-none");
+        $("#apartament-afegir").addClass("d-none");
+        $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").removeClass("d-none");
     });
     
     

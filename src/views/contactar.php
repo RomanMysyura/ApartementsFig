@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>Contacta amb nosaltres</title>
     <?php require 'libs.php'; ?>
-
     <script src="js/scripts.js"></script>
 </head>
-<body>
+<body class="p-0 m-0 border-0 bd-example m-0 border-0">
     <?php require "menu.php" ?>
-    <h3 class="sloganweb">CONTACTAR</h3>
-    <div class="d-flex flex-column align-items-center">
-                <div class="card p-4 bg-dark container-opacity formularicontactar" data-bs-theme="dark">
-        <form method="post" action="index.php?r=sendmessage">
-            <div class="form-group inputformcontactar">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nom:" required>
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 d-flex flex-column align-items-center">
+                <div class="card p-4 bg-dark container-opacity formlogin" data-bs-theme="dark">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <img src="/img/ApartamentsFiguerencs2.ico" alt="ApartamentsFiguerencs" width="100px" height="100px">
+                    </div>
+                    <form method="post" action="index.php?r=sendmessage">
+                        <div class="mb-3">
+                            <label for="name" class="form-label text-white">Nom:</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-id-card"></i></span>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nom d'usuari" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label text-white">Correu electrònic:</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Correu electrònic:" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label text-white">Cos del missatge:</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-book"></i></span>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="El teu missatge:" required></textarea>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button type="submit" class="btn btn-primary btnformcontactar">Enviar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group inputformcontactar">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Correu electronic:" required>
-            </div>
-            <div class="form-group inputformcontactar">
-                <textarea class="form-control" id="message" name="message" rows="4" placeholder="El teu missatge:" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btnformcontactar">Enviar</button>
-        </form>
+        </div>
     </div>
-    </div>
-
-
-
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11810.674233273328!2d2.9549441243379095!3d42.264250069064275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ba8de7daf77b2d%3A0x2f451468ac1a35cb!2s17600%20Figueres%2C%20Girona!5e0!3m2!1ses!2ses!4v1699453295113!5m2!1ses!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <h5 class="text-center">On ens pots trobar ?</h5> 
+    <div id="map" style="height: 300px;"></div>
     <?php require "footer.php"; ?>
-
-    
 </body>
+<script src="js/map.js"></script>
 </html>
