@@ -15,6 +15,6 @@ function controllerDoRegister($request, $response, $container){
     // Fem un insert per registrar l'usuari
     $userModel = $userModel->register($name, $last_name, $telephone, $email, $password, $id_role);
     
-    // Redirigim al compte
+    // Redirigim a compte
     $response->redirect("location: index.php?r=compte");
 }

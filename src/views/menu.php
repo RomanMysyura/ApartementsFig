@@ -1,4 +1,3 @@
-<script src="js/scripts.js"></script>
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container">
         <a class="navbar-brand" href="index.php">
@@ -16,7 +15,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <?php if (isset($_SESSION['logged']) && $_SESSION['logged'] === true): ?>
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Benvingut, <?= $_SESSION['user']['name']?></a>
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Benvingut, <?= $_SESSION['user']['name'] ?></a>
                     <?php else: ?>
                         <a class="nav-link dropdown-toggle active" href="#" role, data-bs-toggle="dropdown" aria-expanded="false">Àrea d'usuari</a>
                     <?php endif; ?>
@@ -43,13 +42,13 @@
                 id="toggleSearchButton">Obrir</button>
             <form class="d-lg-flex collapse text-center mb-0" id="searchForm" method="GET">
                 <div class="form-group me-2 my-3">
-                    <input class="form-control" type="text" id="startDate" name="startDate" placeholder="Seleccionar data" required/>
+                    <input class="form-control" type="text" id="startDate" name="startDate" placeholder="Seleccionar data" required />
                 </div>
                 <div class="form-group me-2 my-3">
-                    <input class="form-control" type="text" id="endDate" name="endDate" placeholder="Seleccionar data" required/>
+                    <input class="form-control" type="text" id="endDate" name="endDate" placeholder="Seleccionar data" required />
                 </div>
                 <div class="form-group me-2 my-3">
-                    <input class="form-control" type="number" id="numRooms" name="numRooms" placeholder="Número de habitaciones" required/>
+                    <input class="form-control" type="number" id="numRooms" name="numRooms" placeholder="Número de habitaciones" required />
                 </div>
                 <div class="form-group me-2 my-3">
                     <button class="btn btn-primary" type="submit">Buscar</button>
