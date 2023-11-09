@@ -9,7 +9,7 @@ function controllerExportICS($request, $response, $container) {
     $ics_data .= "BEGIN:VEVENT\r\n";
     
     $reservations = $container->reserves()->getAllReservations();
-    $reservation = $reservations[0]; // Siempre toma el primer elementoo
+    $reservation = $reservations[0];
 
     $id = $reservation['id_reserved'];
     $start_date = new DateTime($reservation['entry_date']);
@@ -25,7 +25,6 @@ function controllerExportICS($request, $response, $container) {
     $ics_data .= "END:VEVENT\r\n";
     $ics_data .= "END:VCALENDAR\r\n";
 
-    // Download the File
     $filename = "event_calendar.ics";
     header("Content-type:text/calendar");
     header("Content-Disposition: attachment; filename=$filename");

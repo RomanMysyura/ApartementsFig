@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php require "menu.php"; ?>
+    <title>Panel de control</title>
     <?php require 'libs.php'; ?>
-    <title>Editar Usuaris</title>
     <script src="js/scripts.js"></script>
 </head>
 
 <body>
+    <?php require "menu.php"; ?>
     <div class="dashboarddiv">
         <div class="vertical-menu">
             <a href="#" id="usuarios-tab" class="active">Usuaris</a>
@@ -21,6 +21,7 @@
             <a href="#" id="reservas-tab">Reservas</a>
             <a href="#" id="apartaments-tab">Apartaments</a>
             <a href="#" id="afegir-apartaments-content"> - Afegir apartament</a>
+            <a href="#" id="apartament-images-tab">Imatges Apartament</a>
             <a href="#" id="seasons-tab">Temporades</a>
         </div>
         <div id="usuarios-content" class="taulausuaris scrollable-table">
@@ -231,6 +232,8 @@
                         <th scope="col">Serveis extres</th>
                         <th scope="col">Preu baixa</th>
                         <th scope="col">Preu alta</th>
+                        <th scope="col">Data d'entrada</th>
+                        <th scope="col">Data sortida</th>
                         <th scope="col">Acció</th>
                     </tr>
                 </thead>
@@ -262,6 +265,12 @@
                             <td class="tdapart"><input class="inputapart inputprice" type="text"
                                     name="price_day_high_season" value="<?= $apartment['price_day_high_season'] ?>">
                             </td>
+                            <td class="tdapart"><input class="inputapart inputprice" type="text"
+                                    name="start_date" value="<?= $apartment['start_date'] ?>">
+                            </td>
+                            <td class="tdapart"><input class="inputapart inputprice" type="text"
+                                    name="end_date" value="<?= $apartment['end_date'] ?>">
+                            </td>
                             <td class="tdapart"><button type="submit" class="btn btn-primary">Guardar</button></td>
                         </form>
                     </tr>
@@ -287,6 +296,8 @@
                                 <th scope="col">Servicios Extra</th>
                                 <th scope="col">Precio en Temporada Baja</th>
                                 <th scope="col">Precio en Temporada Alta</th>
+                                <th scope="col">Data d'entrada</th>
+                                <th scope="col">Data sortida</th>
                                 <th scope="col">Acción</th>
                             </tr>
                         </thead>
@@ -312,12 +323,57 @@
                                         placeholder="Precio en Temporada Baja" required></td>
                                 <td><input type="text" class="form-control" name="price_day_high_season"
                                         placeholder="Precio en Temporada Alta" required></td>
-                                <td><button type="submit" class="btn btn-primary">Agregar</button></td>
+                                <td><input type="date" class="form-control" name="start_date"
+                                        placeholder="Data d'entrada" required></td>
+                                <td><input type="date" class="form-control" name="end_date"
+                                        placeholder="Data sortida" required></td> 
+                                <td><button type="submit" class="btn btn-primary">Afegir</button></td>
                             </tr>
                         </tbody>
                     </table>
                 </form>
             </div>
+        </div>
+
+        <div id="apartament-images-content" class="taulausuaris scrollable-table d-none">
+            <h1 class="panelusuaris">Imatges dels apartaments</h1>
+            <table id="apartament-images-table" class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Id del apartament</th>
+                        <th scope="col">Ruta</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Modifica el bucle foreach en el formulario -->
+                    <?php foreach ($images as $image): ?>
+                        <tr>
+                            <form method="POST" action="index.php?r=updateimage">
+                                <input type="hidden" name="image_id" value="<?= $image['id_image'] ?>">
+                                <td><?= $image['id_image'] ?></td>
+                                <!-- Agrega un campo de selección para elegir el nuevo apartamento -->
+                                <td>
+                                    <select name="apartment_id">
+                                        <?php foreach ($apartments as $apartment): ?>
+                                            <option value="<?= $apartment['id_apartment'] ?>" <?= ($apartment['id_apartment'] == $image['id_apartment']) ? 'selected' : '' ?>>
+                                                <?= $apartment['title'] ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </td>
+                                <td class="tdapart">
+                                    <input class="inputapart inputtitol" type="text" name="file_name"
+                                        value="<?= $image['image_path'] ?>">
+                                </td>
+                                <td class="tdapart"><button type="submit" class="btn btn-primary">Guardar</button></td>
+                            </form>
+                        </tr>
+                    <?php endforeach; ?>
+
+                </tbody>
+            </table>
         </div>
 
         <div id="seasons-content" class="taulausuaris scrollable-table d-none">

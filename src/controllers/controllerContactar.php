@@ -1,8 +1,7 @@
 <?php
-function controllercontactar($request, $response, $container){
+function controllerContactar($request, $response, $container){
     
+    // Definim la plantilla
     $response->setTemplate("contactar.php");
-
     return $response;
-    
 }

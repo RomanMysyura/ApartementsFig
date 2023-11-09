@@ -7,15 +7,10 @@
 </head>
 <body>
     <?php require "menu.php"; ?>
-
     <div class="bg-primary">
-        <h1 class="sloganweb">
-            <img src="/img/ApartamentsFiguerencs.png" alt="Logo de Tu Empresa" width="50px">
-            Reserva el teu racó a Figueres, el teu apartament a la Costa Brava.
-        </h1>
+        <h1 class="sloganweb">Reserva el teu racó a Figueres, el teu apartament a la Costa Brava.</h1>
     </div>
-
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <div class="divapartaments">
             <?php foreach ($apartaments as $apartament) { ?>
                 <div class="card" id="card">
@@ -37,9 +32,7 @@
             <?php } ?>
         </div>
     </div>
-
     <?php require "footer.php"; ?>
-
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
@@ -48,7 +41,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                     <h4>Formulari de reserva:</h4>
                     <div class="p-4 container-opacity border rounded mb-3">
                         <div class="col-12 d-flex justify-content-center align-items-center">
@@ -66,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="date" class="form-label">Data de sortida:</label>
+                                <label for "date" class="form-label">Data de sortida:</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
                                     <input class="form-control" type="text" id="end_Date" name="endDate" placeholder="Seleccionar data" min="" max="" style="z-index: 1060;"/>
@@ -77,7 +69,6 @@
                             </div>
                         </form>
                     </div>
-
                     <h4>Informació del apartament:</h4>
                     <ul class="list-group w-100 mb-3">
                         <li class="list-group-item">
@@ -123,13 +114,11 @@
                             </div>
                         </li>
                     </ul>
-                    
                     <h4>Ubicació:</h4>
                     <div id="map"></div>
                 </div>
             </div>
         </div>
     </div>
-    
 </body>
 </html>

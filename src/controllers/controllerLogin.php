@@ -1,6 +1,7 @@
 <?php
-function controllerlogin($request, $response, $container){
+function controllerLogin($request, $response, $container){
     
+    // Definim la plantilla
     $response->setTemplate("login.php");
     return $response;
     

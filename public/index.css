@@ -1,53 +1,30 @@
 body {
     background-color: #dbdbdb !important;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 0%;
-    }
-
-    50% {
-        background-position: 100% 100%;
-    }
-
-    100% {
-        background-position: 0% 0%;
-    }
+    overflow-x: hidden;
 }
 
 .navbar {
-    z-index: 1000 !important; /* Ajusta el valor de z-index según sea necesario para evitar superposiciones con otros elementos */
-    
-  }
-  .divmenu{
-    margin-bottom: 86px !important;
-  }
-.contenidorcompte{
-    padding-top: 25px !important;
+    z-index: 1000 !important;
 }
 
-.sloganweb {
-   
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
+.divmenu {
+    margin-bottom: 86px !important;
 }
-.formularicontactar{
-   width: 40% !important;
+
+.formularicontactar {
+    width: 40% !important;
 }
-.inputformcontactar{
+
+.inputformcontactar {
     margin: 10px;
 }
 
-.btnformcontactar{
+.btnformcontactar {
     margin-left: 10px !important;
     width: 100px !important;
 }
 
-
 .btnlogin {
-
     cursor: pointer;
     outline: 0;
     color: #fff;
@@ -60,19 +37,18 @@ body {
     border: 1px solid transparent;
     padding: 6px 12px;
     font-size: 16px;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btnlogin :hover {
+.btnlogin:hover {
     color: #fff;
     background-color: #0b5ed7;
     border-color: #0a58ca;
 }
 
 .btnnav {
-
     cursor: pointer;
     outline: 0;
     color: #fff;
@@ -85,16 +61,9 @@ body {
     border: 1px solid transparent;
     padding: 6px 12px;
     font-size: 16px;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-
-    :hover {
-        color: #fff;
-        background-color: #0b5ed7;
-        border-color: #0a58ca;
-    }
-
-
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .btnnav:hover {
@@ -102,8 +71,6 @@ body {
     background-color: #0b5ed7;
     border-color: #0a58ca;
 }
-
-
 
 .container {
     width: 100% !important;
@@ -131,35 +98,25 @@ body {
     width: 300px;
     margin: 15px;
 }
-.formloginsignup{
-    margin-bottom: 130px !important;
-}
-.formsignup, .formlogin{
+
+
+
+.formsignup,
+.formlogin {
     width: 350px !important;
 }
 
-/* Estilo para el bootón "Settings" */
 .btn-settings {
     background-color: #ffffff;
-    /* Color de fondo del botón */
     color: #000000;
-    /* Color del texto del botón */
     border: solid;
-    /* Sin borde */
     padding: 10px 20px;
-    /* Relleno interno del botóddn */
     border-radius: 8px;
-    /* Radio de borde para bordes redondeados */
-
     cursor: pointer;
-    /* Cambia el cursor al pasar el mouse por encima */
-
 }
 
-/* Estilo para el botón cuando se coloca el cursor encima */
 .btn-settings:hover {
     background-color: #000000;
-    /* Cambia el color de fondo al pasar el mouse por encima */
     color: #ffffff;
 }
 
@@ -186,11 +143,6 @@ body {
     border: 1px solid #222222;
     background: #fff;
     color: #222222;
-
-}
-
-#map {
-    height: 180px; /* Establece la altura del mapa según tus necesidades */
 }
 
 .btnobrirtaula {
@@ -203,11 +155,10 @@ body {
 
 .scrollable-table {
     max-height: 890px;
-    /* Define la altura máxima para activar el scroll */
     overflow-y: scroll;
-    /* Agrega un desplazamiento vertical */
 }
-.taulausuaris{
+
+.taulausuaris {
     width: 100% !important;
 }
 
@@ -215,7 +166,6 @@ body {
 .taulaapartaments {
     margin-left: 0px;
     margin-right: 0px;
-    
     background-color: #ffffff;
 }
 
@@ -229,7 +179,6 @@ body {
     margin-top: -16px;
 }
 
-
 .inputnomcontrol {
     width: 160px;
 }
@@ -238,9 +187,7 @@ body {
     width: 160px;
 }
 
-
 .llistadeusuaris {
-
     background-color: #212529;
     margin-bottom: 0px;
     height: 4px;
@@ -269,32 +216,27 @@ body {
     background-color: #212529;
     margin-bottom: 0px;
     width: 100%;
-
 }
 
-.usuarieliminat {
+usuarieliminat {
     font-family: sans-serif;
     font-size: 26px;
     color: #00d841;
     font-weight: normal;
     text-decoration: none solid rgb(68, 68, 68);
-
     text-transform: uppercase;
     text-align: center;
-    /* Añade esta línea para centrar horizontalmente */
     background-color: #212529;
     margin-bottom: 0px;
 }
 
 #card {
-    transition: transform 0.3s; /* Aplica una transición suave de 0.3 segundos al transform */
+    transition: transform 0.3s;
 }
 
 #card:hover {
-    transform: scale(1.1); /* Escala la tarjeta en un 110% en el hover */
+    transform: scale(1.1);
 }
-
-
 
 /*ESTILS PER LA VISTA MODAL */
 
@@ -307,33 +249,31 @@ body {
     margin-left: 10px;
 }
 
-
-
-.imgmodal{
-    
+.imgmodal {
     border-radius: 5px !important;
 }
 
-
-.servicesextra{
+.servicesextra {
     margin-top: -10px;
     margin-left: 25px;
 }
-.descripcioapartmenttitol{
+
+.descripcioapartmenttitol {
     margin-left: 25px;
     font-weight: bold;
 }
-.descripcioapartment{
+
+.descripcioapartment {
     margin-left: 25px;
 }
 
-.textform{
-    
+.textform {
     color: white;
     margin-bottom: 2px !important;
     margin-top: 0px;
-    text-align: left; 
+    text-align: left;
 }
+
 .texteditdades {
     border: 0;
     background: #212529;
@@ -347,75 +287,81 @@ body {
     font-size: 16px;
     font-weight: 400;
     height: 35px;
-    transition: all .2s ease;
-    border-bottom: 2px solid rgb(255, 255, 255); /* Agrega una línea negra debajo del input */
+    transition: all 0.2s ease;
+    border-bottom: 2px solid rgb(255, 255, 255);
 }
-
 
 .texteditdades:focus {
     background: black;
     outline: 0;
-    box-shadow: rgb(0, 0, 0)0 0 #fff inset, #03c091 0 0 0 3px;
+    box-shadow: rgb(0, 0, 0) 0 0 #fff inset, #03c091 0 0 0 3px;
 }
 
-.accordion-button{
+.accordion-button {
     background-color: #b3b3b3 !important;
 }
-.accordion-body{
+
+.accordion-body {
     background-color: #ffffff !important;
 }
-.accordion-item{
-    border: 0px solid !important; 
 
+.accordion-item {
+    border: 0px solid !important;
 }
 
-.btnopenform{
+.btnopenform {
     background-color: #9b9b9b !important;
     width: 100%;
     color: #000000 !important;
     border-radius: 0px !important;
     font-size: 20px !important;
 }
-.inputapart{
+
+.inputapart {
     border-radius: 5px;
     height: 30px;
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
-.inputtitol{
+
+.inputtitol {
     width: 100px;
-    
 }
-.inputlenilat{
+
+.inputlenilat {
     width: 70px;
 }
-.inputdescripciocurta{
+
+.inputdescripciocurta {
     width: 400px;
 }
-.inpumq{
+
+.inpumq {
     width: 55px;
 }
-.innumhab{
+
+.innumhab {
     width: 40px;
 }
-.inputextra{
+
+.inputextra {
     width: 200px;
 }
-.inputprice{
+
+.inputprice {
     width: 55px;
 }
-.tdapart{
+
+.tdapart {
     padding-left: 3px !important;
     padding-right: 3px !important;
 }
-
-/*CSS PER A DASHBOARD*/
 
 .dashboarddiv {
     display: flex;
 }
 
 .vertical-menu {
-    width: 200px; /* Ajusta el ancho a tu preferencia */
+    width: 200px;
     background-color: #212529;
     color: #fff;
     padding: 10px;
@@ -435,4 +381,39 @@ body {
 
 .vertical-menu a.active {
     background-color: #4c9baf;
+}
+
+.list-item-container {
+    display: flex;
+    align-items: center;
+}
+
+.list-item-container i {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+}
+
+.list-item-container p {
+    flex: 1;
+    margin: 0;
+}
+
+#map {
+    height: 200px;
+}
+
+.modal-dialog {
+    transition: all 0.3s;
+}
+
+.sloganweb {
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.map {
+    width: 100%;
+    height: 50%;
 }
