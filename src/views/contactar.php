@@ -44,6 +44,7 @@
             </div>
         </div>
     </div>
+    <h5 class="text-center">On ens pots trobar ?</h5> 
     <div id="map" style="height: 300px;"></div>
     <?php require "footer.php"; ?>
 </body>

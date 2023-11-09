@@ -16,9 +16,11 @@ function controllerUpdateApartment($request, $response, $container){
         $servicesExtra = $_POST["services_extra"];
         $priceLowSeason = $_POST["price_day_low_season"];
         $priceHighSeason = $_POST["price_day_high_season"];
+        $startDate = $_POST['start_date'];
+        $endDate = $_POST['end_date'];
 
         // Fem un update per actualitzar els valors del apartament
-        $container->apartaments()->updateApartment($apartmentId, $title, $postalAddress, $length, $latitude, $shortDescription, $squareMetres, $numberRooms, $servicesExtra, $priceLowSeason, $priceHighSeason);
+        $container->apartaments()->updateApartment($apartmentId, $title, $postalAddress, $length, $latitude, $shortDescription, $squareMetres, $numberRooms, $servicesExtra, $priceLowSeason, $priceHighSeason,$startDate, $endDate);
     }
 
     // Redirigim al panell de control

@@ -29,6 +29,8 @@ include "../src/controllers/controllerGeneratePDF.php";
 include "../src/controllers/controllerUpdateUserFromPanel.php";
 include "../src/controllers/controllerUpdateSeason.php";
 include "../src/controllers/controllerExportICS.php";
+include '../src/controllers/controllerAddImage.php';
+include '../src/controllers/controllerUpdateImage.php';
 include '../src/libs/fpdf.php';
 
 // Middleware//
@@ -105,6 +107,10 @@ if ($r == '') {
     controllerUpdateUserFromPanel($request, $response, $container);
 } else if($r == 'exportICS') {
     controllerExportICS($request, $response, $container);
+} else if($r == 'addimage') {
+    controllerAddImage($request, $response, $container);
+} else if($r == 'updateimage') {
+    controllerUpdateImage($request, $response, $container);
 }
 
 $response->response();

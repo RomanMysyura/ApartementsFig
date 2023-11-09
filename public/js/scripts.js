@@ -146,6 +146,7 @@ $(document).ready(function() {
         $("#reservas-tab").removeClass("active");
         $("#usuarios-tab").addClass("active");
         $("#afegir-usuaris-content").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").removeClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -153,6 +154,8 @@ $(document).ready(function() {
         $("#apartament-afegir").addClass("d-none");
         $("#seasons-content").addClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
     });
 
     $("#editar-usuaris-content").click(function() {
@@ -163,6 +166,7 @@ $(document).ready(function() {
         $("#afegir-usuaris-content").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
         $("#seasons-tab").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#usuarios-content").addClass("d-none");
         $("#reservas-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -170,6 +174,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").removeClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
 
 
     });
@@ -183,6 +189,7 @@ $(document).ready(function() {
         $("#reservas-tab").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
         $("#seasons-tab").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").removeClass("d-none");
         $("#reservas-content").addClass("d-none");
@@ -190,6 +197,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
 
     });
 
@@ -201,6 +210,7 @@ $(document).ready(function() {
         $("#afegir-usuaris-content").removeClass("active");
         $("#afegir-apartaments-content").removeClass("active");
         $("#seasons-tab").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").removeClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -208,6 +218,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
     });
 
 
@@ -219,6 +231,7 @@ $(document).ready(function() {
         $("#afegir-apartaments-content").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
         $("#seasons-tab").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -226,6 +239,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
     });
 
     $("#afegir-apartaments-content").click(function() {
@@ -236,6 +251,7 @@ $(document).ready(function() {
         $("#usuarios-tab").removeClass("active");
         $("#seasons-tab").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -243,6 +259,8 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#apartament-afegir").removeClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+
     });
 
 
@@ -254,6 +272,7 @@ $(document).ready(function() {
         $("#reservas-tab").removeClass("active");
         $("#usuarios-tab").removeClass("active");
         $("#afegir-usuaris-content").removeClass("active");
+        $("#apartament-images-tab").removeClass("active");
         $("#reservas-content").addClass("d-none");
         $("#usuarios-content").addClass("d-none");
         $("#afegir-content").addClass("d-none");
@@ -261,6 +280,29 @@ $(document).ready(function() {
         $("#apartament-afegir").addClass("d-none");
         $("#seasons-content").removeClass("d-none");
         $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").addClass("d-none");
+                $("#apartament-images-tab").removeClass("active");
+
+    });
+
+    $("#apartament-images-tab").click(function() {
+        // Añade o quita las clases según sea necesario
+        $("#apartaments-tab").removeClass("active");
+        $("#apartament-images-tab").addClass("active");
+        $("#editar-usuaris-content").removeClass("active");
+        $("#reservas-tab").removeClass("active");
+        $("#usuarios-tab").removeClass("active");
+        $("#afegir-apartaments-content").removeClass("active");
+        $("#afegir-usuaris-content").removeClass("active");
+        $("#seasons-tab").removeClass("active");
+        $("#reservas-content").addClass("d-none");
+        $("#usuarios-content").addClass("d-none");
+        $("#afegir-content").addClass("d-none");
+        $("#apartament-content").addClass("d-none");
+        $("#seasons-content").addClass("d-none");
+        $("#apartament-afegir").addClass("d-none");
+        $("#edit-users").addClass("d-none");
+        $("#apartament-images-content").removeClass("d-none");
     });
     
     

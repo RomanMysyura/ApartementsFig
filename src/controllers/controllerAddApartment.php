@@ -15,9 +15,11 @@ function controllerAddApartment($request, $response, $container) {
         $services_extra = $_POST['services_extra'];
         $price_day_low_season = $_POST['price_day_low_season'];
         $price_day_high_season = $_POST['price_day_high_season'];
+        $start_date = $_POST['start_date'];
+        $end_date = $_POST['end_date'];
 
         // Fem un insert per afegir l'apartament
-        $container->apartaments()->addApartment($title, $postal_address, $length, $latitude, $short_description, $square_metres, $number_rooms, $services_extra, $price_day_low_season, $price_day_high_season);
+        $container->apartaments()->addApartment($title, $postal_address, $length, $latitude, $short_description, $square_metres, $number_rooms, $services_extra, $price_day_low_season, $price_day_high_season, $start_date, $end_date);
 
         // Redirigim al panell de controll
         $response->redirect("location: index.php?r=paneldecontrol");

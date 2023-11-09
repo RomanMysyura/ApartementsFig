@@ -24,7 +24,11 @@ function controllerPanelDeControl($request, $response, $container) {
     // Fem un select per obtenir les temporades
     $seasons = $container->reserves()->getSeason();
 
+    // Fem un select per obtenir totes les imatges del apartament
+    $images = $container->apartaments()->getAllImage();
+
     // Definim les variables per utilitzar a la view
+    $response->set("images", $images);
     $response->set("users", $users);
     $response->set("apartments", $apartments);
     $response->set("reservations", $reservations);
