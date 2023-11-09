@@ -19,6 +19,7 @@ function controllerIndex($request, $response, $container){
 
     // Obtenim les sessions
     $seasons = $container->reserves()->getSeason();
+    
 
     // Declarem un array per a les imatges i els preus
     $images = [];
@@ -33,34 +34,36 @@ function controllerIndex($request, $response, $container){
         // Fem un select per obtenir les imatges de cada apartament
         $apartmentImages = $container->apartaments()->getImage($id);
 
-        // Guardem les images del apartaments a partir de la id en un array associatiu
+        // Guardem les images del apartaments a partir de la id en un array associatiu.
         $images[$id] = $apartmentImages;
 
         // Declarem les variables amb DateTime per poder manipular-les
-        $lowSeasonStartDate = new DateTime($seasons[0]['start_date']);
-        $lowSeasonEndDate = new DateTime($seasons[0]['end_date']);
-        $highSeasonStartDate = new DateTime($seasons[1]['start_date']);
-        $highSeasonEndDate = new DateTime($seasons[1]['end_date']);
-        $apartamentStartDate = new DateTime($apartament['start_date']);
-        $apartamentEndDate = new DateTime($apartament['end_date']);
+        $lowSeasonStartDate = isset($seasons[0]['start_date']) ? new DateTime($seasons[0]['start_date']) : null;
+        $lowSeasonEndDate = isset($seasons[0]['end_date']) ? new DateTime($seasons[0]['end_date']) : null;
+        $highSeasonStartDate = isset($seasons[1]['start_date']) ? new DateTime($seasons[1]['start_date']) : null;
+        $highSeasonEndDate = isset($seasons[1]['end_date']) ? new DateTime($seasons[1]['end_date']) : null;
+        $apartamentStartDate = isset($apartament['start_date']) ? new DateTime($apartament['start_date']) : null;
+        $apartamentEndDate = isset($apartament['end_date']) ? new DateTime($apartament['end_date']) : null;
 
         // Obtenim el preu del apartament per dia
-        $apartamentPriceDayLow = $apartament['price_day_low_season'];
-        $apartamentPriceDayHigh = $apartament['price_day_high_season'];
-        
-        // Comprovem el preu per dia del apartament a partir de la seva temporada
-        if ($apartamentStartDate >= $lowSeasonStartDate && $apartamentEndDate <= $lowSeasonEndDate) {
-            $price = $apartamentPriceDayLow;
-        } else if ($apartamentStartDate >= $highSeasonStartDate && $apartamentEndDate <= $highSeasonEndDate) {
-            $price = $apartamentPriceDayHigh;
-        } else {
-            $daysLowSeason = $apartamentStartDate->diff($lowSeasonEndDate)->days;
-            $daysHighSeason = $highSeasonStartDate->diff($apartamentEndDate)->days;
+        $apartamentPriceDayLow = isset($apartament['price_day_low_season']) ? $apartament['price_day_low_season'] : 0;
+        $apartamentPriceDayHigh = isset($apartament['price_day_high_season']) ? $apartament['price_day_high_season'] : 0;
 
-            if ($daysHighSeason > $daysLowSeason) {
+        // Comprovem el preu per dia del apartament a partir de la seva temporada
+        if ($apartamentStartDate !== null && $lowSeasonStartDate !== null && $apartamentEndDate !== null && $lowSeasonEndDate !== null) {
+            if ($apartamentStartDate >= $lowSeasonStartDate && $apartamentEndDate <= $lowSeasonEndDate) {
+                $price = $apartamentPriceDayLow;
+            } elseif ($apartamentStartDate >= $highSeasonStartDate && $apartamentEndDate <= $highSeasonEndDate) {
                 $price = $apartamentPriceDayHigh;
             } else {
-                $price = $apartamentPriceDayLow;
+                $daysLowSeason = $apartamentStartDate->diff($lowSeasonEndDate)->days;
+                $daysHighSeason = $highSeasonStartDate->diff($apartamentEndDate)->days;
+
+                if ($daysHighSeason > $daysLowSeason) {
+                    $price = $apartamentPriceDayHigh;
+                } else {
+                    $price = $apartamentPriceDayLow;
+                }
             }
         }
 

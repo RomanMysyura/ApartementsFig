@@ -154,7 +154,7 @@ body {
 }
 
 .scrollable-table {
-    max-height: 890px;
+    max-height: 890px !important;
     overflow-y: scroll;
 }
 

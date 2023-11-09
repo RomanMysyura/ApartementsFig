@@ -111,13 +111,6 @@
                                         </form>
                                         </div>
                                         </div>
-                                        <?php
-                                        if ($reservations[$numeroreserva]['entry_date'] < $yesterday) {
-                                            echo '<h6 class="card-text text-danger mt-2">La teva reserva a vençut</h6>';
-                                        } else {
-                                            echo '<h6 class="card-text text-success mt-2">La teva reserva encara és vigent</h6>';
-                                        }
-                                        ?>
                                     </div>
                                 </div>
                             </div>
