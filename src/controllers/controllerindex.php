@@ -34,7 +34,7 @@ function controllerIndex($request, $response, $container){
         // Fem un select per obtenir les imatges de cada apartament
         $apartmentImages = $container->apartaments()->getImage($id);
 
-        // Guardem les images del apartaments a partir de la id en un array associatiu
+        // Guardem les images del apartaments a partir de la id en un array associatiu.
         $images[$id] = $apartmentImages;
 
         // Declarem les variables amb DateTime per poder manipular-les
