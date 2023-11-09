@@ -4,7 +4,7 @@
 include "../src/config.php";
 
 // Controllers
-include '../src/controllers/controllerIndex.php';
+include '../src/controllers/controllerindex.php';
 include '../src/controllers/controllerMenu.php';
 include '../src/controllers/controllerDoRegister.php';
 include '../src/controllers/controllerLogin.php';
@@ -31,6 +31,7 @@ include "../src/controllers/controllerUpdateSeason.php";
 include "../src/controllers/controllerExportICS.php";
 include '../src/controllers/controllerAddImage.php';
 include '../src/controllers/controllerUpdateImage.php';
+include '../src/controllers/controllerDeleteReservationUser.php';
 include '../src/libs/fpdf.php';
 
 // Middleware//
@@ -111,6 +112,8 @@ if ($r == '') {
     controllerAddImage($request, $response, $container);
 } else if($r == 'updateimage') {
     controllerUpdateImage($request, $response, $container);
+} else if($r == 'deletereservationuser') {
+    controllerDeleteReservationUser($request, $response, $container);
 }
 
 $response->response();
