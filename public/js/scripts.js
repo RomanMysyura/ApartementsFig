@@ -136,7 +136,7 @@ function getPrice(apartment, lowSeason, highSeason) {
 
                 
 
-  
+  // Aquestes funcions serveixen per navegar entre les taules del panel de control
 $(document).ready(function() {
     $("#usuarios-tab").click(function() {
         $("#seasons-tab").removeClass("active");
@@ -155,7 +155,6 @@ $(document).ready(function() {
         $("#seasons-content").addClass("d-none");
         $("#edit-users").addClass("d-none");
         $("#apartament-images-content").addClass("d-none");
-
     });
 
     $("#editar-usuaris-content").click(function() {
@@ -175,11 +174,7 @@ $(document).ready(function() {
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").removeClass("d-none");
         $("#apartament-images-content").addClass("d-none");
-
-
-
     });
-    
 
     $("#afegir-usuaris-content").click(function() {
         $("#afegir-usuaris-content").addClass("active");
@@ -198,8 +193,6 @@ $(document).ready(function() {
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
         $("#apartament-images-content").addClass("d-none");
-
-
     });
 
     $("#reservas-tab").click(function() {
@@ -219,7 +212,6 @@ $(document).ready(function() {
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
         $("#apartament-images-content").addClass("d-none");
-
     });
 
 
@@ -240,7 +232,6 @@ $(document).ready(function() {
         $("#apartament-afegir").addClass("d-none");
         $("#edit-users").addClass("d-none");
         $("#apartament-images-content").addClass("d-none");
-
     });
 
     $("#afegir-apartaments-content").click(function() {
@@ -260,7 +251,6 @@ $(document).ready(function() {
         $("#apartament-afegir").removeClass("d-none");
         $("#edit-users").addClass("d-none");
         $("#apartament-images-content").addClass("d-none");
-
     });
 
 
@@ -281,12 +271,10 @@ $(document).ready(function() {
         $("#seasons-content").removeClass("d-none");
         $("#edit-users").addClass("d-none");
         $("#apartament-images-content").addClass("d-none");
-                $("#apartament-images-tab").removeClass("active");
-
+        $("#apartament-images-tab").removeClass("active");
     });
 
     $("#apartament-images-tab").click(function() {
-        // Añade o quita las clases según sea necesario
         $("#apartaments-tab").removeClass("active");
         $("#apartament-images-tab").addClass("active");
         $("#editar-usuaris-content").removeClass("active");
@@ -305,12 +293,8 @@ $(document).ready(function() {
         $("#apartament-images-content").removeClass("d-none");
     });
     
-    
-
-    
 });
-
-
+//Aquestes funcions serveixen per traduir els botons de DataTables d'anglès a català.
 $(document).ready(function() {
     $('#usuarios-table').DataTable({
         "language": {
