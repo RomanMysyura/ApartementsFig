@@ -9,8 +9,10 @@
 
 <body>
     <?php require "menu.php"; ?>
+    
     <div class="container mt-5 contenidorcompte">
         <div class="row">
+                        <!-- Secció esquerre de les dades personals-->
             <div class="col-md-6 mb-3 mt-md-0">
                 <div class="bg-primary p-3 bg-dark rounded">
                     <div class="p-3 text-center">
@@ -53,7 +55,7 @@
                 </div>
             </div>
 
-            <!-- Sección derecha -->
+            <!-- Secció dreta de les reserves-->
             <div class="col-md-6 mb-3 mt-md-0">
                 <div class="bg-second p-3 bg-dark rounded">
                     <div class="p-3 text-center">

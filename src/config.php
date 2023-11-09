@@ -1,7 +1,7 @@
 <?php
 
 /** 
- * Fitxer de configuració de l'aplicació.
+ * Fitxer de configuració de la connexio a base de dades
  * */ 
 $config = [
     "database" => [
