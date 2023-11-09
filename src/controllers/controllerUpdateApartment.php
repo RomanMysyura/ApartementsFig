@@ -1,7 +1,10 @@
 <?php
 function controllerUpdateApartment($request, $response, $container){
+
+    // Comporvem s'hi l'informació s'ha enviat per POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Obtén los datos del formulario
+
+        // Guardem les dades en variables
         $apartmentId = $_POST["apartment_id"];
         $title = $_POST["title"];
         $postalAddress = $_POST["postal_address"];
@@ -14,23 +17,11 @@ function controllerUpdateApartment($request, $response, $container){
         $priceLowSeason = $_POST["price_day_low_season"];
         $priceHighSeason = $_POST["price_day_high_season"];
 
-        // Ejecuta la consulta SQL para actualizar el apartamento
-        $container->apartaments()->updateApartment(
-            $apartmentId,
-            $title,
-            $postalAddress,
-            $length,
-            $latitude,
-            $shortDescription,
-            $squareMetres,
-            $numberRooms,
-            $servicesExtra,
-            $priceLowSeason,
-            $priceHighSeason
-        );
+        // Fem un update per actualitzar els valors del apartament
+        $container->apartaments()->updateApartment($apartmentId, $title, $postalAddress, $length, $latitude, $shortDescription, $squareMetres, $numberRooms, $servicesExtra, $priceLowSeason, $priceHighSeason);
     }
 
-    // Redirige de nuevo al panel de control
+    // Redirigim al panell de control
     $response->redirect("location: index.php?r=paneldecontrol");
     return $response;
 }

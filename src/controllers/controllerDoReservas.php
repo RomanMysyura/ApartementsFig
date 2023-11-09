@@ -1,78 +1,93 @@
 <?php
 function controllerDoReservas($request, $response, $container) {
-    try {
-        if (isset($_SESSION["user"]["id_user"])) {
-            $startDate = $request->get(INPUT_POST, "startDate");
-            $endDate = $request->get(INPUT_POST, "endDate");
-            $apartamentId = $request->get(INPUT_POST, "apartment_id");
-            $priceDayHigh = $request->get(INPUT_POST, "high_price");
-            $priceDayLow = $request->get(INPUT_POST, "low_price");
-            $idUser = $_SESSION["user"]["id_user"];
-            $state = "Pending";
 
-            // Llama a la función calculateSeasonAndPrice para obtener idSeason y precio, incluyendo la obtención de apartamento y temporada
-            $seasonAndPrice = calculateSeasonAndPrice($startDate, $endDate, $container, $priceDayHigh, $priceDayLow);
-            $idSeason = $seasonAndPrice['idSeason'];
-            $price = $seasonAndPrice['totalPrice'];
+    // Si estem iniciats amb un usuari...
+    if (isset($_SESSION["user"]["id_user"])) {
 
-            var_dump($startDate, $endDate, $apartamentId, $idUser, $state, $idSeason, $price);
+        // Guardem els valors en variables
+        $startDate = $request->get(INPUT_POST, "startDate");
+        $endDate = $request->get(INPUT_POST, "endDate");
+        $apartamentId = $request->get(INPUT_POST, "apartment_id");
+        $priceDayHigh = $request->get(INPUT_POST, "high_price");
+        $priceDayLow = $request->get(INPUT_POST, "low_price");
+        $idUser = $_SESSION["user"]["id_user"];
+        $state = "Pending";
 
-            if ($price === null) {
-                echo "Price is still null!";
-            }
+        // Obtenim un array associatiu amb l'id de temporada i el preu
+        $seasonAndPrice = calculateSeasonAndPrice($startDate, $endDate, $container, $priceDayHigh, $priceDayLow);
 
-            $container->reserves()->DoReservation($startDate, $endDate, $state, $price, $idUser, $apartamentId, $idSeason);
+        // Guardem l'id de temporada i el preu  
+        $idSeason = $seasonAndPrice['idSeason'];
+        $price = $seasonAndPrice['totalPrice'];
 
-            $response->redirect("location: index.php?r=compte");
-        } else {
-            $response->redirect("location: index.php?r=login");
-        }
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
+        // Fem un insert per fer la reserva
+        $container->reserves()->DoReservation($startDate, $endDate, $state, $price, $idUser, $apartamentId, $idSeason);
+
+        // Regirigim al compte
+        $response->redirect("location: index.php?r=compte");
+    } else {
+
+        // Redirigim al login
+        $response->redirect("location: index.php?r=login");
     }
 }
 
+// Funció per calcular la temporada y el preu total
 function calculateSeasonAndPrice($startDate, $endDate, $container, $priceDayHigh, $priceDayLow) {
+
+    // Fem un select per obtenir les temporades
     $Season = $container->reserves()->getSeason();
 
+    // Associem cada temporada a una variable
     $lowSeason = $Season[0];
     $highSeason = $Season[1];
 
-    $currentDate = new DateTime($startDate);
-    $endDateObj = new DateTime($endDate);
+    // Declarem les variables amb DateTime per poder manipular-les
+    $startDateHighSeason = new DateTime($highSeason['start_date']);
+    $endDateHighSeason = new DateTime($highSeason['end_date']);
+    $startDateLowSeason = new DateTime($lowSeason['start_date']);
+    $endDateLowSeason = new DateTime($lowSeason['end_date']);
+    $startDateReservation = new DateTime($startDate);
+    $endDateReservatino = new DateTime($endDate);
 
+    // Contador dels dies totals
     $totalDays = 0;
 
-    while ($currentDate <= $endDateObj) {
-        $currentDateStr = $currentDate->format('Y-m-d');
+    // Obtenim la quantitas de dias per cada temporada
+    $daysLowSeason = $startDateReservation->diff($endDateLowSeason)->days;
+    $daysHighSeason = $startDateHighSeason->diff($endDateReservatino)->days;
 
-        if ($currentDateStr >= $highSeason['start_date'] && $currentDateStr <= $highSeason['end_date']) {
-            $currentSeasonId = 2;
-        } elseif ($currentDateStr >= $lowSeason['start_date'] && $currentDateStr <= $lowSeason['end_date']) {
-            $currentSeasonId = 1;
+    // Comprovem si la reserva és fa en una temporada o altra i en cas d'estar entre les dos temporades
+    // és calcula en quina temporada y esta més temps
+    if ($startDateReservation >= $startDateHighSeason && $endDateReservatino <= $endDateHighSeason) {
+        $idSeason = 2;
+    } elseif ($startDateReservation >= $startDateLowSeason && $endDateReservatino <= $endDateLowSeason) {
+        $idSeason = 1;
+    } else {
+        if ($daysHighSeason > $daysLowSeason) {
+            $idSeason = 2;
         } else {
-            $highSeasonDays = max(0, min($currentDateStr, $highSeason['end_date']) - max($currentDateStr, $highSeason['start_date'])) + 1;
-            $lowSeasonDays = max(0, min($currentDateStr, $lowSeason['end_date']) - max($currentDateStr, $lowSeason['start_date'])) + 1;
-
-            if ($highSeasonDays > $lowSeasonDays) {
-                $currentSeasonId = 2;
-            } else {
-                $currentSeasonId = 1;
-            }
+            $idSeason = 1;
         }
-
-        $totalDays++;
-
-        $currentDate->modify('+1 day');
     }
 
-    if ($currentSeasonId == 1) {
+    // Bucle per saber la quantitat de dias que hi ha a la reserva
+    while ($startDateReservation <= $endDateReservatino) {
+        $totalDays++;
+        $startDateReservation->modify('+1 day');
+    }
+
+    // Obtenim el preu per dia a partir de la temporada
+    if ($idSeason == 1) {
         $pricePerDay = $priceDayLow;
     } else {
         $pricePerDay = $priceDayHigh;
     }
 
+    // Obtenim el preu total
     $totalPrice = $totalDays * $pricePerDay;
 
-    return ['idSeason' => $currentSeasonId, 'totalPrice' => $totalPrice];
+    // Retornem un arrray associatiu
+    return ['idSeason' => $idSeason, 'totalPrice' => $totalPrice];
 }
+

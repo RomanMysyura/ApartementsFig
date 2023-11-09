@@ -1,25 +1,27 @@
 <?php
 function controllerInfoApartamentAjax($request, $response, $container) {
+
+    // Obtenim l'apartament de l'id
     $apartamentId = $_GET['apartament_id'];
 
-    // Obtén la información del apartamento desde tu modelo (models/apartaments.php)
+    // Fem un select per obtenir l'informació de l'apartament
     $apartamentInfo = $container->apartaments()->getApartamentInfoById($apartamentId);
 
+    // Fem un select per obtenir les temporades
     $season = $container->reserves()->getSeason();
 
-    // Configura la respuesta como JSON
+    // Configurem la resposa en format JSON
     $response->setJSON();
 
+    // Si em obtingut l'informació de l'apartament
     if (!empty($apartamentInfo)) {
-        // Establece los valores que deseas enviar como JSON
-        $response->values = [
-            'apartament' => $apartamentInfo,
-            'season' => $season,
-        ];    
-    } else {
-        // En caso de que no se encuentren datos del apartamento, puedes configurar un mensaje de error
-        $response->values = ['error' => 'Apartamento no encontrado'];
-    }
 
+        // Configurem la resposta
+        $response->values = ['apartament' => $apartamentInfo, 'season' => $season];    
+    } else {
+
+        // En cas de no trobar l'apartament, configurem la resposta amb un missatge d'error
+        $response->values = ['error' => 'Apartament no disponible'];
+    }
     return $response;
 }

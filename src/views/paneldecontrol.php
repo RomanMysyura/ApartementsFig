@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php require "menu.php"; ?>
+    <title>Panel de control</title>
     <?php require 'libs.php'; ?>
-    <title>Editar Usuaris</title>
     <script src="js/scripts.js"></script>
 </head>
 
 <body>
+    <?php require "menu.php"; ?>
     <div class="dashboarddiv">
         <div class="vertical-menu">
             <a href="#" id="usuarios-tab" class="active">Usuaris</a>

@@ -1,8 +1,10 @@
 <?php
 function controllerAddUser($request, $response, $container) {
+
+    // Guardem l'objecte en una variable
     $userModel = $container->users();
 
-    // Comprueba si se ha enviado una solicitud POST
+    // Comprovem s'hi s'ha enviat l'informació per POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Obtén los datos del formulario
         $name = $_POST['name'];
@@ -12,10 +14,10 @@ function controllerAddUser($request, $response, $container) {
         $password = $_POST['password'];
         $id_role = $_POST['id_role'];
 
-        // Llama a la función addUser para agregar el usuario
+        // Fem un insert per afegir un usuari
         $userModel->addUser($name, $last_name, $telephone, $email, $password, $id_role);
 
-        // Redirige de nuevo al panel de control
+        // Regirigim al panell de control
         $response->redirect("location: index.php?r=paneldecontrol");
         return $response;
     }
