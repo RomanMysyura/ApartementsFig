@@ -6,23 +6,26 @@ function controllerExportICS($request, $response, $container) {
     $ics_data .= "METHOD:PUBLISH\r\n";
     $ics_data .= "X-WR-CALNAME:Schedule\r\n";
     $ics_data .= "X-WR-TIMEZONE:Europe/Madrid\r\n";
-    $ics_data .= "BEGIN:VEVENT\r\n";
-    
+
     $reservations = $container->reserves()->getAllReservations();
-    $reservation = $reservations[0]; // Siempre toma el primer elementoo
 
-    $id = $reservation['id_reserved'];
-    $start_date = new DateTime($reservation['entry_date']);
-    $end_date = new DateTime($reservation['output_date']);
-    $id_user = $reservation['id_user'];
+    foreach ($reservations as $reservation) {
+        $ics_data .= "BEGIN:VEVENT\r\n";
 
-    $ics_data .= "DTSTART:" . $start_date->format("Ymd\THis") . "\r\n";
-    $ics_data .= "DTEND:" . $end_date->format("Ymd\THis") . "\r\n";
-    $ics_data .= "DTSTAMP:" . date('Ymd\THis') . "\r\n";
-    $ics_data .= "UID:" . $id . "\r\n";
-    $ics_data .= "SEQUENCE:0\r\n";
-    
-    $ics_data .= "END:VEVENT\r\n";
+        $id = $reservation['id_reserved'];
+        $start_date = new DateTime($reservation['entry_date']);
+        $end_date = new DateTime($reservation['output_date']);
+        $id_user = $reservation['id_user'];
+
+        $ics_data .= "DTSTART:" . $start_date->format("Ymd\THis") . "\r\n";
+        $ics_data .= "DTEND:" . $end_date->format("Ymd\THis") . "\r\n";
+        $ics_data .= "DTSTAMP:" . date('Ymd\THis') . "\r\n";
+        $ics_data .= "UID:" . $id . "\r\n";
+        $ics_data .= "SEQUENCE:0\r\n";
+
+        $ics_data .= "END:VEVENT\r\n";
+    }
+
     $ics_data .= "END:VCALENDAR\r\n";
 
     // Download the File

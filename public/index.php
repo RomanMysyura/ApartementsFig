@@ -30,7 +30,7 @@ include "../src/controllers/controllerGeneratePDF.php";
 include "../src/controllers/controllerUpdateUserFromPanel.php";
 include "../src/controllers/controllerUpdateSeason.php";
 include "../src/controllers/controllerExportICS.php";
-
+include "../src/controllers/controllerExportICSuser.php";
 
 include '../src/libs/fpdf.php';
 
@@ -117,6 +117,8 @@ if ($r == '') {
     controllerUpdateUserFromPanel($request, $response, $container);
 }else if($r == 'exportICS') {
     controllerExportICS($request, $response, $container);
+}else if($r == 'exportICSuser') {
+    controllerExportICSuser($request, $response, $container);
 }
 
 

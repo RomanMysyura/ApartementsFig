@@ -1,5 +1,6 @@
 body {
     background-color: #dbdbdb !important;
+    overflow-x: hidden;
 }
 
 @keyframes gradient {
@@ -27,12 +28,7 @@ body {
     padding-top: 25px !important;
 }
 
-.sloganweb {
-   
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
+
 .formularicontactar{
    width: 40% !important;
 }
@@ -434,13 +430,6 @@ body {
 .vertical-menu a.active {
     background-color: #4c9baf;
 }
-
-.sloganweb {
-    font-size: 16px;
-    color: #fff;
-    padding: 10px;
-}
-
 
 
 .list-item-container {

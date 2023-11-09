@@ -65,18 +65,22 @@
                     $numeroreservanum = 1;
                     foreach ($reservations as $reservation) {
                     ?>
+                    
                     <div class="accordion" id="reservationsAccordion">
+                        
                         <div class="accordion-item">
                             <h2 class="accordion-header"
                                 id="heading<?php echo $reservations[$numeroreserva]["id_reserved"] ?>">
+                                
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
                                     aria-expanded="true"
                                     aria-controls="collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>">
                                     <?php echo 'Reserva: ' . $numeroreservanum; ?>
-
+                        
                                 </button>
                             </h2>
+                            
                             <div id="collapse<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
                                 class="accordion-collapse collapse show"
                                 aria-labelledby="heading<?php echo $reservations[$numeroreserva]["id_reserved"] ?>"
@@ -99,22 +103,27 @@
                                         ?><br>
                                     <strong>Preu:</strong>
                                     <?php echo $reservations[$numeroreserva]["price"] ?><br>
+                                    <a class="dropdown-item" href="index.php?r=exportICSuser&id=<?php echo $reservations[$numeroreserva]["id_reserved"]; ?>" style="text-decoration: underline;">Exportar Calendario en ICS</a>
+
                                     <form method="POST" action="index.php?r=generatepdf">
                                         <input type="hidden" name="reservation_id"
                                             value="<?php echo $reservations[$numeroreserva]["id_reserved"]; ?>">
                                         <button type="submit" class="btn btn-primary">Descarregar resguard de la
                                             reserva</button>
+                                            
                                     </form>
                                 </div>
                             </div>
 
                         </div>
                     </div>
+                    
                     <?php
                         $numeroreserva++;
                         $numeroreservanum++;
                         } ?>
                 </div>
+                
             </div>
         </div>
     </div>

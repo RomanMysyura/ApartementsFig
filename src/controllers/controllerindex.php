@@ -27,8 +27,8 @@ function controllerindex($request, $response, $container){
         } else if ($apartament['start_date'] >= $season[1]['start_date'] && $apartament['end_date'] <= $season[1]['end_date']) {
             $price = $apartament['price_day_high_season'];
         } else {
-            $highSeasonDays = max(0, min($apartament['start_date'], $season[1]['end_date']) - max($apartament['start_date'], $season[1]['start_date'])) + 1;
-            $lowSeasonDays = max(0, min($apartament['start_date'], $season[0]['end_date']) - max($apartament['start_date'], $season[1]['start_date'])) + 1;
+            $highSeasonDays = @max(0, min($apartament['start_date'], $season[1]['end_date']) - max($apartament['start_date'], $season[1]['start_date'])) + 1;
+            $lowSeasonDays = @max(0, min($apartament['start_date'], $season[0]['end_date']) - max($apartament['start_date'], $season[1]['start_date'])) + 1;
 
             if ($highSeasonDays > $lowSeasonDays) {
                 $price = $apartament['price_day_high_season'];
