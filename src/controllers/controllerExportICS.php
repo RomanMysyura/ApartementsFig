@@ -1,4 +1,6 @@
 <?php
+
+//Aixó serveix per exportar les resererves en format ICS
 function controllerExportICS($request, $response, $container) {
     $ics_data = "BEGIN:VCALENDAR\r\n";
     $ics_data .= "VERSION:2.0\r\n";

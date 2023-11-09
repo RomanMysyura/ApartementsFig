@@ -97,6 +97,7 @@
                                         ?><br>
                                         <strong>Preu:</strong>
                                         <?php echo $reservations[$numeroreserva]["price"] ?><br>
+                                        <a class="dropdown-item" href="index.php?r=exportICSuser&id=<?php echo $reservations[$numeroreserva]["id_reserved"]; ?>" style="text-decoration: underline;">Exportar Calendario en ICS</a>
                                         <div class="row">
                                         <div class="col-3 mt-2">
                                         <form method="POST" action="index.php?r=generatepdf">
@@ -111,6 +112,13 @@
                                         </form>
                                         </div>
                                         </div>
+                                        <?php
+                                        if ($reservations[$numeroreserva]['entry_date'] < $yesterday) {
+                                            echo '<h6 class="card-text text-danger mt-2">La teva reserva a vençut</h6>';
+                                        } else {
+                                            echo '<h6 class="card-text text-success mt-2">La teva reserva encara és</h6>';
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

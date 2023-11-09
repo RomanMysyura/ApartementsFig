@@ -1,4 +1,5 @@
 <?php
+
 function controllerGeneratePDF($request, $response, $container) {
     if (ob_get_contents()) {
         ob_clean();
@@ -17,6 +18,7 @@ function controllerGeneratePDF($request, $response, $container) {
 
     $pdf->Cell(0, 10, 'Identificador de la reserva: ' . $reservationId, 0, 1, 'C');
 
+    // Dades de la reserva i diseny del PDF
     foreach ($reservationData as $data) {
         $userId = $data['id_user'];
         $userData = $users->selectUser($userId);

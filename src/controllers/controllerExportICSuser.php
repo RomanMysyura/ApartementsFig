@@ -1,13 +1,11 @@
 <?php
 function controllerExportICSuser($request, $response, $container) {
-    $reservationId = $request->get(INPUT_GET, "id"); // Obtener el ID de la reserva desde la URL
+    $reservationId = $request->get(INPUT_GET, "id"); // Obtenim la reserva per la ID
 
-    // Obtener la reserva seleccionada
     $reservationData = $container->reserves()->getReservationData($reservationId);
 
     if (empty($reservationData)) {
-        // Manejar el caso en el que la reserva no existe
-        // Puedes mostrar un mensaje de error o redirigir a otra página. 
+        
     } else {
         $reservation = $reservationData[0]; // Tomar el primer registro si hay datos
 
