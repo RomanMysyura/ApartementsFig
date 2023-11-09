@@ -123,7 +123,7 @@ function getPrice(apartment, lowSeason, highSeason) {
         var daysHighSeason = Math.floor((apartment.end_date - highSeason.start_date) / (1000 * 60 * 60 * 24));
     
         if (daysHighSeason > daysLowSeason) {
-            return price = apa.price_day_high_season;
+            return price = apartment.price_day_high_season;
         } else {
             return price = apartment.price_day_low_season;
         }
