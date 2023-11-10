@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for "date" class="form-label">Data de sortida:</label>
+                                <label for="date" class="form-label">Data de sortida:</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fa-regular fa-calendar"></i></span>
                                     <input class="form-control" type="text" id="end_Date" name="endDate" placeholder="Seleccionar data" min="" max="" style="z-index: 1060;"/>
